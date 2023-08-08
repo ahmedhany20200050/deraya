@@ -28,7 +28,7 @@ class TextWidget extends StatelessWidget {
       style: TextStyle(
         fontSize: fontSize,
         fontWeight: fontWeight??  FontWeight.w500,
-        fontFamily: "Montserrat-Arabic",
+        fontFamily: "cairo",
         decoration: isOffer ? TextDecoration.lineThrough : null,
         height: 1.2,
         color: color ?? ColorsManger.blackColor,

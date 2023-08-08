@@ -23,7 +23,7 @@ void main() async {
           Locale('ar', "EG"),
           Locale('en', "US"),
         ],
-        path: 'assets/translations',
+        path: 'assets/language',
 
         saveLocale: true,
         // fallbackLocale: const Locale('ar', "EG"),
@@ -78,6 +78,9 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
 
             title: 'Deraya',
+            theme: ThemeData(
+              fontFamily: "cairo"
+            ),
             home: LoginScreen(),
 
           );
