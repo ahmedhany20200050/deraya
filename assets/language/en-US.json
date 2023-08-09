@@ -1,7 +1,12 @@
 
 {
-  "Login": "Login"
+  "login": "Login"
 ,"email": "Email"
 ,"password": "password"
+,"rememberMe": "Remember Me?"
+,"forget password": "Forgot your password?"
 ,"welcome": "Welcome to Derya"
+,"or": "Or"
+,"create new account?": "create new account?"
+,"create account": "create  account"
 }
