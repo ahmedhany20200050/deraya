@@ -125,13 +125,13 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
                   borderSide:
                   BorderSide(color: widget.activeBorderColor, width: 1.0),
                   borderRadius:
-                  BorderRadius.all(Radius.circular(60.r))),
+                  BorderRadius.all(Radius.circular(30.r))),
               enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.white, width: 1.0),
                   borderRadius:
-                  BorderRadius.all(Radius.circular(60.r))),
+                  BorderRadius.all(Radius.circular(30.r))),
               labelStyle: const TextStyle(color: ColorsManger.blackColor,fontFamily: "cairo",fontWeight: FontWeight.w400),
-              hintStyle: TextStyle(color: ColorsManger.blackColor, fontSize: 12.sp,fontFamily: "cairo",fontWeight: FontWeight.w400),
+              hintStyle: TextStyle(color: ColorsManger.blackColor, fontSize: 16.sp,fontFamily: "cairo",fontWeight: FontWeight.w400),
               hintText: widget.hintText),
       keyboardType: widget.type,
       obscureText: widget.password,

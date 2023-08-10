@@ -1,6 +1,8 @@
 
 
 import 'package:deraya_application/bloc_observer.dart';
+import 'package:deraya_application/core/constant/colors.dart';
+import 'package:deraya_application/presentation/screens/home/home_screen.dart';
 import 'package:deraya_application/presentation/screens/login/login_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -79,9 +81,11 @@ class MyApp extends StatelessWidget {
 
             title: 'Deraya',
             theme: ThemeData(
-              fontFamily: "cairo"
+              fontFamily: "cairo",
+              primaryColor: ColorsManger.primary,
+
             ),
-            home: LoginScreen(),
+            home: HomeScreen(),
 
           );
         });
