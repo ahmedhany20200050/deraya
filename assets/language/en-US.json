@@ -1,12 +1,15 @@
 
 {
-  "login": "Login"
+  "login": "Login",
+  "register": "Register"
 ,"email": "Email"
 ,"user name": "User Name"
 ,"password": "Password"
 ,"confirm password": "Confirm password"
 ,"rememberMe": "Remember Me?"
+,"forget password!": "Forgot your password!"
 ,"forget password": "Forgot your password?"
+,"reset password": "Reset your password"
 ,"welcome back": "Welcome back to Derya"
 ,"welcome": "Welcome to Derya"
 ,"or": "Or"

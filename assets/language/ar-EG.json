@@ -1,11 +1,14 @@
 {
-  "login": "تسجيل دخول"
+  "login": "تسجيل دخول",
+  "register": "سجل"
 , "email": "البريد الإلكتروني"
 , "user name": " اسم المستخدم"
 , "password": "كلمة السر"
 , "confirm password": "تأكيد كلمة السر"
 , "rememberMe": "تذكرني؟"
+, "forget password!": "هل نسيت كلمة المرور!"
 , "forget password": "هل نسيت كلمة السر؟"
+, "reset password": "إعادة تعيين كلمة المرور"
 , "welcome back": "مرحباً بعودتك في دِرَايَة"
 , "welcome": "مرحباً بك في دِرَايَة"
 , "or": "أو"

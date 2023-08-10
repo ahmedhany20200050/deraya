@@ -4,6 +4,7 @@ import 'package:deraya_application/presentation/components/button_widget.dart';
 import 'package:deraya_application/presentation/components/text_form_field.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
 import 'package:deraya_application/presentation/screens/login/cubit/login_cubit.dart';
+import 'package:deraya_application/presentation/screens/login/forget_password_screen.dart';
 import 'package:deraya_application/presentation/screens/login/register.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -79,7 +80,12 @@ class LoginScreen extends StatelessWidget {
                         ),
                         TextWidget(title: 'rememberMe'.tr(),fontSize: 13.86.sp,fontWeight: FontWeight.w400,color: ColorsManger.primary,),
                         const Spacer(),
-                        TextWidget(title: 'forget password'.tr(),fontSize: 13.86.sp,fontWeight: FontWeight.w400,color: ColorsManger.primary,),
+                        TextButton(
+                            onPressed: (){
+                              // navigate to forget password screen
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const ForgetPasswordScreen() , ),);
+                            },
+                            child: TextWidget(title: 'forget password'.tr(),fontSize: 13.86.sp,fontWeight: FontWeight.w400,color: ColorsManger.primary,)),
                       ],
                     ),
                      SizedBox(height: 70.h,),

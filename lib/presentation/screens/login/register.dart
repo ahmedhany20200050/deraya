@@ -66,7 +66,7 @@ class RegisterScreen extends StatelessWidget {
               SizedBox(height: 30.h,),
               ButtonWidget(
                 radius: 10,
-                title: 'login'.tr(),
+                title: 'register'.tr(),
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
                 onTap: (){},
