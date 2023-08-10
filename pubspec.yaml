@@ -24,6 +24,8 @@ dependencies:
   hive: ^2.2.3
   hive_flutter:
   easy_localization: ^3.0.2
+  sleek_circular_slider: ^2.0.1
+  percent_indicator: ^4.2.3
 
 
 
