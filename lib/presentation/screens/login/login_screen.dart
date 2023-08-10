@@ -4,10 +4,12 @@ import 'package:deraya_application/presentation/components/button_widget.dart';
 import 'package:deraya_application/presentation/components/text_form_field.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
 import 'package:deraya_application/presentation/screens/login/cubit/login_cubit.dart';
+import 'package:deraya_application/presentation/screens/login/register.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -25,11 +27,11 @@ class LoginScreen extends StatelessWidget {
           return Scaffold(
             body:SingleChildScrollView(
               child: Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 32.w),
+                padding:  EdgeInsets.symmetric(horizontal: 40.w),
                 child: Column(
                   children: [
                      SizedBox(height: 90.h,),
-                    TextWidget(title: 'welcome'.tr(),fontSize: 31.69.sp,fontWeight:FontWeight.w600,color: ColorsManger.primary,),
+                    TextWidget(title: 'welcome back'.tr(),fontSize: 31.69.sp,fontWeight:FontWeight.w600,color: ColorsManger.primary,),
                      SizedBox(height: 50.h,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -95,19 +97,9 @@ class LoginScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          height: 49.h,
-                          width: 59.w,
-                          alignment: Alignment.center,
-                          decoration:  BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: const Border.fromBorderSide(BorderSide(color:ColorsManger.primary,width: 2 )),
-                            color: Colors.white,
-                          ),
-                          child: Icon(Icons.facebook_rounded,color: Colors.blue.shade700,)
-                        ),
+                        const FacebookIcon(),
                         SizedBox(width: 48.53.w,),
-                        const GoogleButton(),
+                        const GoogleIcon(),
                       ],
                     ),
                     SizedBox(height: 63.59.h,),
@@ -115,7 +107,12 @@ class LoginScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TextWidget(title: 'create new account?'.tr(),color: ColorsManger.blackColor,fontSize: 14.sp,fontWeight: FontWeight.w400),
-                        TextWidget(title: 'create account'.tr(),color: ColorsManger.primary,fontSize: 14.sp,fontWeight: FontWeight.w400),
+                        TextButton(
+                            onPressed: (){
+                              // navigate to register screen
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const RegisterScreen() , ),);
+                            },
+                            child: TextWidget(title: 'create account'.tr(),color: ColorsManger.primary,fontSize: 14.sp,fontWeight: FontWeight.w400)),
                       ],
                     ),
                   ],
@@ -129,8 +126,29 @@ class LoginScreen extends StatelessWidget {
   }
 }
 
-class GoogleButton extends StatelessWidget {
-  const GoogleButton({
+class FacebookIcon extends StatelessWidget {
+  const FacebookIcon({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 49.h,
+      width: 59.w,
+      alignment: Alignment.center,
+      decoration:  BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: const Border.fromBorderSide(BorderSide(color:ColorsManger.primary,width: 2 )),
+        color: Colors.white,
+      ),
+      child: Icon(FontAwesomeIcons.facebookF,color: Colors.blue.shade800,)
+    );
+  }
+}
+
+class GoogleIcon extends StatelessWidget {
+  const GoogleIcon({
     super.key,
   });
 

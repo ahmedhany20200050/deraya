@@ -1,11 +1,15 @@
 {
   "login": "تسجيل دخول"
 , "email": "البريد الإلكتروني"
+, "user name": " اسم المستخدم"
 , "password": "كلمة السر"
+, "confirm password": "تأكيد كلمة السر"
 , "rememberMe": "تذكرني؟"
 , "forget password": "هل نسيت كلمة السر؟"
+, "welcome back": "مرحباً بعودتك في دِرَايَة"
 , "welcome": "مرحباً بك في دِرَايَة"
 , "or": "أو"
 , "create new account?": "انشاء حساب جديد؟"
+, "have an account?": "هل لديك حساب؟"
 , "create account": "انشاء حساب "
 }

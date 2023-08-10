@@ -2,11 +2,15 @@
 {
   "login": "Login"
 ,"email": "Email"
-,"password": "password"
+,"user name": "User Name"
+,"password": "Password"
+,"confirm password": "Confirm password"
 ,"rememberMe": "Remember Me?"
 ,"forget password": "Forgot your password?"
+,"welcome back": "Welcome back to Derya"
 ,"welcome": "Welcome to Derya"
 ,"or": "Or"
-,"create new account?": "create new account?"
-,"create account": "create  account"
+,"create new account?": "Create new account?"
+,"have an account?": "Already have an account?"
+,"create account": "Create  account"
 }
