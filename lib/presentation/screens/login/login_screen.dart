@@ -1,9 +1,16 @@
+import 'package:deraya_application/core/constant/assets.dart';
+import 'package:deraya_application/core/constant/colors.dart';
+import 'package:deraya_application/presentation/components/button_widget.dart';
+import 'package:deraya_application/presentation/components/text_form_field.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
 import 'package:deraya_application/presentation/screens/login/cubit/login_cubit.dart';
+import 'package:deraya_application/presentation/screens/login/forget_password_screen.dart';
+import 'package:deraya_application/presentation/screens/login/register.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -19,18 +26,150 @@ class LoginScreen extends StatelessWidget {
         builder: (context, state) {
           LoginCubit cubit = BlocProvider.of(context);
           return Scaffold(
-            appBar: AppBar(
-              title: TextWidget(
-                ///.tr stand for the translation
-                title: 'Login'.tr(),
-                /// .sp is for the responsive of the font
-                fontSize: 18.sp,
+            body:SingleChildScrollView(
+              child: Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 40.w),
+                child: Column(
+                  children: [
+                     SizedBox(height: 90.h,),
+                    TextWidget(title: 'welcome back'.tr(),fontSize: 31.69.sp,fontWeight:FontWeight.w600,color: ColorsManger.primary,),
+                     SizedBox(height: 50.h,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Icon(Icons.email_rounded,color: ColorsManger.primary,),
+                        const SizedBox(width: 7,),
+                        TextWidget(title: 'email'.tr(),fontSize: 16.sp,fontWeight: FontWeight.w400,color: ColorsManger.primary,),
+                      ],
+                    ),
+                     SizedBox(height: 4.h,),
+                    TextFormFieldWidget(
+                      borderRadius: 1.0,
+                      onChanged: (val){},
+                      hintText: 'info@example.com',
+                      borderColor: ColorsManger.primary.withOpacity(0.6),
+                      textalign: TextAlign.end,
+
+                    ),
+                     SizedBox(height: 16.h,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Icon(Icons.lock,color: ColorsManger.primary,),
+                        const SizedBox(width: 7,),
+                        TextWidget(title: 'password'.tr(),fontSize: 16.sp,fontWeight: FontWeight.w400,color: ColorsManger.primary,),
+                      ],
+                    ),
+                     SizedBox(height: 4.h,),
+                    TextFormFieldWidget(
+                      borderRadius: 1.0,
+                      onChanged: (val){},
+                      hintText: 'password',
+                      borderColor: ColorsManger.primary.withOpacity(0.6),
+                      password: true,
+                    ),
+                     SizedBox(height: 4.h,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Checkbox(
+                          value: false,
+                          onChanged: (val){},
+                          side: const BorderSide(color: ColorsManger.primary,width: 1,),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4),),
+                        ),
+                        TextWidget(title: 'rememberMe'.tr(),fontSize: 13.86.sp,fontWeight: FontWeight.w400,color: ColorsManger.primary,),
+                        const Spacer(),
+                        TextButton(
+                            onPressed: (){
+                              // navigate to forget password screen
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const ForgetPasswordScreen() , ),);
+                            },
+                            child: TextWidget(title: 'forget password'.tr(),fontSize: 13.86.sp,fontWeight: FontWeight.w400,color: ColorsManger.primary,)),
+                      ],
+                    ),
+                     SizedBox(height: 70.h,),
+                    ButtonWidget(
+                      radius: 10,
+                      title: 'login'.tr(),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                      onTap: (){},
+
+                    ),
+                     SizedBox(height: 32.h,),
+                    TextWidget(title: 'or'.tr(),fontSize:16.sp,fontWeight:FontWeight.w400,color: ColorsManger.primary,),
+                     SizedBox(height: 23.h,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const FacebookIcon(),
+                        SizedBox(width: 48.53.w,),
+                        const GoogleIcon(),
+                      ],
+                    ),
+                    SizedBox(height: 63.59.h,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextWidget(title: 'create new account?'.tr(),color: ColorsManger.blackColor,fontSize: 14.sp,fontWeight: FontWeight.w400),
+                        TextButton(
+                            onPressed: (){
+                              // navigate to register screen
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const RegisterScreen() , ),);
+                            },
+                            child: TextWidget(title: 'create account'.tr(),color: ColorsManger.primary,fontSize: 14.sp,fontWeight: FontWeight.w400)),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
-            body: Column(),
           );
         },
       ),
+    );
+  }
+}
+
+class FacebookIcon extends StatelessWidget {
+  const FacebookIcon({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 49.h,
+      width: 59.w,
+      alignment: Alignment.center,
+      decoration:  BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: const Border.fromBorderSide(BorderSide(color:ColorsManger.primary,width: 2 )),
+        color: Colors.white,
+      ),
+      child: Icon(FontAwesomeIcons.facebookF,color: Colors.blue.shade800,)
+    );
+  }
+}
+
+class GoogleIcon extends StatelessWidget {
+  const GoogleIcon({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 49.h,
+      width: 59.w,
+      alignment: Alignment.center,
+      decoration:  BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: const Border.fromBorderSide(BorderSide(color:ColorsManger.primary,width: 2 )),
+        color: Colors.white,
+      ),
+      child: Image.asset(Assets.kGoogleIcon,height: 29.h,width: 29.w,),
     );
   }
 }

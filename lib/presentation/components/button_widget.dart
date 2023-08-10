@@ -3,13 +3,12 @@ import 'package:deraya_application/presentation/components/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
-
 class ButtonWidget extends StatelessWidget {
   String title;
 
   double width, height, radius;
   double? fontSize;
+  FontWeight?fontWeight;
   Widget? child;
   Color textColor, buttonColor, borderColor, inkColor;
   void Function()? onTap;
@@ -21,6 +20,7 @@ class ButtonWidget extends StatelessWidget {
         this.width = 88.0,
         this.height = 50.0,
         this.onTap,
+        this.fontWeight,
         this.child,
         this.fontSize,
         this.textColor = Colors.white,
@@ -57,6 +57,7 @@ class ButtonWidget extends StatelessWidget {
               child: TextWidget(
                 title: title,
                 fontSize: fontSize ?? 16.sp,
+                fontWeight: fontWeight??FontWeight.w500,
                 textAlign: TextAlign.center,
                 color: textColor,
               ),
