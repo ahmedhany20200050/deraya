@@ -26,6 +26,7 @@ dependencies:
   easy_localization: ^3.0.2
   animate_do: ^3.0.2
   flutter_svg: ^1.1.0
+  font_awesome_flutter: ^10.5.0
 
 
 
