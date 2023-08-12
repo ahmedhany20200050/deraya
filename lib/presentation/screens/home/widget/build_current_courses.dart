@@ -10,7 +10,7 @@ class CurrentCoursesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 0.4.sh,
+      height: 0.28.sh,
       child: ListView.builder(
         itemBuilder: (context, index) {
           return Container(
