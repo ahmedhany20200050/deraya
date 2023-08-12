@@ -3,6 +3,8 @@ import 'package:deraya_application/core/constant/colors.dart';
 import 'package:deraya_application/presentation/components/button_widget.dart';
 import 'package:deraya_application/presentation/components/text_form_field.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
+import 'package:deraya_application/presentation/layout/home_layout.dart';
+import 'package:deraya_application/presentation/screens/home/home_screen.dart';
 import 'package:deraya_application/presentation/screens/login/cubit/login_cubit.dart';
 import 'package:deraya_application/presentation/screens/login/forget_password_screen.dart';
 import 'package:deraya_application/presentation/screens/login/register.dart';
@@ -94,7 +96,10 @@ class LoginScreen extends StatelessWidget {
                       title: 'login'.tr(),
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
-                      onTap: (){},
+                      onTap: (){
+                        //todo: delete next line
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+                      },
 
                     ),
                      SizedBox(height: 32.h,),
