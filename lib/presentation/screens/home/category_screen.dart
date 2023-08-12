@@ -30,7 +30,15 @@ class CategoryScreen extends StatelessWidget {
             8.ph,
             TextWidget(title: "categories def".tr(),fontSize: 16.sp,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
            16.ph,
-            CategoryItem(),
+            Expanded(
+                child: GridView.builder(
+                    itemCount: 10, // Number of items in the grid
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 16,
+                      mainAxisSpacing: 20,
+                    ),
+                    itemBuilder: (context,index)=>const CategoryItem())),
           ],
         ),
       ),
@@ -52,7 +60,7 @@ class CategoryItem extends StatelessWidget {
       clipBehavior: Clip.antiAliasWithSaveLayer,
       decoration:  BoxDecoration(
         boxShadow: [
-          BoxShadow(color: Color(0xFF000010).withOpacity(.5),blurRadius: 8,),
+          BoxShadow(color: const Color(0xFF000010).withOpacity(.3),blurRadius: 8,),
         ],
         image: const DecorationImage(
           fit: BoxFit.cover,
@@ -63,7 +71,7 @@ class CategoryItem extends StatelessWidget {
         height: 60.h,
         width: double.infinity,
           alignment: Alignment.center,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -81,8 +89,8 @@ class CategoryItem extends StatelessWidget {
                   padding: EdgeInsets.only(right: 20.w),
                  color: Colors.white,
                  highlightColor: Colors.white,
-                  onPressed: (){}, icon: Icon(Icons.arrow_back_ios,)),
-              TextWidget(title: 'القانون',fontSize: 20,fontWeight: FontWeight.w700,color: Colors.white,),
+                  onPressed: (){}, icon: const Icon(Icons.arrow_back_ios,)),
+              const TextWidget(title: 'القانون',fontSize: 20,fontWeight: FontWeight.w700,color: Colors.white,),
             ],
           )),
     );
