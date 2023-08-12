@@ -87,7 +87,7 @@ class MyApp extends StatelessWidget {
               primaryColor: ColorsManger.primary,
 
             ),
-            home: HomeLayout(),
+            home: SplashScreen(),
 
           );
         });

@@ -6,6 +6,7 @@ import '../../../core/constant/colors.dart';
 import '../../components/button_widget.dart';
 import '../../components/text_form_field.dart';
 import '../../components/text_widget.dart';
+import '../home/home_screen.dart';
 import 'login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -69,7 +70,10 @@ class RegisterScreen extends StatelessWidget {
                 title: 'register'.tr(),
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
-                onTap: (){},
+                onTap: (){
+                  //todo: delete next line
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+                },
 
               ),
               SizedBox(height: 20.h,),
