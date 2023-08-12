@@ -3,6 +3,7 @@ import 'package:deraya_application/presentation/components/text_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../core/constant/colors.dart';
 import '../../components/text_form_field.dart';
@@ -28,10 +29,62 @@ class CategoryScreen extends StatelessWidget {
             TextWidget(title: "all categories".tr(),fontSize: 20.sp,fontWeight: FontWeight.w700,color: ColorsManger.primary,),
             8.ph,
             TextWidget(title: "categories def".tr(),fontSize: 16.sp,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
-
+           16.ph,
+            CategoryItem(),
           ],
         ),
       ),
+    );
+  }
+}
+
+class CategoryItem extends StatelessWidget {
+  const CategoryItem({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 181.h,
+      width: 188.w,
+      alignment: Alignment.bottomCenter,
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      decoration:  BoxDecoration(
+        boxShadow: [
+          BoxShadow(color: Color(0xFF000010).withOpacity(.5),blurRadius: 8,),
+        ],
+        image: const DecorationImage(
+          fit: BoxFit.cover,
+          image: NetworkImage('https://img.freepik.com/premium-photo/judge-gavel-with-justice-lawyers-having-team-meeting-law-firm-background_1418-2111.jpg?size=626&ext=jpg&uid=R76923949&ga=GA1.1.409472889.1674466048&semt=sph'),),
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Container(
+        height: 60.h,
+        width: double.infinity,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.white38,
+                  Colors.black54,
+                  Colors.black54,
+                  Colors.black87,
+                ]),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              IconButton(
+                  padding: EdgeInsets.only(right: 20.w),
+                 color: Colors.white,
+                 highlightColor: Colors.white,
+                  onPressed: (){}, icon: Icon(Icons.arrow_back_ios,)),
+              TextWidget(title: 'القانون',fontSize: 20,fontWeight: FontWeight.w700,color: Colors.white,),
+            ],
+          )),
     );
   }
 }
