@@ -1,6 +1,7 @@
 part of 'home_cubit.dart';
 
 @immutable
-abstract class HomeState {}
+abstract class HomeLayoutStates {}
 
-class HomeInitial extends HomeState {}
+class HomeInitial extends HomeLayoutStates {}
+class HomeChangeNavigationBarState extends HomeLayoutStates {}
