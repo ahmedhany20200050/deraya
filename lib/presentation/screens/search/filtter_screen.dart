@@ -12,27 +12,146 @@ class FilterScreen extends StatefulWidget {
 }
 
 class _FilterScreenState extends State<FilterScreen>with TickerProviderStateMixin{
+  bool _isChecked=true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
    body: Padding(
      padding:  EdgeInsets.symmetric(horizontal: 18.w),
-     child: Column(
-       crossAxisAlignment: CrossAxisAlignment.start,
-       children: [
-         50.ph,
-         const Title(),
-         const CoursesNumber(),
-         12.ph,
-         const CustomDivider(indent: 40,),
-         20.ph,
-         const FilterTitle(text: 'الترتيب حسب',),
-         const SortByRatingOrNewest(),
-         20.ph,
-         const CustomDivider(),
-         12.ph,
-         const FilterTitle(text: 'الترتيب حسب',),
-       ],
+     child: SingleChildScrollView(
+       child: Column(
+         crossAxisAlignment: CrossAxisAlignment.start,
+         children: [
+           50.ph,
+           const Title(),
+           const CoursesNumber(),
+           12.ph,
+           const CustomDivider(indent: 40,),
+           20.ph,
+           const FilterTitle(text: 'الترتيب حسب',),
+           const SortByRatingOrNewest(),
+           20.ph,
+           const CustomDivider(),
+           12.ph,
+           const FilterTitle(text: 'الترتيب حسب',),
+           Row(
+             children: [
+               Checkbox(
+                   activeColor: ColorsManger.primary,
+                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
+                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+
+                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                   value: _isChecked, onChanged: (val){
+                 setState(() {
+                   _isChecked = val!;
+                 });
+               }),TextWidget(title: 'جميع المستويات',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
+               24.pw,
+               Checkbox(
+                   activeColor: ColorsManger.primary,
+                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
+                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+
+                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                   value: false, onChanged: (val){
+                 setState(() {
+                   _isChecked = val!;
+                 });
+               }),TextWidget(title: 'خبير',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,)
+             ],
+           ),
+           Row(
+             children: [
+               Checkbox(
+                   activeColor: ColorsManger.primary,
+                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
+                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+
+                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                   value: false, onChanged: (val){
+                 setState(() {
+                   _isChecked = val!;
+                 });
+               }),TextWidget(title: 'متوسط',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
+               80.pw,
+               Checkbox(
+                   activeColor: ColorsManger.primary,
+                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
+                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+
+                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                   value: false, onChanged: (val){
+                 setState(() {
+                   _isChecked = val!;
+                 });
+               }),TextWidget(title: 'مبتدئ',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,)
+             ],
+           ),
+
+           const CustomDivider(),
+           12.ph,
+           const FilterTitle(text: 'اللغة',),
+           Row(
+             children: [
+               Checkbox(
+                 activeColor: ColorsManger.primary,
+                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
+                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+
+                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                   value: _isChecked, onChanged: (val){
+                 setState(() {
+                   _isChecked = val!;
+                 });
+               }),TextWidget(title: 'العربية',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
+               80.pw,
+               Checkbox(
+                 activeColor: ColorsManger.primary,
+                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
+                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+
+                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                   value: false, onChanged: (val){
+                 setState(() {
+                   _isChecked = val!;
+                 });
+               }),TextWidget(title: 'الإنجليزية',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,)
+             ],
+           ),
+           const CustomDivider(),
+           const FilterTitle(text: 'السعر',),
+           Row(
+             children: [
+               Checkbox(
+                   activeColor: ColorsManger.primary,
+                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
+                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+
+                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                   value: _isChecked, onChanged: (val){
+                 setState(() {
+                   _isChecked = val!;
+                 });
+               }),TextWidget(title: 'السعر',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
+               80.pw,
+               Checkbox(
+                   activeColor: ColorsManger.primary,
+                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
+                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+
+                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                   value: false, onChanged: (val){
+                 setState(() {
+                   _isChecked = val!;
+                 });
+               }),TextWidget(title: 'مدفوع',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,)
+             ],
+           ),
+           const CustomDivider(),
+           const FilterTitle(text: 'التقييمات',),
+         ],
+       ),
      ),
    ),
     );
