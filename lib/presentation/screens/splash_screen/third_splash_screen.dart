@@ -31,7 +31,7 @@ class ThirdSplashScreen extends StatelessWidget {
                           children: [
                             TextWidget(
                               title: "أفصل منصة تعليمية",
-                              color: ColorsManger.primary,
+                              color: AppColors.primary,
                               fontSize: 16,
                             ),
                             Text(

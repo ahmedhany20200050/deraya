@@ -20,14 +20,14 @@ class ForgetPasswordScreen extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 90.h,),
-              TextWidget(title: 'forget password!'.tr(),fontSize: 31.69.sp,fontWeight:FontWeight.w600,color: ColorsManger.primary,),
+              TextWidget(title: 'forget password!'.tr(),fontSize: 31.69.sp,fontWeight:FontWeight.w600,color: AppColors.primary,),
               SizedBox(height: 50.h,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const Icon(Icons.email_rounded,color: ColorsManger.primary,),
+                  const Icon(Icons.email_rounded,color: AppColors.primary,),
                   const SizedBox(width: 7,),
-                  TextWidget(title: 'email'.tr(),fontSize: 16.sp,fontWeight: FontWeight.w400,color: ColorsManger.primary,),
+                  TextWidget(title: 'email'.tr(),fontSize: 16.sp,fontWeight: FontWeight.w400,color: AppColors.primary,),
                 ],
               ),
               SizedBox(height: 4.h,),
@@ -35,7 +35,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 borderRadius: 1.0,
                 onChanged: (val){},
                 hintText: 'info@example.com',
-                borderColor: ColorsManger.primary.withOpacity(0.6),
+                borderColor: AppColors.primary.withOpacity(0.6),
                 textalign: TextAlign.end,
 
               ),
@@ -49,7 +49,7 @@ class ForgetPasswordScreen extends StatelessWidget {
 
               ),
               SizedBox(height: 50.h,),
-              TextWidget(title: 'or'.tr(),fontSize:16.sp,fontWeight:FontWeight.w400,color: ColorsManger.primary,),
+              TextWidget(title: 'or'.tr(),fontSize:16.sp,fontWeight:FontWeight.w400,color: AppColors.primary,),
               SizedBox(height: 52.h,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

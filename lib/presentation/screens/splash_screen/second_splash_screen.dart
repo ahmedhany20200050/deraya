@@ -38,13 +38,13 @@ class SecondSplashScreen extends StatelessWidget {
                       children: [
                         TextWidget(
                           title: "الدراسة عبر الانترنت",
-                          color: ColorsManger.primary,
+                          color: AppColors.primary,
                           fontSize: 16,
                         ),
                         TextWidget(
                           title: "أصبحت الخيار الأفضل لدي",
                           fontWeight: FontWeight.w800,
-                          color: ColorsManger.primary,
+                          color: AppColors.primary,
                           fontSize: 20,
                         ),
                         Text(

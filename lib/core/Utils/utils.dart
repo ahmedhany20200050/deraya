@@ -39,7 +39,7 @@ class Utils {
       },
       child:Icon(
         Icons.arrow_back_ios,
-        color: ColorsManger.primary,
+        color: AppColors.primary,
         size: 30.w,
       ),
     );

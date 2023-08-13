@@ -19,7 +19,7 @@ class NextButton extends StatelessWidget {
       startAngle: startAngle,
       animation: true,
       animateFromLastPercent: true,
-      progressColor: ColorsManger.blackColor,
+      progressColor: AppColors.blackColor,
       center: Padding(
         padding: const EdgeInsets.all(8.0),
         child: FloatingActionButton(
@@ -27,7 +27,7 @@ class NextButton extends StatelessWidget {
               Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => screen));
             },
             child: Icon(Icons.arrow_back),
-            backgroundColor: ColorsManger.primary),
+            backgroundColor: AppColors.primary),
       ),
       radius: 44,
     );

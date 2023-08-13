@@ -19,14 +19,14 @@ class DefinitionRow extends StatelessWidget {
         title: title,
         fontSize: 24.sp,
         fontWeight: FontWeight.w700,
-        color: ColorsManger.primary,
+        color: AppColors.primary,
       ),
       Spacer(),
       TextWidget(
         title: subTitle,
         fontSize: 20.sp,
         fontWeight: FontWeight.w700,
-        color: ColorsManger.brownColor,
+        color: AppColors.brownColor,
       ),
     ]);
   }

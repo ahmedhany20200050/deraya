@@ -1,3 +1,4 @@
+import 'package:deraya_application/core/Utils/utils.dart';
 import 'package:deraya_application/core/constant/assets.dart';
 import 'package:deraya_application/core/constant/colors.dart';
 import 'package:deraya_application/presentation/components/button_widget.dart';
@@ -34,14 +35,14 @@ class LoginScreen extends StatelessWidget {
                 child: Column(
                   children: [
                      SizedBox(height: 90.h,),
-                    TextWidget(title: 'welcome back'.tr(),fontSize: 31.69.sp,fontWeight:FontWeight.w600,color: ColorsManger.primary,),
+                    TextWidget(title: 'welcome back'.tr(),fontSize: 31.69.sp,fontWeight:FontWeight.w600,color: AppColors.primary,),
                      SizedBox(height: 50.h,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const Icon(Icons.email_rounded,color: ColorsManger.primary,),
+                        const Icon(Icons.email_rounded,color: AppColors.primary,),
                         const SizedBox(width: 7,),
-                        TextWidget(title: 'email'.tr(),fontSize: 16.sp,fontWeight: FontWeight.w400,color: ColorsManger.primary,),
+                        TextWidget(title: 'email'.tr(),fontSize: 16.sp,fontWeight: FontWeight.w400,color: AppColors.primary,),
                       ],
                     ),
                      SizedBox(height: 4.h,),
@@ -49,7 +50,7 @@ class LoginScreen extends StatelessWidget {
                       borderRadius: 1.0,
                       onChanged: (val){},
                       hintText: 'info@example.com',
-                      borderColor: ColorsManger.primary.withOpacity(0.6),
+                      borderColor: AppColors.primary.withOpacity(0.6),
                       textalign: TextAlign.end,
 
                     ),
@@ -57,9 +58,9 @@ class LoginScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const Icon(Icons.lock,color: ColorsManger.primary,),
+                        const Icon(Icons.lock,color: AppColors.primary,),
                         const SizedBox(width: 7,),
-                        TextWidget(title: 'password'.tr(),fontSize: 16.sp,fontWeight: FontWeight.w400,color: ColorsManger.primary,),
+                        TextWidget(title: 'password'.tr(),fontSize: 16.sp,fontWeight: FontWeight.w400,color: AppColors.primary,),
                       ],
                     ),
                      SizedBox(height: 4.h,),
@@ -67,7 +68,7 @@ class LoginScreen extends StatelessWidget {
                       borderRadius: 1.0,
                       onChanged: (val){},
                       hintText: 'password',
-                      borderColor: ColorsManger.primary.withOpacity(0.6),
+                      borderColor: AppColors.primary.withOpacity(0.6),
                       password: true,
                     ),
                      SizedBox(height: 4.h,),
@@ -77,17 +78,17 @@ class LoginScreen extends StatelessWidget {
                         Checkbox(
                           value: false,
                           onChanged: (val){},
-                          side: const BorderSide(color: ColorsManger.primary,width: 1,),
+                          side: const BorderSide(color: AppColors.primary,width: 1,),
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4),),
                         ),
-                        TextWidget(title: 'rememberMe'.tr(),fontSize: 13.86.sp,fontWeight: FontWeight.w400,color: ColorsManger.primary,),
+                        TextWidget(title: 'rememberMe'.tr(),fontSize: 13.86.sp,fontWeight: FontWeight.w400,color: AppColors.primary,),
                         const Spacer(),
                         TextButton(
                             onPressed: (){
                               // navigate to forget password screen
                               Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const ForgetPasswordScreen() , ),);
                             },
-                            child: TextWidget(title: 'forget password'.tr(),fontSize: 13.86.sp,fontWeight: FontWeight.w400,color: ColorsManger.primary,)),
+                            child: TextWidget(title: 'forget password'.tr(),fontSize: 13.86.sp,fontWeight: FontWeight.w400,color: AppColors.primary,)),
                       ],
                     ),
                      SizedBox(height: 70.h,),
@@ -103,7 +104,7 @@ class LoginScreen extends StatelessWidget {
 
                     ),
                      SizedBox(height: 32.h,),
-                    TextWidget(title: 'or'.tr(),fontSize:16.sp,fontWeight:FontWeight.w400,color: ColorsManger.primary,),
+                    TextWidget(title: 'or'.tr(),fontSize:16.sp,fontWeight:FontWeight.w400,color: AppColors.primary,),
                      SizedBox(height: 23.h,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -117,13 +118,16 @@ class LoginScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TextWidget(title: 'create new account?'.tr(),color: ColorsManger.blackColor,fontSize: 14.sp,fontWeight: FontWeight.w400),
+                        TextWidget(title: 'create new account?'.tr(),color: AppColors.blackColor,fontSize: 14.sp,fontWeight: FontWeight.w400),
                         TextButton(
                             onPressed: (){
                               // navigate to register screen
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const RegisterScreen() , ),);
+                              ///old way
+                              // Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const RegisterScreen() , ),);
+                              ///new way
+                              Utils.openScreen(context, RegisterScreen());
                             },
-                            child: TextWidget(title: 'create account'.tr(),color: ColorsManger.primary,fontSize: 14.sp,fontWeight: FontWeight.w400)),
+                            child: TextWidget(title: 'create account'.tr(),color: AppColors.primary,fontSize: 14.sp,fontWeight: FontWeight.w400)),
                       ],
                     ),
                   ],
@@ -150,7 +154,7 @@ class FacebookIcon extends StatelessWidget {
       alignment: Alignment.center,
       decoration:  BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        border: const Border.fromBorderSide(BorderSide(color:ColorsManger.primary,width: 2 )),
+        border: const Border.fromBorderSide(BorderSide(color:AppColors.primary,width: 2 )),
         color: Colors.white,
       ),
       child: Icon(FontAwesomeIcons.facebookF,color: Colors.blue.shade800,)
@@ -171,7 +175,7 @@ class GoogleIcon extends StatelessWidget {
       alignment: Alignment.center,
       decoration:  BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        border: const Border.fromBorderSide(BorderSide(color:ColorsManger.primary,width: 2 )),
+        border: const Border.fromBorderSide(BorderSide(color:AppColors.primary,width: 2 )),
         color: Colors.white,
       ),
       child: Image.asset(Assets.kGoogleIcon,height: 29.h,width: 29.w,),

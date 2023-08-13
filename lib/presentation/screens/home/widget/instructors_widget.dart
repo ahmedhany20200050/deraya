@@ -26,7 +26,7 @@ class InstructorWidget extends StatelessWidget {
                     title: "CR7",
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w700,
-                    color: ColorsManger.primary,
+                    color: AppColors.primary,
                   ),
                 ],
               ),

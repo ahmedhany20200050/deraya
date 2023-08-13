@@ -84,7 +84,23 @@ class MyApp extends StatelessWidget {
             title: 'Deraya',
             theme: ThemeData(
               fontFamily: "cairo",
-              primaryColor: ColorsManger.primary,
+              primaryColor: AppColors.primary,
+              scaffoldBackgroundColor: Colors.white,
+              appBarTheme: const AppBarTheme(
+                backgroundColor: Colors.white,
+                elevation: 0,
+                centerTitle: true,
+                actionsIconTheme: IconThemeData(
+                  color: AppColors.primary,
+
+                ),
+                iconTheme: IconThemeData(
+                  color: AppColors.primary,
+
+
+                )
+                // color: ColorsManger.primary
+              )
 
             ),
             home: SplashScreen(),

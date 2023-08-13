@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
               pinned: true,
               expandedHeight: 200.0.h,
               foregroundColor: Colors.white,
-              backgroundColor: ColorsManger.primary,
+              backgroundColor: AppColors.primary,
 
               title: Row(
                 // crossAxisAlignment: CrossAxisAlignment.start,
@@ -89,7 +89,7 @@ class HomeScreen extends StatelessWidget {
 
                               suffixIcon: Icon(
                                 Icons.search,
-                                color: ColorsManger.primary,
+                                color: AppColors.primary,
                                 size: 25.w,
                                 // weight: 25.w,
                               ),

@@ -29,6 +29,7 @@ dependencies:
   animate_do: ^3.0.2
   flutter_svg: ^1.1.0
   font_awesome_flutter:
+  video_player: ^2.7.0
 
 
 
@@ -52,6 +53,7 @@ flutter:
     - assets/language/
     - assets/json/
     - assets/font/
+    - assets/videos/
 
 
   fonts:

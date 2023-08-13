@@ -46,7 +46,7 @@ class PopularCoursesWidget extends StatelessWidget {
                                     maxLines: 2,
                                     textAlign: TextAlign.center,
                                     fontSize: 16.sp,
-                                    color: ColorsManger.primary,
+                                    color: AppColors.primary,
                                   ),
                                   5.pw,
                                   SvgPicture.asset("assets/images/star.svg")
@@ -79,7 +79,7 @@ class PopularCoursesWidget extends StatelessWidget {
                         maxLines: 2,
                         textAlign: TextAlign.start,
                         fontSize: 18.sp,
-                        color: ColorsManger.primary,
+                        color: AppColors.primary,
                       ),
                     ],
                   ),
@@ -96,7 +96,7 @@ class PopularCoursesWidget extends StatelessWidget {
                           // ),
 
                           decoration: BoxDecoration(
-                            color: ColorsManger.primary.withOpacity(0.2),
+                            color: AppColors.primary.withOpacity(0.2),
                             borderRadius: BorderRadius.circular(16.r),
                           ),
                         ),
@@ -107,7 +107,7 @@ class PopularCoursesWidget extends StatelessWidget {
                             children: [
                               Icon(
                                 Icons.people_alt_outlined,
-                                color: ColorsManger.primary,
+                                color: AppColors.primary,
                               ),
                               5.pw,
                               TextWidget(
@@ -115,7 +115,7 @@ class PopularCoursesWidget extends StatelessWidget {
                                 maxLines: 2,
                                 textAlign: TextAlign.center,
                                 fontSize: 16.sp,
-                                color: ColorsManger.primary,
+                                color: AppColors.primary,
                               ),
                             ],
                           ),
@@ -129,7 +129,7 @@ class PopularCoursesWidget extends StatelessWidget {
                           width: 80.w,
                           height: 60.h,
                           decoration: BoxDecoration(
-                            color: ColorsManger.containerColor,
+                            color: AppColors.containerColor,
                             borderRadius: BorderRadius.circular(32.r),
                           ),
                         ),
@@ -142,7 +142,7 @@ class PopularCoursesWidget extends StatelessWidget {
                               maxLines: 2,
                               textAlign: TextAlign.center,
                               fontSize: 16.sp,
-                              color: ColorsManger.primary,
+                              color: AppColors.primary,
                             ),
                           ),
                         ),
@@ -163,7 +163,7 @@ class PopularCoursesWidget extends StatelessWidget {
                           // ),
 
                           decoration: BoxDecoration(
-                            color: ColorsManger.primary.withOpacity(0.2),
+                            color: AppColors.primary.withOpacity(0.2),
                             borderRadius: BorderRadius.circular(16.r),
                           ),
                         ),
@@ -174,7 +174,7 @@ class PopularCoursesWidget extends StatelessWidget {
                             children: [
                               Icon(
                                 Icons.language_rounded,
-                                color: ColorsManger.primary,
+                                color: AppColors.primary,
                               ),
                               5.pw,
                               TextWidget(
@@ -182,7 +182,7 @@ class PopularCoursesWidget extends StatelessWidget {
                                 maxLines: 2,
                                 textAlign: TextAlign.center,
                                 fontSize: 16.sp,
-                                color: ColorsManger.primary,
+                                color: AppColors.primary,
                               ),
                             ],
                           ),
@@ -201,7 +201,7 @@ class PopularCoursesWidget extends StatelessWidget {
                           isOffer:true,
                           textAlign: TextAlign.center,
                           fontSize: 16.sp,
-                          color: ColorsManger.primary,
+                          color: AppColors.primary,
                         ),
                       ),
                     ),

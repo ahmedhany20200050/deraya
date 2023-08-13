@@ -35,8 +35,8 @@ class HomeLayout extends StatelessWidget {
       {
         homeCubit.changeCurrentIndex(index);
       },
-      selectedItemColor: ColorsManger.primary,
-      unselectedItemColor: ColorsManger.grayColor,
+      selectedItemColor: AppColors.primary,
+      unselectedItemColor: AppColors.grayColor,
       type: BottomNavigationBarType.fixed,
 
       selectedFontSize: 14.sp,
@@ -44,7 +44,7 @@ class HomeLayout extends StatelessWidget {
           fontFamily: "cairo",
           fontSize: 14.sp,
           fontWeight: FontWeight.w600,
-          color: ColorsManger.primary
+          color: AppColors.primary
       ),
       unselectedLabelStyle: TextStyle(
           fontFamily: "cairo",

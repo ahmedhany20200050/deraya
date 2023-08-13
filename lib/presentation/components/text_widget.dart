@@ -31,7 +31,7 @@ class TextWidget extends StatelessWidget {
         fontFamily: "cairo",
         decoration: isOffer ? TextDecoration.lineThrough : null,
         height: 1.2,
-        color: color ?? ColorsManger.blackColor,
+        color: color ?? AppColors.blackColor,
       ),
       textAlign: textAlign,
     );

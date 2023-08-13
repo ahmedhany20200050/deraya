@@ -40,13 +40,13 @@ class FourthSplashScreen extends StatelessWidget {
                         children: [
                           TextWidget(
                             title: "تعلم في اي وقت",
-                            color: ColorsManger.primary,
+                            color: AppColors.primary,
                             fontSize: 16,
                           ),
                           TextWidget(
                             title: "في اي مكان, بادر بمستقبل",
                             fontWeight: FontWeight.w800,
-                            color: ColorsManger.primary,
+                            color: AppColors.primary,
                             fontSize: 20,
                           ),
                           Text(
@@ -72,7 +72,7 @@ class FourthSplashScreen extends StatelessWidget {
                         child: TextWidget(
                           title: "ابدأ التعلم الآن",
                           fontWeight: FontWeight.w800,
-                          color: ColorsManger.primary,
+                          color: AppColors.primary,
                           fontSize: 28,
                         ),
                       ),
