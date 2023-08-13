@@ -6,6 +6,7 @@ import 'package:deraya_application/presentation/components/text_widget.dart';
 import 'package:deraya_application/presentation/screens/home/widget/build_current_courses.dart';
 import 'package:deraya_application/presentation/screens/home/widget/category_widget.dart';
 import 'package:deraya_application/presentation/screens/home/widget/definition_row.dart';
+import 'package:deraya_application/presentation/screens/home/widget/instructors_widget.dart';
 import 'package:deraya_application/presentation/screens/home/widget/popular_courses.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -119,13 +120,20 @@ class HomeScreen extends StatelessWidget {
                       ),
                       16.ph,
                       CurrentCoursesWidget(),
+                      16.ph,
+                      const DefinitionRow(
+                        title: "أشهر المدربين لدينا",
+                        subTitle: "الكل",
+                      ),
+                      InstructorWidget(),
                       const DefinitionRow(
                         title: "الكورسات الأكثر مشاهدة",
                         subTitle: "الكل",
                       ),
                       8.ph,
                       PopularCoursesWidget(),
-                      600.ph
+
+
 
                     ],
                   ),

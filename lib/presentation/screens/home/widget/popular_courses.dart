@@ -21,11 +21,8 @@ class PopularCoursesWidget extends StatelessWidget {
             child: Column(
               children: [
                 Stack(
-
                   children: [
-
                     Image.asset("assets/images/course_image.png"),
-
                     Row(
                       children: [
                         Stack(
@@ -33,21 +30,15 @@ class PopularCoursesWidget extends StatelessWidget {
                             Container(
                               width: 70.w,
                               height: 40.h,
-                              margin: EdgeInsets.symmetric(
-                                horizontal: 10.w
-                              ),
-
+                              margin: EdgeInsets.symmetric(horizontal: 10.w),
                               decoration: BoxDecoration(
-                                  color: Colors.white,
+                                color: Colors.white,
                                 borderRadius: BorderRadius.circular(32.r),
-
                               ),
                             ),
                             Padding(
                               padding: EdgeInsets.symmetric(
-                                  horizontal: 26.w,
-                                  vertical: 10.w
-                              ),
+                                  horizontal: 26.w, vertical: 10.w),
                               child: Row(
                                 children: [
                                   TextWidget(
@@ -65,118 +56,163 @@ class PopularCoursesWidget extends StatelessWidget {
                           ],
                         ),
                         Spacer(),
-                        IconButton(onPressed: (){}, icon: CircleAvatar(
-                            backgroundColor:Colors.white ,
-                            child: Icon(Icons.favorite_border,color: Colors.brown,))),
+                        IconButton(
+                            onPressed: () {},
+                            icon: CircleAvatar(
+                                backgroundColor: Colors.white,
+                                child: Icon(
+                                  Icons.favorite_border,
+                                  color: Colors.brown,
+                                ))),
                       ],
                     ),
                   ],
                 ),
-              Padding(
-                padding:  EdgeInsets.symmetric(
-                  horizontal: 10.w,
-                  vertical: 10.w
-                ),
-                child: Column(
-                  children: [
-                    TextWidget(
-                      title: "التغذية الصحية للحامل والمرضع ، وطرق الرعاية الصحيحة",
-                      maxLines: 2,
-                      textAlign: TextAlign.start,
-                      fontSize: 18.sp,
-                      color: ColorsManger.primary,
-                    ),
-                  ],
-                ),
-              ),
-              Row(
-                children: [
-                  Stack(
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.w),
+                  child: Column(
                     children: [
-                      Container(
-                        width: 120.w,
-                        height: 60.h,
-                        // margin: EdgeInsets.symmetric(
-                        //     horizontal: 10.w
-                        // ),
-
-                        decoration: BoxDecoration(
-                          color: ColorsManger.primary.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(16.r),
-
-                        ),
+                      TextWidget(
+                        title:
+                            "التغذية الصحية للحامل والمرضع ، وطرق الرعاية الصحيحة",
+                        maxLines: 2,
+                        textAlign: TextAlign.start,
+                        fontSize: 18.sp,
+                        color: ColorsManger.primary,
                       ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 10.w,
-                            vertical: 10.w
-                        ),
-                        child: Row(
-                          children: [
+                    ],
+                  ),
+                ),
+                Row(
+                  children: [
+                    Stack(
+                      children: [
+                        Container(
+                          width: 120.w,
+                          height: 60.h,
+                          // margin: EdgeInsets.symmetric(
+                          //     horizontal: 10.w
+                          // ),
 
-                            Icon(
-                              Icons.people_alt_outlined,
-                              color: ColorsManger.primary,
-                            ),
-                            5.pw,
-                            TextWidget(
-                              title: "1,067 طالب",
+                          decoration: BoxDecoration(
+                            color: ColorsManger.primary.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(16.r),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10.w, vertical: 10.w),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.people_alt_outlined,
+                                color: ColorsManger.primary,
+                              ),
+                              5.pw,
+                              TextWidget(
+                                title: "1,067 طالب",
+                                maxLines: 2,
+                                textAlign: TextAlign.center,
+                                fontSize: 16.sp,
+                                color: ColorsManger.primary,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Spacer(),
+                    Stack(
+                      children: [
+                        Container(
+                          width: 80.w,
+                          height: 60.h,
+                          decoration: BoxDecoration(
+                            color: ColorsManger.containerColor,
+                            borderRadius: BorderRadius.circular(32.r),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10.w, vertical: 16.w),
+                          child: Center(
+                            child: TextWidget(
+                              title: "E£999.99",
                               maxLines: 2,
                               textAlign: TextAlign.center,
                               fontSize: 16.sp,
                               color: ColorsManger.primary,
                             ),
-
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  Spacer(),
-                  Stack(
-                    children: [
-                      Container(
-                        width: 80.w,
-                        height: 60.h,
-
-
-                        decoration: BoxDecoration(
-                          color: ColorsManger.containerColor,
-                          borderRadius: BorderRadius.circular(32.r),
-
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 10.w,
-                            vertical: 16.w
-                        ),
-                        child: Center(
-                          child: TextWidget(
-                            title: "E£999.99",
-                            maxLines: 2,
-                            textAlign: TextAlign.center,
-                            fontSize: 16.sp,
-                            color: ColorsManger.primary,
                           ),
                         ),
+                      ],
+                    ),
+                  ],
+                ),
+                10.ph,
+                Row(
+                  children: [
+                    Stack(
+                      children: [
+                        Container(
+                          width: 80.w,
+                          height: 60.h,
+                          // margin: EdgeInsets.symmetric(
+                          //     horizontal: 10.w
+                          // ),
+
+                          decoration: BoxDecoration(
+                            color: ColorsManger.primary.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(16.r),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10.w, vertical: 10.w),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.language_rounded,
+                                color: ColorsManger.primary,
+                              ),
+                              5.pw,
+                              TextWidget(
+                                title: "عربي",
+                                maxLines: 2,
+                                textAlign: TextAlign.center,
+                                fontSize: 16.sp,
+                                color: ColorsManger.primary,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Spacer(),
+
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 10.w, vertical: 16.w),
+                      child: Center(
+                        child: TextWidget(
+                          title: "E£999.99",
+                          maxLines: 2,
+                          isOffer:true,
+                          textAlign: TextAlign.center,
+                          fontSize: 16.sp,
+                          color: ColorsManger.primary,
+                        ),
                       ),
-                    ],
-                  ),
-                ],
-              ),
-
-
-
+                    ),
+                  ],
+                ),
               ],
             ),
           );
         },
-
         itemCount: 3,
-
         scrollDirection: Axis.horizontal,
-
       ),
     );
   }

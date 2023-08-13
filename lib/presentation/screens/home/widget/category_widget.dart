@@ -10,11 +10,11 @@ class CategoryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return  SizedBox(
 
-      height: 0.45.sh,
+      height: 0.41.sh,
       child: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 4,
-            childAspectRatio: 1.w/1.4.w,
+            childAspectRatio: 1.w/1.7.w,
             mainAxisSpacing: 10.h,
             crossAxisSpacing: 10.w
 
@@ -40,6 +40,7 @@ class CategoryWidget extends StatelessWidget {
           );
         },
         itemCount: 8,
+
       ),
     );
   }

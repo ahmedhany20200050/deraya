@@ -20,7 +20,7 @@ class CurrentCoursesWidget extends StatelessWidget {
               children: [
                 Image.asset("assets/images/backGround.png"),
                 Padding(
-                  padding: EdgeInsets.only(top: 10.h, left: 16.w, right: 16.w),
+                  padding: EdgeInsets.only(top: 10.h, left: 24.w, right: 10.w),
                   child: Column(
                     children: [
                       Row(

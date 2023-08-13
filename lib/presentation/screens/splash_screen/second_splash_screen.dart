@@ -3,7 +3,6 @@ import 'package:deraya_application/presentation/components/text_widget.dart';
 import 'package:deraya_application/presentation/screens/splash_screen/splash_components/next_button.dart';
 import 'package:deraya_application/presentation/screens/splash_screen/third_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 
 import '../../../core/constant/text_styles.dart';
 
