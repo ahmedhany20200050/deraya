@@ -90,7 +90,6 @@ class _FilterScreenState extends State<FilterScreen>with TickerProviderStateMixi
            ),
 
            const CustomDivider(),
-           12.ph,
            const FilterTitle(text: 'اللغة',),
            Row(
              children: [
@@ -150,6 +149,67 @@ class _FilterScreenState extends State<FilterScreen>with TickerProviderStateMixi
            ),
            const CustomDivider(),
            const FilterTitle(text: 'التقييمات',),
+           Row(
+             children: [
+               Checkbox(
+                   activeColor: ColorsManger.primary,
+                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
+                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+
+                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                   value: _isChecked, onChanged: (val){
+                 setState(() {
+                   _isChecked = val!;
+                 });
+               }),TextWidget(title: '4.5 و ما فوق',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
+             ],
+           ),
+           Row(
+             children: [
+               Checkbox(
+                   activeColor: ColorsManger.primary,
+                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
+                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+
+                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                   value: _isChecked, onChanged: (val){
+                 setState(() {
+                   _isChecked = val!;
+                 });
+               }),TextWidget(title: '4.0 و ما فوق',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
+             ],
+           ),
+           Row(
+             children: [
+               Checkbox(
+                   activeColor: ColorsManger.primary,
+                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
+                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+
+                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                   value: _isChecked, onChanged: (val){
+                 setState(() {
+                   _isChecked = val!;
+                 });
+               }),TextWidget(title: '3.5 و ما فوق',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
+             ],
+           ),
+           Row(
+             children: [
+               Checkbox(
+                   activeColor: ColorsManger.primary,
+                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
+                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+
+                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                   value: _isChecked, onChanged: (val){
+                 setState(() {
+                   _isChecked = val!;
+                 });
+               }),TextWidget(title: '3.0 و ما فوق',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
+             ],
+           ),
+
          ],
        ),
      ),
