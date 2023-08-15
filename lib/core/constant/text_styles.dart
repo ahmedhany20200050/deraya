@@ -12,4 +12,8 @@ abstract class TextStyles{
     decorationColor: Colors.deepOrange.shade300.withOpacity(0.4),
     decorationThickness:5,
   );
+  static final brownTextStyle= TextStyle(
+    color: AppColors.brownColor,
+    fontWeight: FontWeight.w700,
+  );
 }
