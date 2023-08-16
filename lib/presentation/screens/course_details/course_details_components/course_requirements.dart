@@ -44,6 +44,7 @@ class CourseRequirements extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
@@ -52,6 +53,7 @@ class CourseRequirements extends StatelessWidget {
         ),
         10.ph,
         Column(
+          mainAxisSize: MainAxisSize.min,
           children: requirementsWidgets,
         ),
       ],
