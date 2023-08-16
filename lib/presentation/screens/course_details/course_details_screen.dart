@@ -1,8 +1,11 @@
+import 'package:autoscale_tabbarview/autoscale_tabbarview.dart';
 import 'package:deraya_application/core/Utils/utils.dart';
 import 'package:deraya_application/core/constant/colors.dart';
 import 'package:deraya_application/core/constant/text_styles.dart';
 import 'package:deraya_application/presentation/components/button_widget.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
+import 'package:deraya_application/presentation/screens/course_details/course_details_components/comment.dart';
+import 'package:deraya_application/presentation/screens/course_details/course_details_components/comments_and_rating_view.dart';
 import 'package:deraya_application/presentation/screens/home/widget/price_widget.dart';
 import 'package:deraya_application/presentation/widgets/video_player_widget.dart';
 import 'package:flutter/material.dart';
@@ -171,13 +174,13 @@ class CourseDetailsScreen extends StatelessWidget {
                     //todo: tab bar
                     CoursesTabBar(),
                     SizedBox(
-                      height: 40,
+                      height: 20,
                     ),
-                    TabBarView(
+                    AutoScaleTabBarView(
                       children: [
                       SummaryTabView(skills: skills, requirments: requirments),
                       SummaryTabView(skills: skills, requirments: requirments),
-                      SummaryTabView(skills: skills, requirments: requirments),
+                      CommentsAndRatingView(),
                     ],),
 
 
