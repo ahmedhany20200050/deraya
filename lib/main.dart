@@ -2,6 +2,7 @@
 
 import 'package:deraya_application/bloc_observer.dart';
 import 'package:deraya_application/core/constant/colors.dart';
+import 'package:deraya_application/presentation/screens/home/category_screen.dart';
 import 'package:deraya_application/presentation/layout/home_layout.dart';
 import 'package:deraya_application/presentation/screens/home/home_screen.dart';
 import 'package:deraya_application/presentation/screens/login/login_screen.dart';
@@ -103,6 +104,7 @@ class MyApp extends StatelessWidget {
               )
 
             ),
+
             home: SplashScreen(),
 
           );

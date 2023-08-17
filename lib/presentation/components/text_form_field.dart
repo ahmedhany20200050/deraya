@@ -125,7 +125,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
                   borderSide:
                   BorderSide(color: widget.activeBorderColor, width: 1.0),
                   borderRadius:
-                  BorderRadius.all(Radius.circular(10.r))),
+                  BorderRadius.all(Radius.circular(20.r))),
               enabledBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: Colors.white, width: 1.0),
                   borderRadius:
