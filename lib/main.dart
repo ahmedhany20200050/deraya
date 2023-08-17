@@ -3,9 +3,11 @@
 import 'package:deraya_application/bloc_observer.dart';
 import 'package:deraya_application/core/constant/colors.dart';
 import 'package:deraya_application/presentation/screens/home/category_screen.dart';
+import 'package:deraya_application/presentation/layout/home_layout.dart';
 import 'package:deraya_application/presentation/screens/home/home_screen.dart';
 import 'package:deraya_application/presentation/screens/login/login_screen.dart';
 import 'package:deraya_application/presentation/screens/search/filtter_screen.dart';
+import 'package:deraya_application/presentation/screens/splash_screen/splash_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -84,10 +86,27 @@ class MyApp extends StatelessWidget {
             title: 'Deraya',
             theme: ThemeData(
               fontFamily: "cairo",
-              primaryColor: ColorsManger.primary,
+              primaryColor: AppColors.primary,
+              scaffoldBackgroundColor: Colors.white,
+              appBarTheme: const AppBarTheme(
+                backgroundColor: Colors.white,
+                elevation: 0,
+                centerTitle: true,
+                actionsIconTheme: IconThemeData(
+                  color: AppColors.primary,
+
+                ),
+                iconTheme: IconThemeData(
+                  color: AppColors.primary,
+
+
+                )
+                // color: ColorsManger.primary
+              )
 
             ),
-            home: const FilterScreen(),
+
+            home: SplashScreen(),
 
           );
         });

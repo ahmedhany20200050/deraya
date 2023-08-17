@@ -44,9 +44,9 @@ class TextFormFieldWidget extends StatefulWidget {
         this.maxLengh,
         this.errorText,
         this.controller,
-        this.activeBorderColor = ColorsManger.primary,
+        this.activeBorderColor = AppColors.primary,
         this.borderRadius = 8.0,
-        this.borderColor = ColorsManger.primary,
+        this.borderColor = AppColors.primary,
         this.backgroundColor = Colors.white,
         this.maxLines,
         this.minLines = 1,
@@ -74,7 +74,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      cursorColor: ColorsManger.primary,
+      cursorColor: AppColors.primary,
       readOnly: widget.readOnly ?? false,
       enabled: widget.enable ?? true,
       validator: widget.validate,
@@ -89,7 +89,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
       textAlign: widget.textalign,
       textDirection: widget.textdirection,
       style: TextStyle(
-          color: ColorsManger.blackColor,
+          color: AppColors.blackColor,
           fontSize: 14.sp,
           fontFamily: "cairo",
           fontWeight: FontWeight.w600),
@@ -114,7 +114,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
                       widget.password
                           ? Icons.remove_red_eye_outlined
                           : Icons.visibility_off,
-                      color: ColorsManger.blackColor,
+                      color: AppColors.blackColor,
                     ),
                   )
                       : widget.suffixIcon),
@@ -129,8 +129,8 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
               enabledBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: Colors.white, width: 1.0),
                   borderRadius:
-                  BorderRadius.all(Radius.circular(20.r))),
-              labelStyle: const TextStyle(color: ColorsManger.blackColor,fontFamily: "cairo",fontWeight: FontWeight.w400),
+                  BorderRadius.all(Radius.circular(30.r))),
+              labelStyle: const TextStyle(color: AppColors.blackColor,fontFamily: "cairo",fontWeight: FontWeight.w400),
               hintStyle: TextStyle(color: Colors.grey, fontSize: 12.sp,fontFamily: "cairo",fontWeight: FontWeight.w400),
               hintText: widget.hintText),
       keyboardType: widget.type,
