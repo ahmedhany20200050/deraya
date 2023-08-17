@@ -6,6 +6,7 @@ import 'package:deraya_application/presentation/screens/home/category_screen.dar
 import 'package:deraya_application/presentation/layout/home_layout.dart';
 import 'package:deraya_application/presentation/screens/home/home_screen.dart';
 import 'package:deraya_application/presentation/screens/login/login_screen.dart';
+import 'package:deraya_application/presentation/screens/search/filtter_screen.dart';
 import 'package:deraya_application/presentation/screens/splash_screen/splash_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
