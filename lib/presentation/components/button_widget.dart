@@ -24,9 +24,9 @@ class ButtonWidget extends StatelessWidget {
         this.child,
         this.fontSize,
         this.textColor = Colors.white,
-        this.buttonColor = ColorsManger.primary,
-        this.borderColor = ColorsManger.primary,
-        this.inkColor = ColorsManger.primary,
+        this.buttonColor = AppColors.primary,
+        this.borderColor = AppColors.primary,
+        this.inkColor = AppColors.primary,
         this.withBorder = false,
         this.radius = 80.0})
       : super(key: key);

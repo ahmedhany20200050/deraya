@@ -6,6 +6,7 @@ import '../../../core/constant/colors.dart';
 import '../../components/button_widget.dart';
 import '../../components/text_form_field.dart';
 import '../../components/text_widget.dart';
+import '../home/home_screen.dart';
 import 'login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -20,7 +21,7 @@ class RegisterScreen extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 90.h,),
-              TextWidget(title: 'welcome'.tr(),fontSize: 31.69.sp,fontWeight:FontWeight.w600,color: ColorsManger.primary,),
+              TextWidget(title: 'welcome'.tr(),fontSize: 31.69.sp,fontWeight:FontWeight.w600,color: AppColors.primary,),
               SizedBox(height: 40.h,),
               const UserName(),
               SizedBox(height: 4.h,),
@@ -28,7 +29,7 @@ class RegisterScreen extends StatelessWidget {
                 borderRadius: 1.0,
                 onChanged: (val){},
                 hintText: 'Mostafa Ramadan',
-                borderColor: ColorsManger.primary.withOpacity(0.6),
+                borderColor: AppColors.primary.withOpacity(0.6),
                 textalign: TextAlign.end,
 
               ),
@@ -39,7 +40,7 @@ class RegisterScreen extends StatelessWidget {
                 borderRadius: 1.0,
                 onChanged: (val){},
                 hintText: 'info@example.com',
-                borderColor: ColorsManger.primary.withOpacity(0.6),
+                borderColor: AppColors.primary.withOpacity(0.6),
                 textalign: TextAlign.end,
 
               ),
@@ -50,7 +51,7 @@ class RegisterScreen extends StatelessWidget {
                 borderRadius: 1.0,
                 onChanged: (val){},
                 hintText: '************',
-                borderColor: ColorsManger.primary.withOpacity(0.6),
+                borderColor: AppColors.primary.withOpacity(0.6),
                 password: true,
               ),
               SizedBox(height: 16.h,),
@@ -60,7 +61,7 @@ class RegisterScreen extends StatelessWidget {
                 borderRadius: 1.0,
                 onChanged: (val){},
                 hintText: '************',
-                borderColor: ColorsManger.primary.withOpacity(0.6),
+                borderColor: AppColors.primary.withOpacity(0.6),
                 password: true,
               ),
               SizedBox(height: 30.h,),
@@ -69,11 +70,14 @@ class RegisterScreen extends StatelessWidget {
                 title: 'register'.tr(),
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
-                onTap: (){},
+                onTap: (){
+                  //todo: delete next line
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+                },
 
               ),
               SizedBox(height: 20.h,),
-              TextWidget(title: 'or'.tr(),fontSize:16.sp,fontWeight:FontWeight.w400,color: ColorsManger.primary,),
+              TextWidget(title: 'or'.tr(),fontSize:16.sp,fontWeight:FontWeight.w400,color: AppColors.primary,),
               SizedBox(height: 12.h,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -87,14 +91,14 @@ class RegisterScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextWidget(title: 'have an account?'.tr(),color: ColorsManger.blackColor,fontSize: 14.sp,fontWeight: FontWeight.w400),
+                  TextWidget(title: 'have an account?'.tr(),color: AppColors.blackColor,fontSize: 14.sp,fontWeight: FontWeight.w400),
                   TextButton(
 
                       onPressed: (){
                         // navigate to login screen
                         Navigator.of(context).pop();
                       },
-                      child: TextWidget(title: 'login'.tr(),color: ColorsManger.primary,fontSize: 14.sp,fontWeight: FontWeight.w400)),
+                      child: TextWidget(title: 'login'.tr(),color: AppColors.primary,fontSize: 14.sp,fontWeight: FontWeight.w400)),
                 ],
               ),
             ],
@@ -115,9 +119,9 @@ class ConfirmPassword extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        const Icon(Icons.lock,color: ColorsManger.primary,),
+        const Icon(Icons.lock,color: AppColors.primary,),
         const SizedBox(width: 7,),
-        TextWidget(title: 'confirm password'.tr(),fontSize: 16.sp,fontWeight: FontWeight.w400,color: ColorsManger.primary,),
+        TextWidget(title: 'confirm password'.tr(),fontSize: 16.sp,fontWeight: FontWeight.w400,color: AppColors.primary,),
       ],
     );
   }
@@ -133,9 +137,9 @@ class Password extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        const Icon(Icons.lock,color: ColorsManger.primary,),
+        const Icon(Icons.lock,color: AppColors.primary,),
         const SizedBox(width: 7,),
-        TextWidget(title: 'password'.tr(),fontSize: 16.sp,fontWeight: FontWeight.w400,color: ColorsManger.primary,),
+        TextWidget(title: 'password'.tr(),fontSize: 16.sp,fontWeight: FontWeight.w400,color: AppColors.primary,),
       ],
     );
   }
@@ -151,9 +155,9 @@ class Email extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        const Icon(Icons.email_rounded,color: ColorsManger.primary,),
+        const Icon(Icons.email_rounded,color: AppColors.primary,),
         const SizedBox(width: 7,),
-        TextWidget(title: 'email'.tr(),fontSize: 16.sp,fontWeight: FontWeight.w400,color: ColorsManger.primary,),
+        TextWidget(title: 'email'.tr(),fontSize: 16.sp,fontWeight: FontWeight.w400,color: AppColors.primary,),
       ],
     );
   }
@@ -169,9 +173,9 @@ class UserName extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        const Icon(Icons.person,color: ColorsManger.primary,),
+        const Icon(Icons.person,color: AppColors.primary,),
         const SizedBox(width: 7,),
-        TextWidget(title: 'user name'.tr(),fontSize: 16.sp,fontWeight: FontWeight.w400,color: ColorsManger.primary,),
+        TextWidget(title: 'user name'.tr(),fontSize: 16.sp,fontWeight: FontWeight.w400,color: AppColors.primary,),
       ],
     );
   }
