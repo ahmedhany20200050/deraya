@@ -3,11 +3,13 @@ import 'package:deraya_application/core/Utils/utils.dart';
 import 'package:deraya_application/core/constant/colors.dart';
 import 'package:deraya_application/presentation/components/text_form_field.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
+import 'package:deraya_application/presentation/screens/home/category_screen.dart';
 import 'package:deraya_application/presentation/screens/home/widget/build_current_courses.dart';
 import 'package:deraya_application/presentation/screens/home/widget/category_widget.dart';
 import 'package:deraya_application/presentation/screens/home/widget/definition_row.dart';
 import 'package:deraya_application/presentation/screens/home/widget/instructors_widget.dart';
 import 'package:deraya_application/presentation/screens/home/widget/popular_courses.dart';
+import 'package:deraya_application/presentation/screens/search/filtter_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -51,6 +53,7 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () {},
                     icon: const Icon(
                       Icons.menu,
+                      color: Colors.white,
                     ))
               ],
               flexibleSpace: FlexibleSpaceBar(
@@ -83,6 +86,9 @@ class HomeScreen extends StatelessWidget {
                             width: .95.sw,
                             child: TextFormFieldWidget(
                               onChanged: (e) {},
+                              onTap: (){
+                                Utils.openScreen(context, FilterScreen());
+                              },
                               // borderRadius: 0,
 
                               hintText: "ابحث عن الدورات",
@@ -109,24 +115,27 @@ class HomeScreen extends StatelessWidget {
                     // mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const DefinitionRow(
+                       DefinitionRow(
                         title: "الفئات",
                         subTitle: "جميع الفئات",
+                         secondOnTap: (){
+                          Utils.openScreen(context, CategoryScreen());
+                         },
                       ),
                       const CategoryWidget(),
-                      const DefinitionRow(
+                       DefinitionRow(
                         title: "الدورات الحالية",
                         subTitle: "الكل",
                       ),
                       16.ph,
                       CurrentCoursesWidget(),
                       16.ph,
-                      const DefinitionRow(
+                       DefinitionRow(
                         title: "أشهر المدربين لدينا",
                         subTitle: "الكل",
                       ),
                       InstructorWidget(),
-                      const DefinitionRow(
+                       DefinitionRow(
                         title: "الكورسات الأكثر مشاهدة",
                         subTitle: "الكل",
                       ),

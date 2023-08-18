@@ -99,7 +99,7 @@ class LoginScreen extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                       onTap: (){
                         //todo: delete next line
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+                        Utils.openScreen(context, HomeLayout());
                       },
 
                     ),

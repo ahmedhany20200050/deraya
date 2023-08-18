@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DefinitionRow extends StatelessWidget {
-  const DefinitionRow({Key? key, required this.title, required this.subTitle})
+   DefinitionRow({Key? key, required this.title, required this.subTitle, this.secondOnTap})
       : super(key: key);
   final String title;
   final String subTitle;
-
+  VoidCallback? secondOnTap;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,11 +22,14 @@ class DefinitionRow extends StatelessWidget {
         color: AppColors.primary,
       ),
       Spacer(),
-      TextWidget(
-        title: subTitle,
-        fontSize: 20.sp,
-        fontWeight: FontWeight.w700,
-        color: AppColors.brownColor,
+      GestureDetector(
+        onTap: secondOnTap,
+        child: TextWidget(
+          title: subTitle,
+          fontSize: 20.sp,
+          fontWeight: FontWeight.w700,
+          color: AppColors.brownColor,
+        ),
       ),
     ]);
   }

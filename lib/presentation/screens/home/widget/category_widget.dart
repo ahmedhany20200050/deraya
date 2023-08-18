@@ -12,6 +12,7 @@ class CategoryWidget extends StatelessWidget {
 
       height: 0.41.sh,
       child: GridView.builder(
+        physics: NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 4,
             childAspectRatio: 1.w/1.7.w,

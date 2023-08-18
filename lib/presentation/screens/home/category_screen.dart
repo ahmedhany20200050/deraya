@@ -26,9 +26,9 @@ class CategoryScreen extends StatelessWidget {
 
             ),
             24.ph,
-            TextWidget(title: "all categories".tr(),fontSize: 20.sp,fontWeight: FontWeight.w700,color: ColorsManger.primary,),
+            TextWidget(title: "all categories".tr(),fontSize: 20.sp,fontWeight: FontWeight.w700,color: AppColors.primary,),
             8.ph,
-            TextWidget(title: "categories def".tr(),fontSize: 16.sp,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
+            TextWidget(title: "categories def".tr(),fontSize: 16.sp,fontWeight: FontWeight.w600,color: AppColors.primary,),
            16.ph,
             Expanded(
                 child: GridView.builder(
@@ -110,7 +110,7 @@ class SearchBar extends StatelessWidget {
           Navigator.of(context).pop();
         },
             padding: EdgeInsets.zero,
-            icon: const Icon(Icons.arrow_back,color: ColorsManger.primary,)),
+            icon: const Icon(Icons.arrow_back,color: AppColors.primary,)),
         Expanded(
           child: TextFormFieldWidget(
             onChanged: (e) {},
@@ -118,7 +118,7 @@ class SearchBar extends StatelessWidget {
             hintText: "ابحث عن الدورات",
             suffixIcon: Icon(
               Icons.search,
-              color: ColorsManger.primary,
+              color: AppColors.primary,
               // size: 25.w,
               weight: 25.w,
             ),

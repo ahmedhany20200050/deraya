@@ -31,7 +31,7 @@ class ContentTabView extends StatelessWidget {
             return Padding(
               padding:  EdgeInsets.all(16.0.w),
               child: Container(
-                color: ,
+                color: AppColors.primary,
                 child: Row(
                   children: [
                     Image.network(

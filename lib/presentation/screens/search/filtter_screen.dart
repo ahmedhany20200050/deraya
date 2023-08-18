@@ -37,55 +37,55 @@ class _FilterScreenState extends State<FilterScreen>with TickerProviderStateMixi
            Row(
              children: [
                Checkbox(
-                   activeColor: ColorsManger.primary,
-                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
-                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+                   activeColor: AppColors.primary,
+                   fillColor: MaterialStateProperty.all(AppColors.primary),
+                   overlayColor: MaterialStateProperty.all(AppColors.primary),
 
                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                    value: _isChecked, onChanged: (val){
                  setState(() {
                    _isChecked = val!;
                  });
-               }),TextWidget(title: 'جميع المستويات',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
+               }),TextWidget(title: 'جميع المستويات',fontSize: 16,fontWeight: FontWeight.w600,color: AppColors.primary,),
                24.pw,
                Checkbox(
-                   activeColor: ColorsManger.primary,
-                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
-                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+                   activeColor: AppColors.primary,
+                   fillColor: MaterialStateProperty.all(AppColors.primary),
+                   overlayColor: MaterialStateProperty.all(AppColors.primary),
 
                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                    value: false, onChanged: (val){
                  setState(() {
                    _isChecked = val!;
                  });
-               }),TextWidget(title: 'خبير',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,)
+               }),TextWidget(title: 'خبير',fontSize: 16,fontWeight: FontWeight.w600,color: AppColors.primary,)
              ],
            ),
            Row(
              children: [
                Checkbox(
-                   activeColor: ColorsManger.primary,
-                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
-                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+                   activeColor: AppColors.primary,
+                   fillColor: MaterialStateProperty.all(AppColors.primary),
+                   overlayColor: MaterialStateProperty.all(AppColors.primary),
 
                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                    value: false, onChanged: (val){
                  setState(() {
                    _isChecked = val!;
                  });
-               }),TextWidget(title: 'متوسط',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
+               }),TextWidget(title: 'متوسط',fontSize: 16,fontWeight: FontWeight.w600,color: AppColors.primary,),
                80.pw,
                Checkbox(
-                   activeColor: ColorsManger.primary,
-                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
-                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+                   activeColor: AppColors.primary,
+                   fillColor: MaterialStateProperty.all(AppColors.primary),
+                   overlayColor: MaterialStateProperty.all(AppColors.primary),
 
                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                    value: false, onChanged: (val){
                  setState(() {
                    _isChecked = val!;
                  });
-               }),TextWidget(title: 'مبتدئ',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,)
+               }),TextWidget(title: 'مبتدئ',fontSize: 16,fontWeight: FontWeight.w600,color: AppColors.primary,)
              ],
            ),
 
@@ -94,28 +94,28 @@ class _FilterScreenState extends State<FilterScreen>with TickerProviderStateMixi
            Row(
              children: [
                Checkbox(
-                 activeColor: ColorsManger.primary,
-                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
-                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+                 activeColor: AppColors.primary,
+                   fillColor: MaterialStateProperty.all(AppColors.primary),
+                   overlayColor: MaterialStateProperty.all(AppColors.primary),
 
                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                    value: _isChecked, onChanged: (val){
                  setState(() {
                    _isChecked = val!;
                  });
-               }),TextWidget(title: 'العربية',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
+               }),TextWidget(title: 'العربية',fontSize: 16,fontWeight: FontWeight.w600,color: AppColors.primary,),
                80.pw,
                Checkbox(
-                 activeColor: ColorsManger.primary,
-                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
-                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+                 activeColor: AppColors.primary,
+                   fillColor: MaterialStateProperty.all(AppColors.primary),
+                   overlayColor: MaterialStateProperty.all(AppColors.primary),
 
                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                    value: false, onChanged: (val){
                  setState(() {
                    _isChecked = val!;
                  });
-               }),TextWidget(title: 'الإنجليزية',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,)
+               }),TextWidget(title: 'الإنجليزية',fontSize: 16,fontWeight: FontWeight.w600,color: AppColors.primary,)
              ],
            ),
            const CustomDivider(),
@@ -123,28 +123,28 @@ class _FilterScreenState extends State<FilterScreen>with TickerProviderStateMixi
            Row(
              children: [
                Checkbox(
-                   activeColor: ColorsManger.primary,
-                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
-                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+                   activeColor: AppColors.primary,
+                   fillColor: MaterialStateProperty.all(AppColors.primary),
+                   overlayColor: MaterialStateProperty.all(AppColors.primary),
 
                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                    value: _isChecked, onChanged: (val){
                  setState(() {
                    _isChecked = val!;
                  });
-               }),TextWidget(title: 'السعر',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
+               }),TextWidget(title: 'السعر',fontSize: 16,fontWeight: FontWeight.w600,color: AppColors.primary,),
                80.pw,
                Checkbox(
-                   activeColor: ColorsManger.primary,
-                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
-                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+                   activeColor: AppColors.primary,
+                   fillColor: MaterialStateProperty.all(AppColors.primary),
+                   overlayColor: MaterialStateProperty.all(AppColors.primary),
 
                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                    value: false, onChanged: (val){
                  setState(() {
                    _isChecked = val!;
                  });
-               }),TextWidget(title: 'مدفوع',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,)
+               }),TextWidget(title: 'مدفوع',fontSize: 16,fontWeight: FontWeight.w600,color: AppColors.primary,)
              ],
            ),
            const CustomDivider(),
@@ -152,61 +152,61 @@ class _FilterScreenState extends State<FilterScreen>with TickerProviderStateMixi
            Row(
              children: [
                Checkbox(
-                   activeColor: ColorsManger.primary,
-                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
-                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+                   activeColor: AppColors.primary,
+                   fillColor: MaterialStateProperty.all(AppColors.primary),
+                   overlayColor: MaterialStateProperty.all(AppColors.primary),
 
                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                    value: _isChecked, onChanged: (val){
                  setState(() {
                    _isChecked = val!;
                  });
-               }),TextWidget(title: '4.5 و ما فوق',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
+               }),TextWidget(title: '4.5 و ما فوق',fontSize: 16,fontWeight: FontWeight.w600,color: AppColors.primary,),
              ],
            ),
            Row(
              children: [
                Checkbox(
-                   activeColor: ColorsManger.primary,
-                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
-                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+                   activeColor: AppColors.primary,
+                   fillColor: MaterialStateProperty.all(AppColors.primary),
+                   overlayColor: MaterialStateProperty.all(AppColors.primary),
 
                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                    value: _isChecked, onChanged: (val){
                  setState(() {
                    _isChecked = val!;
                  });
-               }),TextWidget(title: '4.0 و ما فوق',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
+               }),TextWidget(title: '4.0 و ما فوق',fontSize: 16,fontWeight: FontWeight.w600,color: AppColors.primary,),
              ],
            ),
            Row(
              children: [
                Checkbox(
-                   activeColor: ColorsManger.primary,
-                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
-                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+                   activeColor: AppColors.primary,
+                   fillColor: MaterialStateProperty.all(AppColors.primary),
+                   overlayColor: MaterialStateProperty.all(AppColors.primary),
 
                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                    value: _isChecked, onChanged: (val){
                  setState(() {
                    _isChecked = val!;
                  });
-               }),TextWidget(title: '3.5 و ما فوق',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
+               }),TextWidget(title: '3.5 و ما فوق',fontSize: 16,fontWeight: FontWeight.w600,color: AppColors.primary,),
              ],
            ),
            Row(
              children: [
                Checkbox(
-                   activeColor: ColorsManger.primary,
-                   fillColor: MaterialStateProperty.all(ColorsManger.primary),
-                   overlayColor: MaterialStateProperty.all(ColorsManger.primary),
+                   activeColor: AppColors.primary,
+                   fillColor: MaterialStateProperty.all(AppColors.primary),
+                   overlayColor: MaterialStateProperty.all(AppColors.primary),
 
                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                    value: _isChecked, onChanged: (val){
                  setState(() {
                    _isChecked = val!;
                  });
-               }),TextWidget(title: '3.0 و ما فوق',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
+               }),TextWidget(title: '3.0 و ما فوق',fontSize: 16,fontWeight: FontWeight.w600,color: AppColors.primary,),
              ],
            ),
 
@@ -232,12 +232,12 @@ class SortByRatingOrNewest extends StatelessWidget {
           width: 100,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: ColorsManger.primary,
+            color: AppColors.primary,
             boxShadow: [
               const BoxShadow(spreadRadius: 0,blurRadius: 8,color: Colors.grey,blurStyle: BlurStyle.outer),
             ],
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: ColorsManger.primary,width: 2),
+            border: Border.all(color: AppColors.primary,width: 2),
           ),
           child: const TextWidget(title: 'التقييمات',fontSize: 16,fontWeight: FontWeight.w600,color: Colors.white,),
         ) ,
@@ -251,9 +251,9 @@ class SortByRatingOrNewest extends StatelessWidget {
               const BoxShadow(spreadRadius: 0,blurRadius: 6,color: Colors.grey,blurStyle: BlurStyle.outer),
             ],
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: ColorsManger.primary,width: 2),
+            border: Border.all(color: AppColors.primary,width: 2),
           ),
-          child: const TextWidget(title: 'الأحدث',fontSize: 16,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
+          child: const TextWidget(title: 'الأحدث',fontSize: 16,fontWeight: FontWeight.w600,color: AppColors.primary,),
         ),
       ],
     );
@@ -269,7 +269,7 @@ class FilterTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        TextWidget(title: text,fontSize: 18,fontWeight: FontWeight.w600,color: ColorsManger.primary,),
+        TextWidget(title: text,fontSize: 18,fontWeight: FontWeight.w600,color: AppColors.primary,),
         const Spacer(),
         IconButton(onPressed: (){}, icon: const Icon(Icons.info_outline,color:Colors.grey,size: 20,)),
       ],
@@ -313,7 +313,7 @@ class Title extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Row(
       children: [
-        TextWidget(title: 'التصميم',color: ColorsManger.primary,fontSize: 24,fontWeight: FontWeight.w700,),
+        TextWidget(title: 'التصميم',color: AppColors.primary,fontSize: 24,fontWeight: FontWeight.w700,),
         Spacer(),
         CancelButton(),
       ],
@@ -334,9 +334,9 @@ class CancelButton extends StatelessWidget {
      decoration: BoxDecoration(
        color: Colors.transparent,
        borderRadius: BorderRadius.circular(32),
-       border: Border.all(color: ColorsManger.primary,width: 2)
+       border: Border.all(color: AppColors.primary,width: 2)
      ),
 
-      child: const Icon(Icons.close,color: ColorsManger.primary,size: 24,)),);
+      child: const Icon(Icons.close,color: AppColors.primary,size: 24,)),);
   }
 }
