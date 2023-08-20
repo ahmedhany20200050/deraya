@@ -8,30 +8,22 @@ class PriceWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   Stack(
-      children: [
+    return
         Container(
-          width: 80.w,
-          height: 60.h,
+          width: 82,
+          height: 28,
+          alignment: Alignment.center,
           decoration: BoxDecoration(
             color: AppColors.containerColor,
-            borderRadius: BorderRadius.circular(32.r),
+            borderRadius: BorderRadius.circular(15.r),
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: 10.w, vertical: 16.w),
-          child: Center(
-            child: TextWidget(
-              title: "E£999.99",
-              maxLines: 2,
-              textAlign: TextAlign.center,
-              fontSize: 16.sp,
-              color: AppColors.primary,
-            ),
-          ),
-        ),
-      ],
+      child:  TextWidget(
+        title: "E£999.99",
+        textAlign: TextAlign.center,
+        fontSize: 16.sp,
+        fontWeight: FontWeight.w600,
+        color: AppColors.blackColor,
+      ),
     );
   }
 }

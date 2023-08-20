@@ -24,7 +24,7 @@ void main() async {
   await Hive.initFlutter();
   runApp(
     EasyLocalization(
-        startLocale: Locale('ar', "EG"),
+        startLocale: const Locale('ar', "EG"),
         supportedLocales: const [
           Locale('ar', "EG"),
           Locale('en', "US"),
@@ -106,7 +106,7 @@ class MyApp extends StatelessWidget {
 
             ),
 
-            home: SplashScreen(),
+            home: const CategoryScreen(),
 
           );
         });

@@ -1,0 +1,276 @@
+import 'package:deraya_application/core/Utils/utils.dart';
+import 'package:deraya_application/presentation/components/text_widget.dart';
+import 'package:deraya_application/presentation/screens/home/widget/popular_courses.dart';
+import 'package:deraya_application/presentation/screens/home/widget/price_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../../../core/constant/colors.dart';
+import '../../components/text_form_field.dart';
+
+class SubcategoriesScreen extends StatelessWidget {
+  const SubcategoriesScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding:  EdgeInsets.only(right:19.0.w),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            50.ph,
+            const SizedBox(
+              height: 45,
+              child: SubcategoriesSearchBar(),
+
+            ),
+            24.ph,
+             TextWidget(title: 'التصميمم',fontSize: 32.sp,fontWeight: FontWeight.bold,color: AppColors.primary,),
+            16.ph,
+            TextWidget(title: 'الأكثر مشاهدة عن التصميم',fontSize: 20.sp,fontWeight: FontWeight.bold,color: AppColors.primary,),
+            8.ph,
+            SizedBox(
+              height: 0.38.sh,
+              child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return Container(
+                    // height: 60.h,
+                    constraints: BoxConstraints(maxWidth: 0.65.sw, minWidth: 0.6.sw),
+                    padding: EdgeInsets.symmetric(horizontal: 8.w),
+                    child: Column(
+                      children: [
+                        Stack(
+                          children: [
+                            Image.asset("assets/images/course_image.png"),
+                            Row(
+                              children: [
+                                Stack(
+                                  children: [
+                                    Container(
+                                      width: 69.w,
+                                      height: 28.h,
+                                      alignment: Alignment.center,
+                                      margin:  EdgeInsets.symmetric(horizontal: 8.w),
+                                      padding:  EdgeInsets.symmetric(horizontal: 4.w),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(100.r),
+                                      ),
+                                      child:  Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          const TextWidget(
+                                            title: "(25+)",
+                                            maxLines: 1,
+                                            textAlign: TextAlign.center,
+                                            fontSize: 8.19,
+                                            fontWeight: FontWeight.w400,
+                                            color: AppColors.grayColor,
+                                          ),
+                                          5.pw,
+                                          const Icon(Icons.star,size: 9.5,color: Color(0xffFFC529),),
+                                          const TextWidget(
+                                            title: "4.5",
+                                            maxLines: 1,
+                                            textAlign: TextAlign.center,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w600,
+                                            color: AppColors.primary,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const Spacer(),
+                                Container(
+                                  alignment: Alignment.center,
+                                  width:28,
+                                  height:28,
+                                  margin:const EdgeInsets.symmetric(horizontal: 8,vertical: 8),
+                                  decoration: BoxDecoration(
+                                    
+                                    border: Border.all(
+                                      color: const Color(0xFFF4F4BD),
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(100)
+                                  ),
+                                  child: IconButton(
+                                    padding:EdgeInsets.zero,
+                                      onPressed: () {},
+                                      icon: const Icon(
+
+                                        Icons.favorite_border,
+                                        size: 15,
+                                        color: Color(0xFFF4F4BD),
+                                      )),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding:
+                          EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.w),
+                          child: Column(
+                            children: [
+                              TextWidget(
+                                title:
+                                "كورس Figma بالكامل للمبتدأين - تعليم أساسيات التصميم.",
+                                maxLines: 2,
+                                textAlign: TextAlign.start,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.primary,
+                              ),
+                            ],
+                          ),
+                        ),
+                         Row(
+                          children: [
+                            const    CircleAvatar(
+                              radius: 15,
+                              backgroundImage: AssetImage('assets/images/profile.jpg'),
+                            ),
+                            12.pw,
+                            TextWidget(title: 'Ali Wael',fontSize:16 ,fontWeight: FontWeight.bold,color:Color(0xFFB48B8B) ,)
+                          ],
+                        ),
+                        12.ph,
+                        Row(
+                          children: [
+                            Container(
+                              width: 97,
+                              height: 29,
+                               padding: EdgeInsets.symmetric(
+                                  horizontal: 10.w
+                              ),
+
+                              decoration: BoxDecoration(
+                                color: AppColors.primary.withOpacity(0.2),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.people_alt_outlined,
+                                    color: AppColors.primary,
+                                    size: 20,
+                                  ),
+                                  5.pw,
+                                  TextWidget(
+                                    title: "1,067 طالب",
+                                    textAlign: TextAlign.center,
+                                    fontSize: 13.sp,
+                                    fontWeight: FontWeight.w600,
+                                    color: AppColors.primary,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const Spacer(),
+                            const PriceWidget(),
+                          ],
+                        ),
+                        16.ph,
+                        Row(
+                          children: [
+                            Container(
+                              width: 80,
+                              height: 29,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10.w
+                              ),
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: AppColors.primary.withOpacity(0.2),
+                                borderRadius: BorderRadius.circular(5.r),
+                              ),
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.language_rounded,
+                                    color: AppColors.primary,
+                                    size: 18,
+                                  ),
+                                  5.pw,
+                                  TextWidget(
+                                    title: "عربي",
+                                    textAlign: TextAlign.center,
+                                    fontSize: 13.sp,
+                                    fontWeight: FontWeight.w600,
+                                    color: AppColors.primary,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const Spacer(),
+
+                            Padding(
+                              padding: const EdgeInsets.only(left:16.0),
+                              child: TextWidget(
+                                title: "E£999.99",
+                                isOffer:true,
+                                textAlign: TextAlign.center,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.blackColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                itemCount: 3,
+                scrollDirection: Axis.horizontal,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SubcategoriesSearchBar extends StatelessWidget {
+  const SubcategoriesSearchBar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        IconButton(onPressed: (){
+          Navigator.of(context).pop();
+        },
+            padding: EdgeInsets.zero,
+            icon:  const Icon(Icons.arrow_back,color: AppColors.primary,size: 21,)),
+        Expanded(
+          child: TextFormFieldWidget(
+            onChanged: (e) {},
+            borderRadius: 20,
+            hintText: "ابحث عن الدورات",
+            suffixIcon: Icon(
+              Icons.search,
+              color: AppColors.primary,
+              // size: 25.w,
+              weight: 25.w,
+            ),
+          ),
+        ),
+        IconButton(onPressed: (){
+          Navigator.of(context).pop();
+        },
+            padding: EdgeInsets.zero,
+            icon:  Icon(Icons.sort,color: AppColors.primary,size: 38.h,textDirection: TextDirection.ltr,)),
+      ],
+    );
+  }
+}

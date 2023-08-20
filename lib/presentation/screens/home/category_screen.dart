@@ -1,9 +1,9 @@
 import 'package:deraya_application/core/Utils/utils.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
+import 'package:deraya_application/presentation/screens/home/subcategories_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../core/constant/colors.dart';
 import '../../components/text_form_field.dart';
@@ -89,7 +89,9 @@ class CategoryItem extends StatelessWidget {
                   padding: EdgeInsets.only(right: 20.w),
                  color: Colors.white,
                  highlightColor: Colors.white,
-                  onPressed: (){}, icon: const Icon(Icons.arrow_back_ios,)),
+                  onPressed: (){
+                    Utils.openScreen(context, SubcategoriesScreen());
+                  }, icon:  Icon(Icons.arrow_back_ios,)),
               const TextWidget(title: 'القانون',fontSize: 20,fontWeight: FontWeight.w700,color: Colors.white,),
             ],
           )),
