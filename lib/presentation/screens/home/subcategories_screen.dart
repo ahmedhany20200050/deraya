@@ -37,8 +37,18 @@ class SubcategoriesScreen extends StatelessWidget {
                 physics: const BouncingScrollPhysics(),
                 itemBuilder: (context, index) {
                   return Container(
-                    // height: 60.h,
-                    constraints: BoxConstraints(maxWidth: 0.65.sw, minWidth: 0.6.sw),
+                     width: 266.w,
+                     height: 316.h,
+                   // constraints: BoxConstraints(maxWidth: 0.65.sw, minWidth: 0.6.sw),
+                    decoration: BoxDecoration(
+                      boxShadow:[
+                        BoxShadow(
+                        offset: const Offset(15, 15),
+                          blurRadius: 30,
+                          spreadRadius: 0,
+                          color: const Color(0xFFD3D1D8).withOpacity(0.0625),
+                      ),]
+                    ),
                     padding: EdgeInsets.symmetric(horizontal: 8.w),
                     child: Column(
                       children: [
@@ -137,7 +147,7 @@ class SubcategoriesScreen extends StatelessWidget {
                               backgroundImage: AssetImage('assets/images/profile.jpg'),
                             ),
                             12.pw,
-                            TextWidget(title: 'Ali Wael',fontSize:16 ,fontWeight: FontWeight.bold,color:Color(0xFFB48B8B) ,)
+                            const TextWidget(title: 'Ali Wael',fontSize:16 ,fontWeight: FontWeight.bold,color:Color(0xFFB48B8B) ,)
                           ],
                         ),
                         12.ph,
@@ -229,6 +239,253 @@ class SubcategoriesScreen extends StatelessWidget {
                 },
                 itemCount: 3,
                 scrollDirection: Axis.horizontal,
+              ),
+            ),
+            24.ph,
+            TextWidget(title: 'الأكثر بحثاً عن التصميم',fontSize: 20.sp,fontWeight: FontWeight.bold,color: AppColors.primary,),
+            12.ph,
+            SizedBox(
+              height: 60,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                physics:const BouncingScrollPhysics(),
+                child: Row(
+                  children: [
+                    Container(
+                      constraints: const BoxConstraints(minWidth: 80),
+                      height: 40,
+                      margin: const EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(25),
+                        boxShadow: [
+                          BoxShadow(
+                              offset: const Offset(0,1),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                              color: const Color(0xFF000000).withOpacity(0.0625)
+                          ),
+                        ],
+                      ),
+                      child: const FittedBox(child: TextWidget(title:  'Figma',color: AppColors.primary,fontSize: 16,fontWeight: FontWeight.w600,)),
+                    ),
+                    Container(
+                      constraints: const BoxConstraints(minWidth: 80),
+                      height: 38,
+                      margin: const EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(25),
+                        boxShadow: [
+                          BoxShadow(
+                              offset: const Offset(0,1),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                              color: const Color(0xFF000000).withOpacity(0.0625)
+                          ),
+                        ],
+                      ),
+                      child: const FittedBox(child: TextWidget(title:  'Photoshop',color: AppColors.primary,fontSize: 16,fontWeight: FontWeight.w600,)),
+                    ),
+                    Container(
+                      constraints: const BoxConstraints(minWidth: 80),
+                      height: 38,
+                      margin: const EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(25),
+                        boxShadow: [
+                          BoxShadow(
+                              offset: const Offset(0,1),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                              color: const Color(0xFF000000).withOpacity(0.0625)
+                          ),
+                        ],
+                      ),
+                      child: const FittedBox(child: TextWidget(title:  'رسم',color: AppColors.primary,fontSize: 16,fontWeight: FontWeight.w600,)),
+                    ),
+                    Container(
+                      constraints: const BoxConstraints(minWidth: 80,maxHeight: 40),
+                      height: 38,
+                      margin: const EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(25),
+                        boxShadow: [
+                          BoxShadow(
+                              offset: const Offset(0,1),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                              color: const Color(0xFF000000).withOpacity(0.0625)
+                          ),
+                        ],
+                      ),
+                      child: const FittedBox(
+                        fit: BoxFit.fitWidth,
+                          child: TextWidget(title:  'Web Design',color: AppColors.primary,fontSize: 16,fontWeight: FontWeight.w600,)),
+                    ),
+                    Container(
+                      constraints: const BoxConstraints(minWidth: 80),
+                      height: 38,
+                      margin: const EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(25),
+                        boxShadow: [
+                          BoxShadow(
+                              offset: const Offset(0,1),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                              color: const Color(0xFF000000).withOpacity(0.0625)
+                          ),
+                        ],
+                      ),
+                      child: const FittedBox(child: TextWidget(title:  'Adobe PhotoShop',color: AppColors.primary,fontSize: 16,fontWeight: FontWeight.w600,)),
+                    ),
+                    Container(
+                      constraints: const BoxConstraints(minWidth: 80),
+                      height: 38,
+                      margin: const EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(25),
+                        boxShadow: [
+                          BoxShadow(
+                              offset: const Offset(0,1),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                              color: const Color(0xFF000000).withOpacity(0.0625)
+                          ),
+                        ],
+                      ),
+                      child: const FittedBox(child: TextWidget(title:  'Adobe PhotoShop',color: AppColors.primary,fontSize: 16,fontWeight: FontWeight.w600,)),
+                    ),
+                    Container(
+                      constraints: const BoxConstraints(minWidth: 80),
+                      height: 38,
+                      margin: const EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(25),
+                        boxShadow: [
+                          BoxShadow(
+                              offset: const Offset(0,1),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                              color: const Color(0xFF000000).withOpacity(0.0625)
+                          ),
+                        ],
+                      ),
+                      child: const FittedBox(child: TextWidget(title:  'Adobe PhotoShop',color: AppColors.primary,fontSize: 16,fontWeight: FontWeight.w600,)),
+                    ),
+                  ],
+                ),
+              ),
+            ) ,
+            SizedBox(
+              height: 60,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                physics:const BouncingScrollPhysics(),
+                child: Row(
+                  children: [
+                    Container(
+                      constraints: const BoxConstraints(minWidth: 80),
+                      height: 40,
+                      margin: const EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(25),
+                        boxShadow: [
+                          BoxShadow(
+                              offset: const Offset(0,1),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                              color: const Color(0xFF000000).withOpacity(0.0625)
+                          ),
+                        ],
+                      ),
+                      child: const FittedBox(child: TextWidget(title:  'Illustrator',color: AppColors.primary,fontSize: 16,fontWeight: FontWeight.w600,)),
+                    ),
+                    Container(
+                      constraints: const BoxConstraints(minWidth: 55),
+                      height: 38,
+                      margin: const EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(25),
+                        boxShadow: [
+                          BoxShadow(
+                              offset: const Offset(0,1),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                              color: const Color(0xFF000000).withOpacity(0.0625)
+                          ),
+                        ],
+                      ),
+                      child: const FittedBox(child: TextWidget(title:  'XD',color: AppColors.primary,fontSize: 16,fontWeight: FontWeight.w600,)),
+                    ),
+                    Container(
+                      constraints: const BoxConstraints(minWidth: 55),
+                      height: 38,
+                      margin: const EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(25),
+                        boxShadow: [
+                          BoxShadow(
+                              offset: const Offset(0,1),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                              color: const Color(0xFF000000).withOpacity(0.0625)
+                          ),
+                        ],
+                      ),
+                      child: const FittedBox(child: TextWidget(title:  'واجهة المستخدم',color: AppColors.primary,fontSize: 16,fontWeight: FontWeight.w600,)),
+                    ),
+                    Container(
+                      constraints: const BoxConstraints(minWidth: 55),
+                      height: 38,
+                      margin: const EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(25),
+                        boxShadow: [
+                          BoxShadow(
+                              offset: const Offset(0,1),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                              color: const Color(0xFF000000).withOpacity(0.0625)
+                          ),
+                        ],
+                      ),
+                      child: const FittedBox(child: TextWidget(title:  'UX',color: AppColors.primary,fontSize: 16,fontWeight: FontWeight.w600,)),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
