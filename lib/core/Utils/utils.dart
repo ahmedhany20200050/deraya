@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Utils {
+  static String token = '';
 
   static void openScreen(BuildContext? context, Widget screen,
       {bool replacment = false, bool remove = false}) {
