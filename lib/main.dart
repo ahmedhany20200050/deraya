@@ -110,7 +110,7 @@ class MyApp extends StatelessWidget {
 
             ),
 
-            home: const CategoryScreen(),
+           home: SplashScreen(),
 
           );
         });
