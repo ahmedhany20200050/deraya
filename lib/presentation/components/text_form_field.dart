@@ -127,7 +127,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
                   borderRadius:
                   BorderRadius.all(Radius.circular(20.r))),
               enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.white, width: 1.0),
+                  borderSide: const BorderSide(color: AppColors.primary, width: 1.0),
                   borderRadius:
                   BorderRadius.all(Radius.circular(30.r))),
               labelStyle: const TextStyle(color: AppColors.blackColor,fontFamily: "cairo",fontWeight: FontWeight.w400),

@@ -14,6 +14,7 @@ class PopularCoursesWidget extends StatelessWidget {
     return SizedBox(
       height: 0.4.sh,
       child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) {
           return Container(
             // height: 60.h,
