@@ -14,7 +14,6 @@ import 'package:deraya_application/presentation/screens/search/filtter_screen.da
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -22,7 +21,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit()..getCategories(),
+      create: (context) => HomeCubit()..getCategories()..getCourses(),
       child: BlocConsumer<HomeCubit, HomeStates>(
         listener: (context, state) {
           // TODO: implement listener
@@ -39,6 +38,7 @@ class HomeScreen extends StatelessWidget {
                     expandedHeight: 200.0.h,
                     foregroundColor: Colors.white,
                     backgroundColor: AppColors.primary,
+
 
                     title: Row(
                       // crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,6 +65,12 @@ class HomeScreen extends StatelessWidget {
                             color: Colors.white,
                           ))
                     ],
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.vertical(
+                        bottom: Radius.circular(30),
+
+                      )
+                    ),
                     flexibleSpace: FlexibleSpaceBar(
                       background: FadeIn(
                         duration: const Duration(milliseconds: 500),

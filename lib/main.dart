@@ -4,8 +4,8 @@ import 'package:deraya_application/bloc_observer.dart';
 import 'package:deraya_application/core/constant/colors.dart';
 import 'package:deraya_application/data/api/my_api.dart';
 import 'package:deraya_application/data/hive/hive.dart';
-import 'package:deraya_application/presentation/screens/home/category_screen.dart';
 import 'package:deraya_application/presentation/layout/home_layout.dart';
+import 'package:deraya_application/presentation/screens/home/category_screen.dart';
 import 'package:deraya_application/presentation/screens/home/home_screen.dart';
 import 'package:deraya_application/presentation/screens/login/login_screen.dart';
 import 'package:deraya_application/presentation/screens/search/filtter_screen.dart';
@@ -46,34 +46,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return BlocProvider(
-    //   create: (context) => AppCubit(),
-    //   child: BlocConsumer<AppCubit, AppState>(
-    //     listener: (context, state) {
-    //       // TODO: implement listener
-    //     },
-    //     builder: (context, state) {
-    //       Utils.rebuildAllChildren(context);
-    //       return ScreenUtilInit(
-    //           designSize: const Size(390, 844),
-    //           minTextAdapt: true,
-    //           splitScreenMode: true,
-    //           builder: (context, screenUtil) {
-    //             return MaterialApp(
-    //                 localizationsDelegates: context.localizationDelegates,
-    //                 supportedLocales: context.supportedLocales,
-    //                 locale: context.locale,
-    //                 debugShowCheckedModeBanner: false,
-    //                 navigatorObservers: [BotToastNavigatorObserver()],
-    //                 //2. registered route observer
-    //
-    //                 theme: lightTheme(),
-    //                 home: const SplashScreen());
-    //           });
-    //     },
-    //   ),
-    // );
-
     return ScreenUtilInit(
         designSize: const Size(428, 924),
         minTextAdapt: true,

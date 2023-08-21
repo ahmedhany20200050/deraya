@@ -7,3 +7,7 @@ class HomeInitial extends HomeStates {}
 class HomeGetCategoriesLoadingState extends HomeStates {}
 class HomeGetCategoriesSuccessState extends HomeStates {}
 class HomeGetCategoriesErrorState extends HomeStates {}
+
+class HomeGetCoursesLoadingState extends HomeStates {}
+class HomeGetCoursesSuccessState extends HomeStates {}
+class HomeGetCoursesErrorState extends HomeStates {}

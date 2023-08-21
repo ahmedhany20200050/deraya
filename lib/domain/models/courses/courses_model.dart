@@ -1,6 +1,6 @@
 /// success : true
 /// message : ""
-/// data : {"courses":[{"id":4,"name_en":"html","name_ar":"pythoon","description_en":"llaravelllaravelllaravelllaravelllaravel","description_ar":"لارفيللارفيللارفيللارفيللارفيللارفيللارفيل","hours":5,"lectures":12,"level":"Beginner","price":"99.99","image":"http://diraya.xyz/images/courses/64e26cc8f2201.jpg","video":"https://stackoverflow.com/questions/65709480/json-file-error-in-visual-studio-code-expected-comma-json514","language":"English","last_update":null,"requirement_en":"need need need need need","requirement_ar":"نيد نيد نيد نيد نيد نيد","status":"published","created_at":"2023-08-20T19:43:05.000000Z","updated_at":"2023-08-20T19:43:05.000000Z","deleted_at":null}]}
+/// data : {"courses":[{"id":4,"name_en":"html","name_ar":"pythoon","description_en":"llaravelllaravelllaravelllaravelllaravel","description_ar":"لارفيللارفيللارفيللارفيللارفيللارفيللارفيل","hours":5,"lectures":12,"level":"Beginner","price":"99.99","image":"http://diraya.xyz/images/courses/64e26cc8f2201.jpg","video":"https://stackoverflow.com/questions/65709480/json-file-error-in-visual-studio-code-expected-comma-json514","language":"English","last_update":null,"requirement_en":"need need need need need","requirement_ar":"نيد نيد نيد نيد نيد نيد","status":"published","created_at":"2023-08-20T19:43:05.000000Z","updated_at":"2023-08-20T19:43:05.000000Z","deleted_at":null},{"id":5,"name_en":"html","name_ar":"pythoon","description_en":"flutter & dart","description_ar":"فلاتر دارت","hours":5,"lectures":12,"level":"Beginner","price":"99.99","image":"http://diraya.xyz/images/courses/64e32796e60f9.jpg","video":"https://youtu.be/ceMsPBbcEGg","language":"English","last_update":null,"requirement_en":"need need need need need","requirement_ar":"نيد نيد نيد نيد نيد نيد","status":"published","created_at":"2023-08-21T09:00:06.000000Z","updated_at":"2023-08-21T09:00:06.000000Z","deleted_at":null},{"id":6,"name_en":"html","name_ar":"pythoon","description_en":"llaravelllaravelllaravelllaravelllaravel","description_ar":"لارفيللارفيللارفيللارفيللارفيللارفيللارفيل","hours":5,"lectures":12,"level":"Beginner","price":"99.99","image":"http://diraya.xyz/images/courses/64e3550d75dd8.json","video":"https://stackoverflow.com/questions/65709480/json-file-error-in-visual-studio-code-expected-comma-json514","language":"English","last_update":null,"requirement_en":"need need need need need","requirement_ar":"نيد نيد نيد نيد نيد نيد","status":"published","created_at":"2023-08-21T12:14:05.000000Z","updated_at":"2023-08-21T12:14:05.000000Z","deleted_at":null}]}
 /// errors : {}
 
 class CoursesModel {
@@ -13,16 +13,16 @@ class CoursesModel {
   CoursesModel.fromJson(dynamic json) {
     success = json['success'];
     message = json['message'];
-    data = json['data'] != null ? CoursesData.fromJson(json['data']) : null;
+    data = json['data'] != null ? CourseData.fromJson(json['data']) : null;
     errors = json['errors'];
   }
   bool? success;
   String? message;
-  CoursesData? data;
+  CourseData? data;
   dynamic errors;
 CoursesModel copyWith({  bool? success,
   String? message,
-  CoursesData? data,
+  CourseData? data,
   dynamic errors,
 }) => CoursesModel(  success: success ?? this.success,
   message: message ?? this.message,
@@ -42,13 +42,13 @@ CoursesModel copyWith({  bool? success,
 
 }
 
-/// courses : [{"id":4,"name_en":"html","name_ar":"pythoon","description_en":"llaravelllaravelllaravelllaravelllaravel","description_ar":"لارفيللارفيللارفيللارفيللارفيللارفيللارفيل","hours":5,"lectures":12,"level":"Beginner","price":"99.99","image":"http://diraya.xyz/images/courses/64e26cc8f2201.jpg","video":"https://stackoverflow.com/questions/65709480/json-file-error-in-visual-studio-code-expected-comma-json514","language":"English","last_update":null,"requirement_en":"need need need need need","requirement_ar":"نيد نيد نيد نيد نيد نيد","status":"published","created_at":"2023-08-20T19:43:05.000000Z","updated_at":"2023-08-20T19:43:05.000000Z","deleted_at":null}]
+/// courses : [{"id":4,"name_en":"html","name_ar":"pythoon","description_en":"llaravelllaravelllaravelllaravelllaravel","description_ar":"لارفيللارفيللارفيللارفيللارفيللارفيللارفيل","hours":5,"lectures":12,"level":"Beginner","price":"99.99","image":"http://diraya.xyz/images/courses/64e26cc8f2201.jpg","video":"https://stackoverflow.com/questions/65709480/json-file-error-in-visual-studio-code-expected-comma-json514","language":"English","last_update":null,"requirement_en":"need need need need need","requirement_ar":"نيد نيد نيد نيد نيد نيد","status":"published","created_at":"2023-08-20T19:43:05.000000Z","updated_at":"2023-08-20T19:43:05.000000Z","deleted_at":null},{"id":5,"name_en":"html","name_ar":"pythoon","description_en":"flutter & dart","description_ar":"فلاتر دارت","hours":5,"lectures":12,"level":"Beginner","price":"99.99","image":"http://diraya.xyz/images/courses/64e32796e60f9.jpg","video":"https://youtu.be/ceMsPBbcEGg","language":"English","last_update":null,"requirement_en":"need need need need need","requirement_ar":"نيد نيد نيد نيد نيد نيد","status":"published","created_at":"2023-08-21T09:00:06.000000Z","updated_at":"2023-08-21T09:00:06.000000Z","deleted_at":null},{"id":6,"name_en":"html","name_ar":"pythoon","description_en":"llaravelllaravelllaravelllaravelllaravel","description_ar":"لارفيللارفيللارفيللارفيللارفيللارفيللارفيل","hours":5,"lectures":12,"level":"Beginner","price":"99.99","image":"http://diraya.xyz/images/courses/64e3550d75dd8.json","video":"https://stackoverflow.com/questions/65709480/json-file-error-in-visual-studio-code-expected-comma-json514","language":"English","last_update":null,"requirement_en":"need need need need need","requirement_ar":"نيد نيد نيد نيد نيد نيد","status":"published","created_at":"2023-08-21T12:14:05.000000Z","updated_at":"2023-08-21T12:14:05.000000Z","deleted_at":null}]
 
-class CoursesData {
-  CoursesData({
+class CourseData {
+  CourseData({
       this.courses,});
 
-  CoursesData.fromJson(dynamic json) {
+  CourseData.fromJson(dynamic json) {
     if (json['courses'] != null) {
       courses = [];
       json['courses'].forEach((v) {
@@ -57,8 +57,8 @@ class CoursesData {
     }
   }
   List<Courses>? courses;
-CoursesData copyWith({  List<Courses>? courses,
-}) => CoursesData(  courses: courses ?? this.courses,
+CourseData copyWith({  List<Courses>? courses,
+}) => CourseData(  courses: courses ?? this.courses,
 );
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
