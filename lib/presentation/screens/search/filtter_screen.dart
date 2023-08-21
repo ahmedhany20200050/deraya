@@ -311,7 +311,7 @@ class Title extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return  Row(
       children: [
         TextWidget(title: 'التصميم',color: AppColors.primary,fontSize: 24,fontWeight: FontWeight.w700,),
         Spacer(),
