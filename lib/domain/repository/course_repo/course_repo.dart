@@ -3,8 +3,8 @@ import 'package:deraya_application/domain/end_points/end_points.dart';
 import 'package:deraya_application/domain/models/category_model/categories_model.dart';
 
 class CourseRepo {
-  Future<CategoriesModel?> getCategories() async {
-    CategoriesModel? categoriesModel;
+  Future<CategoriesData?> getCategories() async {
+    CategoriesData? categoriesModel;
     final response = await DioHelper.getData(
       url: EndPoints.category,
       loading: true,
@@ -12,7 +12,7 @@ class CourseRepo {
 
     );
     if (response != null) {
-      categoriesModel = CategoriesModel.fromJson(response);
+      categoriesModel = CategoriesData.fromJson(response.data["data"]["categories"]);
       return categoriesModel;
     }
     else{

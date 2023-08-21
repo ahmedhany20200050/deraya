@@ -10,7 +10,7 @@ class HomeCubit extends Cubit<HomeStates> {
   HomeCubit() : super(HomeInitial());
   static HomeCubit get(context) => BlocProvider.of(context);
 
-  CategoriesModel? categoriesModel;
+  CategoriesData? categoriesModel;
 
   getCategories() async {
     emit(HomeGetCategoriesLoadingState());
