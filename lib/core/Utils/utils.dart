@@ -1,11 +1,15 @@
 
 import 'package:deraya_application/core/constant/colors.dart';
+import 'package:deraya_application/data/api/my_api.dart';
+import 'package:deraya_application/data/hive/hive.dart';
+import 'package:deraya_application/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Utils {
   static String token = '';
-
+  static DioHelper get dio => serviceLocator<DioHelper>();
+  static DataManager get dataManager => serviceLocator<DataManager>();
   static void openScreen(BuildContext? context, Widget screen,
       {bool replacment = false, bool remove = false}) {
     if (context == null) {

@@ -39,6 +39,7 @@ dependencies:
   lottie: 2.3.2
   flutter_smart_dialog:
   path_provider:
+  get_it:
 
 
 

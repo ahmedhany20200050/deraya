@@ -2,6 +2,8 @@
 
 import 'package:deraya_application/bloc_observer.dart';
 import 'package:deraya_application/core/constant/colors.dart';
+import 'package:deraya_application/data/api/my_api.dart';
+import 'package:deraya_application/data/hive/hive.dart';
 import 'package:deraya_application/presentation/screens/home/category_screen.dart';
 import 'package:deraya_application/presentation/layout/home_layout.dart';
 import 'package:deraya_application/presentation/screens/home/home_screen.dart';
@@ -13,6 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
@@ -20,6 +23,7 @@ void main() async {
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await EasyLocalization.ensureInitialized();
+  setUpLocator();
   Bloc.observer = MyBlocObserver();
   await Hive.initFlutter();
   runApp(
@@ -111,4 +115,9 @@ class MyApp extends StatelessWidget {
           );
         });
   }
+}
+final serviceLocator = GetIt.instance;
+setUpLocator() async {
+  serviceLocator.registerSingleton<DioHelper>(DioHelper());
+  serviceLocator.registerLazySingleton(() => DataManager());
 }
