@@ -20,16 +20,16 @@ class SubcategoriesScreen extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.only(right: 19.0.w),
         child: CustomScrollView(
-          physics: ClampingScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           slivers: [
             SliverToBoxAdapter(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   50.ph,
-                  const SizedBox(
-                    height: 45,
-                    child: SubcategoriesSearchBar(),
+                   SizedBox(
+                    height: 45.h,
+                    child: const SubcategoriesSearchBar(),
                   ),
                   24.ph,
                   TextWidget(
@@ -47,7 +47,7 @@ class SubcategoriesScreen extends StatelessWidget {
                   ),
                   8.ph,
                   SizedBox(
-                    height: 0.38.sh,
+                    height: 0.38.h.sh,
                     child: const MostViewedListView(),
                   ),
                   24.ph,
@@ -58,17 +58,17 @@ class SubcategoriesScreen extends StatelessWidget {
                     color: AppColors.primary,
                   ),
                   12.ph,
-                  const SizedBox(
-                    height: 60,
-                    child: MostlySearch(),
+                   SizedBox(
+                    height: 60.h,
+                    child: const MostlySearch(),
                   ),
-                  const SizedBox(
-                    height: 60,
-                    child: MostlySearch2(),
+                   SizedBox(
+                    height: 60.h,
+                    child: const MostlySearch2(),
                   ),
                   SizedBox(
                     height: (MediaQuery.of(context).size.height * 0.15),
-                    child: InstructorsList(),
+                    child: const InstructorsList(),
                   ),
                   50.ph,
                   Row(
@@ -79,7 +79,7 @@ class SubcategoriesScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         color: AppColors.primary,
                       ),
-                      Spacer(),
+                      const Spacer(),
                       TextWidget(
                         title: '5.656 نتيجة',
                         fontSize: 20.sp,
@@ -99,10 +99,10 @@ class SubcategoriesScreen extends StatelessWidget {
                   height: (MediaQuery.of(context).size.height*0.225)+10,
                   child: Card(
                     elevation: 4,
-                    shape: RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(16)),
                     ),
-                    margin: EdgeInsets.all(8),
+                    margin: const EdgeInsets.all(8),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
@@ -131,14 +131,14 @@ class SubcategoriesScreen extends StatelessWidget {
                                     children: [
                                       8.pw,
                                       Container(
-                                        padding: EdgeInsets.all(4),
+                                        padding: const EdgeInsets.all(4),
                                         decoration: ShapeDecoration(
                                           color: Colors.white,
                                           shape: RoundedRectangleBorder(
                                             borderRadius: BorderRadius.circular(100),
                                           ),
                                         ),
-                                        child:Row(
+                                        child:const Row(
                                           children: [
                                             TextWidget(
                                                 title: "(25+)",
@@ -157,14 +157,14 @@ class SubcategoriesScreen extends StatelessWidget {
                                           ],
                                         ) ,
                                       ),
-                                      Spacer(),
+                                      const Spacer(),
                                       Container(
-                                        padding: EdgeInsets.all(2),
+                                        padding: const EdgeInsets.all(2),
                                         decoration: BoxDecoration(
                                           border: Border.all(color: Colors.white),
-                                          borderRadius: new BorderRadius.circular(100),
+                                          borderRadius:  BorderRadius.circular(100),
                                         ),
-                                        child: Icon(
+                                        child: const Icon(
                                             Icons.favorite_border_outlined,
                                           color: Colors.white,
                                           size: 16,
@@ -178,14 +178,14 @@ class SubcategoriesScreen extends StatelessWidget {
 
                             ],
                           ),
-                          Spacer(),
+                          const Spacer(),
                           SizedBox(
                             width: MediaQuery.of(context).size.width-200,
                             height: MediaQuery.of(context).size.height*0.225,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                TextWidget(
+                                const TextWidget(
                                   title: "كورس Figma بالكامل للمبتدأين - تعليم أساسيات التصميم.",
                                   maxLines: 2,
                                   color: AppColors.primary,
@@ -202,7 +202,7 @@ class SubcategoriesScreen extends StatelessWidget {
                                             Container(
                                               width: 30,
                                               height: 30,
-                                              decoration: ShapeDecoration(
+                                              decoration: const ShapeDecoration(
                                                 image: DecorationImage(
                                                   image: NetworkImage("https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250"),
                                                   fit: BoxFit.fill,
@@ -217,7 +217,7 @@ class SubcategoriesScreen extends StatelessWidget {
                                         8.ph,
                                         Container(
                                           color: AppColors.lightBackground,
-                                          child: Row(
+                                          child: const Row(
                                             children: [
                                               Icon(
                                                 Icons.groups,
@@ -232,24 +232,24 @@ class SubcategoriesScreen extends StatelessWidget {
                                         )
                                       ],
                                     ),
-                                    Spacer(),
+                                    const Spacer(),
                                     Column(
                                       children: [
                                         Container(
-                                          padding: EdgeInsets.all(6),
+                                          padding: const EdgeInsets.all(6),
                                           decoration: ShapeDecoration(
-                                            color: Color(0xFFF4D4BD),
+                                            color: const Color(0xFFF4D4BD),
                                             shape: RoundedRectangleBorder(
                                               borderRadius: BorderRadius.circular(16),
                                             ),
                                           ),
-                                          child: TextWidget(
+                                          child: const TextWidget(
                                               title: "E£999.99",
                                             fontSize: 16,
                                           ),
                                         ),
                                         8.ph,
-                                        TextWidget(
+                                        const TextWidget(
                                             title: "E£1500",
                                           fontSize: 16,
                                           isOffer: true,
@@ -286,7 +286,7 @@ class InstructorsList extends StatelessWidget {
     return ListView.builder(
       physics: const BouncingScrollPhysics(),
       itemBuilder: (context, index) {
-        return InstructorListItem();
+        return const InstructorListItem();
       },
       itemCount: 5,
       scrollDirection: Axis.horizontal,
@@ -302,11 +302,11 @@ class InstructorListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
       elevation: 4,
-      margin: EdgeInsets.all(8),
+      margin: const EdgeInsets.all(8),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -317,7 +317,7 @@ class InstructorListItem extends StatelessWidget {
                 Container(
                   width: 35,
                   height: 35,
-                  decoration: ShapeDecoration(
+                  decoration: const ShapeDecoration(
                     image: DecorationImage(
                       image: NetworkImage(
                           "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250"),
@@ -331,18 +331,18 @@ class InstructorListItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    TextWidget(
+                    const TextWidget(
                       title: "Ahmed Mohammed Hany",
                       color: AppColors.primary,
                     ),
                     4.ph,
-                    TextWidget(
+                    const TextWidget(
                       title: "Figma&Photoshop",
                       color: Colors.grey,
                       fontSize: 12,
                     ),
                     4.ph,
-                    Row(
+                    const Row(
                       children: [
 
                         TextWidget(
@@ -400,9 +400,9 @@ class MostViewedItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 266.w,
-      height: 316.h,
-      // constraints: BoxConstraints(maxWidth: 0.65.sw, minWidth: 0.6.sw),
+      width: MediaQuery.of(context).size.width/2,
+      height: MediaQuery.of(context).size.height/4,
+   //   constraints: BoxConstraints(maxWidth: 0.6.sw, minWidth: 0.55.sw,minHeight: 316.h),
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(
           offset: const Offset(15, 15),
@@ -434,25 +434,25 @@ class MostViewedItem extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            const TextWidget(
+                             TextWidget(
                               title: "(25+)",
                               maxLines: 1,
                               textAlign: TextAlign.center,
-                              fontSize: 8.19,
+                              fontSize: 8.19.sp,
                               fontWeight: FontWeight.w400,
                               color: AppColors.grayColor,
                             ),
                             5.pw,
-                            const Icon(
+                             Icon(
                               Icons.star,
-                              size: 9.5,
-                              color: Color(0xffFFC529),
+                              size: 9.5.sp,
+                              color: const Color(0xffFFC529),
                             ),
-                            const TextWidget(
+                             TextWidget(
                               title: "4.5",
                               maxLines: 1,
                               textAlign: TextAlign.center,
-                              fontSize: 12,
+                              fontSize: 12.sp,
                               fontWeight: FontWeight.w600,
                               color: AppColors.primary,
                             ),
@@ -464,10 +464,10 @@ class MostViewedItem extends StatelessWidget {
                   const Spacer(),
                   Container(
                     alignment: Alignment.center,
-                    width: 28,
-                    height: 28,
+                    width: 28.w,
+                    height: 28.h,
                     margin:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                         EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
                     decoration: BoxDecoration(
                         border: Border.all(
                           color: const Color(0xFFF4F4BD),
@@ -477,10 +477,10 @@ class MostViewedItem extends StatelessWidget {
                     child: IconButton(
                         padding: EdgeInsets.zero,
                         onPressed: () {},
-                        icon: const Icon(
+                        icon:  Icon(
                           Icons.favorite_border,
-                          size: 15,
-                          color: Color(0xFFF4F4BD),
+                          size: 15.sp,
+                          color: const Color(0xFFF4F4BD),
                         )),
                   ),
                 ],
@@ -488,7 +488,7 @@ class MostViewedItem extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.w),
+            padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.w),
             child: Column(
               children: [
                 TextWidget(
@@ -503,38 +503,41 @@ class MostViewedItem extends StatelessWidget {
               ],
             ),
           ),
-          Row(
-            children: [
-              const CircleAvatar(
-                radius: 15,
-                backgroundImage: AssetImage('assets/images/profile.jpg'),
-              ),
-              12.pw,
-              const TextWidget(
-                title: 'Ali Wael',
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFFB48B8B),
-              )
-            ],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Row(
+              children: [
+                 CircleAvatar(
+                  radius: 15.r,
+                  backgroundImage: const AssetImage('assets/images/profile.jpg'),
+                ),
+                12.pw,
+                 TextWidget(
+                  title: 'Ali Wael',
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.bold,
+                  color: const Color(0xFFB48B8B),
+                )
+              ],
+            ),
           ),
           12.ph,
           Row(
             children: [
               Container(
-                width: 97,
-                height: 29,
-                padding: EdgeInsets.symmetric(horizontal: 10.w),
+                width: 97.w,
+                height: 29.h,
+                padding: EdgeInsets.symmetric(horizontal: 8.w),
                 decoration: BoxDecoration(
                   color: AppColors.primary.withOpacity(0.2),
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(5.r),
                 ),
                 child: Row(
                   children: [
-                    const Icon(
+                     Icon(
                       Icons.people_alt_outlined,
                       color: AppColors.primary,
-                      size: 20,
+                      size: 20.sp,
                     ),
                     5.pw,
                     TextWidget(
@@ -551,13 +554,13 @@ class MostViewedItem extends StatelessWidget {
               const PriceWidget(),
             ],
           ),
-          16.ph,
+          12.ph,
           Row(
             children: [
               Container(
-                width: 80,
-                height: 29,
-                padding: EdgeInsets.symmetric(horizontal: 10.w),
+                width: 80.w,
+                height: 29.h,
+                padding: EdgeInsets.symmetric(horizontal: 8.w),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: AppColors.primary.withOpacity(0.2),
@@ -565,10 +568,10 @@ class MostViewedItem extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    const Icon(
+                     Icon(
                       Icons.language_rounded,
                       color: AppColors.primary,
-                      size: 18,
+                      size: 18.sp,
                     ),
                     5.pw,
                     TextWidget(
@@ -583,7 +586,7 @@ class MostViewedItem extends StatelessWidget {
               ),
               const Spacer(),
               Padding(
-                padding: const EdgeInsets.only(left: 16.0),
+                padding:  EdgeInsets.only(left: 16.0.w),
                 child: TextWidget(
                   title: "E£999.99",
                   isOffer: true,
@@ -614,14 +617,14 @@ class MostlySearch2 extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            constraints: const BoxConstraints(minWidth: 80),
-            height: 40,
-            margin: const EdgeInsets.symmetric(horizontal: 8),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            constraints:  BoxConstraints(minWidth: 80.w),
+            height: 38.h,
+            margin:  EdgeInsets.symmetric(horizontal: 8.w),
+            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(25.r),
               boxShadow: [
                 BoxShadow(
                     offset: const Offset(0, 1),
@@ -630,23 +633,23 @@ class MostlySearch2 extends StatelessWidget {
                     color: const Color(0xFF000000).withOpacity(0.0625)),
               ],
             ),
-            child: const FittedBox(
+            child:  FittedBox(
                 child: TextWidget(
               title: 'Illustrator',
               color: AppColors.primary,
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
             )),
           ),
           Container(
-            constraints: const BoxConstraints(minWidth: 55),
-            height: 38,
-            margin: const EdgeInsets.symmetric(horizontal: 8),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            constraints:  BoxConstraints(minWidth: 55.w),
+            height: 38.h,
+            margin:  EdgeInsets.symmetric(horizontal: 8.w),
+            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(25.r),
               boxShadow: [
                 BoxShadow(
                     offset: const Offset(0, 1),
@@ -655,48 +658,48 @@ class MostlySearch2 extends StatelessWidget {
                     color: const Color(0xFF000000).withOpacity(0.0625)),
               ],
             ),
-            child: const FittedBox(
+            child:  FittedBox(
                 child: TextWidget(
               title: 'XD',
               color: AppColors.primary,
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
             )),
           ),
           Container(
-            constraints: const BoxConstraints(minWidth: 55),
-            height: 38,
-            margin: const EdgeInsets.symmetric(horizontal: 8),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            constraints:  BoxConstraints(minWidth: 55.w),
+            height: 38.h,
+            margin:  EdgeInsets.symmetric(horizontal: 8.w),
+            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(25.r),
               boxShadow: [
                 BoxShadow(
-                    offset: const Offset(0, 1),
+                    offset:  const Offset(0, 1),
                     blurRadius: 4,
                     spreadRadius: 0,
                     color: const Color(0xFF000000).withOpacity(0.0625)),
               ],
             ),
-            child: const FittedBox(
+            child:  FittedBox(
                 child: TextWidget(
               title: 'واجهة المستخدم',
               color: AppColors.primary,
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
             )),
           ),
           Container(
-            constraints: const BoxConstraints(minWidth: 55),
-            height: 38,
-            margin: const EdgeInsets.symmetric(horizontal: 8),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            constraints:  BoxConstraints(minWidth: 55.w),
+            height: 38.h,
+            margin:  EdgeInsets.symmetric(horizontal: 8.w),
+            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(25.r),
               boxShadow: [
                 BoxShadow(
                     offset: const Offset(0, 1),
@@ -705,11 +708,11 @@ class MostlySearch2 extends StatelessWidget {
                     color: const Color(0xFF000000).withOpacity(0.0625)),
               ],
             ),
-            child: const FittedBox(
+            child:  FittedBox(
                 child: TextWidget(
               title: 'UX',
               color: AppColors.primary,
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
             )),
           ),
@@ -732,14 +735,14 @@ class MostlySearch extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            constraints: const BoxConstraints(minWidth: 80),
-            height: 40,
-            margin: const EdgeInsets.symmetric(horizontal: 8),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            constraints:  BoxConstraints(minWidth: 80.w),
+            height: 38.h,
+            margin:  EdgeInsets.symmetric(horizontal: 8.w),
+            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(25.r),
               boxShadow: [
                 BoxShadow(
                     offset: const Offset(0, 1),
@@ -748,19 +751,19 @@ class MostlySearch extends StatelessWidget {
                     color: const Color(0xFF000000).withOpacity(0.0625)),
               ],
             ),
-            child: const FittedBox(
+            child:  FittedBox(
                 child: TextWidget(
               title: 'Figma',
               color: AppColors.primary,
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
             )),
           ),
           Container(
-            constraints: const BoxConstraints(minWidth: 80),
-            height: 38,
-            margin: const EdgeInsets.symmetric(horizontal: 8),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            constraints:  BoxConstraints(minWidth: 80.w),
+            height: 38.h,
+            margin:  EdgeInsets.symmetric(horizontal: 8.w),
+            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Colors.white,
@@ -773,23 +776,23 @@ class MostlySearch extends StatelessWidget {
                     color: const Color(0xFF000000).withOpacity(0.0625)),
               ],
             ),
-            child: const FittedBox(
+            child:  FittedBox(
                 child: TextWidget(
               title: 'Photoshop',
               color: AppColors.primary,
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
             )),
           ),
           Container(
-            constraints: const BoxConstraints(minWidth: 80),
-            height: 38,
-            margin: const EdgeInsets.symmetric(horizontal: 8),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            constraints:  BoxConstraints(minWidth: 80.w),
+            height: 38.h,
+            margin:  EdgeInsets.symmetric(horizontal: 8.w),
+            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(25.r),
               boxShadow: [
                 BoxShadow(
                     offset: const Offset(0, 1),
@@ -798,23 +801,23 @@ class MostlySearch extends StatelessWidget {
                     color: const Color(0xFF000000).withOpacity(0.0625)),
               ],
             ),
-            child: const FittedBox(
+            child:  FittedBox(
                 child: TextWidget(
               title: 'رسم',
               color: AppColors.primary,
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
             )),
           ),
           Container(
-            constraints: const BoxConstraints(minWidth: 80, maxHeight: 40),
-            height: 38,
-            margin: const EdgeInsets.symmetric(horizontal: 8),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            constraints:  BoxConstraints(minWidth: 80.w, maxHeight: 40.h),
+            height: 38.h,
+            margin:  EdgeInsets.symmetric(horizontal: 8.w),
+            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(25.r),
               boxShadow: [
                 BoxShadow(
                     offset: const Offset(0, 1),
@@ -823,24 +826,24 @@ class MostlySearch extends StatelessWidget {
                     color: const Color(0xFF000000).withOpacity(0.0625)),
               ],
             ),
-            child: const FittedBox(
+            child:  FittedBox(
                 fit: BoxFit.fitWidth,
                 child: TextWidget(
                   title: 'Web Design',
                   color: AppColors.primary,
-                  fontSize: 16,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w600,
                 )),
           ),
           Container(
-            constraints: const BoxConstraints(minWidth: 80),
-            height: 38,
-            margin: const EdgeInsets.symmetric(horizontal: 8),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            constraints:  BoxConstraints(minWidth: 80.w),
+            height: 38.h,
+            margin:  EdgeInsets.symmetric(horizontal: 8.w),
+            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(25.r),
               boxShadow: [
                 BoxShadow(
                     offset: const Offset(0, 1),
@@ -849,23 +852,23 @@ class MostlySearch extends StatelessWidget {
                     color: const Color(0xFF000000).withOpacity(0.0625)),
               ],
             ),
-            child: const FittedBox(
+            child:  FittedBox(
                 child: TextWidget(
               title: 'Adobe PhotoShop',
               color: AppColors.primary,
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
             )),
           ),
           Container(
-            constraints: const BoxConstraints(minWidth: 80),
-            height: 38,
-            margin: const EdgeInsets.symmetric(horizontal: 8),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            constraints:  BoxConstraints(minWidth: 80.w),
+            height: 38.h,
+            margin:  EdgeInsets.symmetric(horizontal: 8.w),
+            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(25.r),
               boxShadow: [
                 BoxShadow(
                     offset: const Offset(0, 1),
@@ -874,23 +877,23 @@ class MostlySearch extends StatelessWidget {
                     color: const Color(0xFF000000).withOpacity(0.0625)),
               ],
             ),
-            child: const FittedBox(
+            child:  FittedBox(
                 child: TextWidget(
               title: 'Adobe PhotoShop',
               color: AppColors.primary,
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
             )),
           ),
           Container(
-            constraints: const BoxConstraints(minWidth: 80),
-            height: 38,
-            margin: const EdgeInsets.symmetric(horizontal: 8),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            constraints:  BoxConstraints(minWidth: 80.w),
+            height: 38.h,
+            margin:  EdgeInsets.symmetric(horizontal: 8.w),
+            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(25.r),
               boxShadow: [
                 BoxShadow(
                     offset: const Offset(0, 1),
@@ -899,11 +902,11 @@ class MostlySearch extends StatelessWidget {
                     color: const Color(0xFF000000).withOpacity(0.0625)),
               ],
             ),
-            child: const FittedBox(
+            child:  FittedBox(
                 child: TextWidget(
               title: 'Adobe PhotoShop',
               color: AppColors.primary,
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
             )),
           ),
@@ -927,15 +930,15 @@ class SubcategoriesSearchBar extends StatelessWidget {
               Navigator.of(context).pop();
             },
             padding: EdgeInsets.zero,
-            icon: const Icon(
+            icon:  Icon(
               Icons.arrow_back,
               color: AppColors.primary,
-              size: 21,
+              size: 21.sp,
             )),
         Expanded(
           child: TextFormFieldWidget(
             onChanged: (e) {},
-            borderRadius: 20,
+            borderRadius: 20.r,
             hintText: "ابحث عن الدورات",
             suffixIcon: Icon(
               Icons.search,

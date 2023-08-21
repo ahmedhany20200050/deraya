@@ -10,8 +10,8 @@ class PriceWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return
         Container(
-          width: 82,
-          height: 28,
+          width: 82.w,
+          height: 28.h,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: AppColors.containerColor,
