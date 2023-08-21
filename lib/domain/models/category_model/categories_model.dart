@@ -13,16 +13,16 @@ class CategoriesModel {
   CategoriesModel.fromJson(dynamic json) {
     success = json['success'];
     message = json['message'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? CategoriesData.fromJson(json['data']) : null;
     errors = json['errors'];
   }
   bool? success;
   String? message;
-  Data? data;
+  CategoriesData? data;
   dynamic errors;
 CategoriesModel copyWith({  bool? success,
   String? message,
-  Data? data,
+  CategoriesData? data,
   dynamic errors,
 }) => CategoriesModel(  success: success ?? this.success,
   message: message ?? this.message,
@@ -44,11 +44,11 @@ CategoriesModel copyWith({  bool? success,
 
 /// categories : [{"id":5,"name_en":"web","name_ar":"ويب","image":"http://127.0.0.1:8000/images/categories/64df631192eca.png","created_at":"2023-08-18T11:24:49.000000Z","updated_at":"2023-08-18T11:24:49.000000Z","deleted_at":null}]
 
-class Data {
-  Data({
+class CategoriesData {
+  CategoriesData({
       this.categories,});
 
-  Data.fromJson(dynamic json) {
+  CategoriesData.fromJson(dynamic json) {
     if (json['categories'] != null) {
       categories = [];
       json['categories'].forEach((v) {
@@ -57,8 +57,8 @@ class Data {
     }
   }
   List<Categories>? categories;
-Data copyWith({  List<Categories>? categories,
-}) => Data(  categories: categories ?? this.categories,
+CategoriesData copyWith({  List<Categories>? categories,
+}) => CategoriesData(  categories: categories ?? this.categories,
 );
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

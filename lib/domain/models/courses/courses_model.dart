@@ -13,16 +13,16 @@ class CoursesModel {
   CoursesModel.fromJson(dynamic json) {
     success = json['success'];
     message = json['message'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? CoursesData.fromJson(json['data']) : null;
     errors = json['errors'];
   }
   bool? success;
   String? message;
-  Data? data;
+  CoursesData? data;
   dynamic errors;
 CoursesModel copyWith({  bool? success,
   String? message,
-  Data? data,
+  CoursesData? data,
   dynamic errors,
 }) => CoursesModel(  success: success ?? this.success,
   message: message ?? this.message,
@@ -44,11 +44,11 @@ CoursesModel copyWith({  bool? success,
 
 /// courses : [{"id":4,"name_en":"html","name_ar":"pythoon","description_en":"llaravelllaravelllaravelllaravelllaravel","description_ar":"لارفيللارفيللارفيللارفيللارفيللارفيللارفيل","hours":5,"lectures":12,"level":"Beginner","price":"99.99","image":"http://diraya.xyz/images/courses/64e26cc8f2201.jpg","video":"https://stackoverflow.com/questions/65709480/json-file-error-in-visual-studio-code-expected-comma-json514","language":"English","last_update":null,"requirement_en":"need need need need need","requirement_ar":"نيد نيد نيد نيد نيد نيد","status":"published","created_at":"2023-08-20T19:43:05.000000Z","updated_at":"2023-08-20T19:43:05.000000Z","deleted_at":null}]
 
-class Data {
-  Data({
+class CoursesData {
+  CoursesData({
       this.courses,});
 
-  Data.fromJson(dynamic json) {
+  CoursesData.fromJson(dynamic json) {
     if (json['courses'] != null) {
       courses = [];
       json['courses'].forEach((v) {
@@ -57,8 +57,8 @@ class Data {
     }
   }
   List<Courses>? courses;
-Data copyWith({  List<Courses>? courses,
-}) => Data(  courses: courses ?? this.courses,
+CoursesData copyWith({  List<Courses>? courses,
+}) => CoursesData(  courses: courses ?? this.courses,
 );
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
