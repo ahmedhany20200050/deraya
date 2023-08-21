@@ -33,7 +33,7 @@ class SubcategoriesScreen extends StatelessWidget {
                   ),
                   24.ph,
                   TextWidget(
-                    title: 'التصميمم',
+                    title: 'التصميم',
                     fontSize: 32.sp,
                     fontWeight: FontWeight.bold,
                     color: AppColors.primary,
