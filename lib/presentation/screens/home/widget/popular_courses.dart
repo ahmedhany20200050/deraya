@@ -12,7 +12,7 @@ class PopularCoursesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 0.4.sh,
+      height: 0.5.sh,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) {

@@ -34,7 +34,7 @@ class CurrentCoursesWidget extends StatelessWidget {
                       maxWidth: 0.65.sw, minWidth: 0.6.sw),
                   child: Stack(
                     children: [
-                      Image.network(data?[index].image??""),
+                      Image.network(data?[index].image??"",),
                       Padding(
                         padding: EdgeInsets.only(top: 10.h,
                             left: 24.w,

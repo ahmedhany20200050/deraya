@@ -11,3 +11,7 @@ class HomeGetCategoriesErrorState extends HomeStates {}
 class HomeGetCoursesLoadingState extends HomeStates {}
 class HomeGetCoursesSuccessState extends HomeStates {}
 class HomeGetCoursesErrorState extends HomeStates {}
+
+class HomeGetInstructorLoadingState extends HomeStates {}
+class HomeGetInstructorSuccessState extends HomeStates {}
+class HomeGetInstructorErrorState extends HomeStates {}

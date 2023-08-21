@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:deraya_application/domain/models/category_model/categories_model.dart';
 import 'package:deraya_application/domain/models/courses/courses_model.dart';
+import 'package:deraya_application/domain/models/instructor_model/instructor_model.dart';
 import 'package:deraya_application/domain/repository/course_repo/course_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
@@ -36,6 +37,20 @@ class HomeCubit extends Cubit<HomeStates> {
     }
     else{
       emit(HomeGetCoursesErrorState());
+    }
+  }
+
+  InstructorData? instructorData;
+  getInstructors() async {
+    emit(HomeGetInstructorLoadingState());
+    final response = await CourseRepo().getInstructors();
+    if (response != null) {
+      instructorData = response;
+      emit(HomeGetInstructorSuccessState());
+    }
+    else{
+
+      emit(HomeGetInstructorErrorState());
     }
   }
 }
