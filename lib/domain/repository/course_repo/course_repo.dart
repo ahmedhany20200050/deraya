@@ -12,7 +12,7 @@ class CourseRepo {
 
     );
     if (response != null) {
-      categoriesModel = CategoriesData.fromJson(response.data["data"]["categories"]);
+      categoriesModel = CategoriesData.fromJson(response.data["data"]);
       return categoriesModel;
     }
     else{
