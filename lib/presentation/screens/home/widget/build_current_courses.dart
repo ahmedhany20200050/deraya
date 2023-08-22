@@ -25,7 +25,7 @@ class CurrentCoursesWidget extends StatelessWidget {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
-                  // Utils.openScreen(context, CourseDetailsScreen());
+                  Utils.openScreen(context, CourseDetailsScreen(data?[index].id,data!));
                   print(data?[index].nameEn);
                 },
                 child: Container(

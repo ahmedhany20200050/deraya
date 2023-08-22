@@ -1,5 +1,6 @@
 
 
+import 'package:deraya_application/domain/models/courses/courses_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/constant/colors.dart';
@@ -8,8 +9,9 @@ import '../../../components/text_widget.dart';
 
 class CourseDetails extends StatelessWidget {
   const CourseDetails({
-    super.key,
+    super.key, required this.course,
   });
+  final Courses course;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class CourseDetails extends StatelessWidget {
               width: 16,
             ),
             TextWidget(
-              title: "اللغة : العربية ",
+              title: "اللغة : ${course.language} ",
               color: AppColors.primary,
             ),
           ],
@@ -46,7 +48,7 @@ class CourseDetails extends StatelessWidget {
               width: 16,
             ),
             TextWidget(
-              title: "15 فيديو (23 ساعة)",
+              title: "${course.lectures} فيديو (${course.hours} ساعة)",
               color: AppColors.primary,
             ),
           ],
@@ -61,7 +63,7 @@ class CourseDetails extends StatelessWidget {
               width: 16,
             ),
             TextWidget(
-              title: "12 موضوع",
+              title: "${course.lectures} موضوع",
               color: AppColors.primary,
             ),
           ],
@@ -76,7 +78,7 @@ class CourseDetails extends StatelessWidget {
               width: 16,
             ),
             TextWidget(
-              title: "5 اختبار و متابعة",
+              title: "0 اختبار و متابعة",
               color: AppColors.primary,
             ),
           ],

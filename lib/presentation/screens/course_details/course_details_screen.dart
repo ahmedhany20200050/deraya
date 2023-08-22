@@ -2,6 +2,7 @@ import 'package:autoscale_tabbarview/autoscale_tabbarview.dart';
 import 'package:deraya_application/core/Utils/utils.dart';
 import 'package:deraya_application/core/constant/colors.dart';
 import 'package:deraya_application/core/constant/text_styles.dart';
+import 'package:deraya_application/domain/models/courses/courses_model.dart';
 import 'package:deraya_application/presentation/components/button_widget.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
 import 'package:deraya_application/presentation/screens/course_details/course_details_components/comment.dart';
@@ -16,21 +17,32 @@ import 'course_details_components/courses_tab_bar.dart';
 import 'course_details_components/summary_tab_view.dart';
 
 class CourseDetailsScreen extends StatelessWidget {
-  static const List<String> requirments = [
-    "لا يلزم على الطالب وجود خبرة سابقة في مجال التصميم ،فإن الدورة سوف تساعدك على التدريب باستمرار.",
-    "يلزم جهاز كمبيوتر أو نظام تشغيل مناسب للتعامل الجيد مع برنامج Adobe Photoshop في الدورة التدريبية.",
-    "يستحسن استخدام جهاز التحكم ( Mouse ) ، وذلك للتحكم الجيد مع البرنامج.",
+  List<String> requirments = [
+    // "لا يلزم على الطالب وجود خبرة سابقة في مجال التصميم ،فإن الدورة سوف تساعدك على التدريب باستمرار.",
+    // "يلزم جهاز كمبيوتر أو نظام تشغيل مناسب للتعامل الجيد مع برنامج Adobe Photoshop في الدورة التدريبية.",
+    // "يستحسن استخدام جهاز التحكم ( Mouse ) ، وذلك للتحكم الجيد مع البرنامج.",
   ];
   static const List<String> skills = [
-    "الأدوات في فوتوشوب",
-    'تدرج الألوان',
-    "دمج الصور",
-    'الأشكال',
-    "النصوص المختلفة",
-    "المسافات وعمل تأثيرات",
-    "بطاطس وجمبها رز"
+    // "الأدوات في فوتوشوب",
+    // 'تدرج الألوان',
+    // "دمج الصور",
+    // 'الأشكال',
+    // "النصوص المختلفة",
+    // "المسافات وعمل تأثيرات",
+    // "بطاطس وجمبها رز"
   ];
-  const CourseDetailsScreen({super.key});
+  int? id;
+  List<Courses> data;
+  late Courses course;
+  CourseDetailsScreen(this.id, this.data,{super.key}){
+    for(var c in data){
+      if(c.id==this.id){
+        course=c;
+        requirments.add(c.requirementAr!);
+      }
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +67,7 @@ class CourseDetailsScreen extends StatelessWidget {
               16.ph,
               VideoReview(
                 url:
-                    "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4",
+                    course.video!,
               ),
               // 16.ph,
               Padding(
@@ -64,8 +76,7 @@ class CourseDetailsScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TextWidget(
-                      title:
-                          "كورس Photoshop بالكامل للمبتدأين ،وتعليم أساسيات التصميم والأدوات.",
+                      title:course.nameAr,
                       color: AppColors.primary,
                       fontSize: 26.sp,
                       fontWeight: FontWeight.w600,
@@ -80,8 +91,7 @@ class CourseDetailsScreen extends StatelessWidget {
                     ),
                     16.ph,
                     TextWidget(
-                      title:
-                          "يُعدّ فوتوشوب من البرامج الأكثر استخداماً من قِبَل المُصممين، ومطوري المواقع الإلكترونية، ومصممي الجرافيك، والمصورين، وأصحاب المهن الإبداعيّة الأخرى، حيث يُوفر لهم العديد من المزايا والأدوات للقيام بالعديد من المهام.",
+                      title:course.descriptionAr,
                       color: AppColors.primary,
                       fontSize: 18.sp,
                       fontWeight: FontWeight.w600,
@@ -179,7 +189,7 @@ class CourseDetailsScreen extends StatelessWidget {
                     ),
                     AutoScaleTabBarView(
                       children: [
-                      SummaryTabView(skills: skills, requirments: requirments),
+                      SummaryTabView(skills: skills, requirments: requirments,course:course),
                         ContentTabView(),
                       CommentsAndRatingView(),
                     ],),
@@ -228,7 +238,7 @@ class CourseDetailsScreen extends StatelessWidget {
                               horizontal: 10.w, vertical: 4.w),
                           child: Center(
                             child: TextWidget(
-                              title: "E£999.99",
+                              title: "E£${course.price}",
                               maxLines: 2,
                               textAlign: TextAlign.center,
                               fontSize: 16.sp,
@@ -240,7 +250,7 @@ class CourseDetailsScreen extends StatelessWidget {
                     ),
                     8.ph,
                     TextWidget(
-                      title: "E£999.99",
+                      title: "E£${course.price}",
                       maxLines: 2,
                       isOffer: true,
                       textAlign: TextAlign.center,

@@ -10,6 +10,7 @@ import 'package:deraya_application/presentation/screens/home/widget/category_wid
 import 'package:deraya_application/presentation/screens/home/widget/definition_row.dart';
 import 'package:deraya_application/presentation/screens/home/widget/instructors_widget.dart';
 import 'package:deraya_application/presentation/screens/home/widget/popular_courses.dart';
+import 'package:deraya_application/presentation/screens/login/login_screen.dart';
 import 'package:deraya_application/presentation/screens/search/filtter_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
