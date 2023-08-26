@@ -5,12 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import '../../../core/Utils/utils.dart';
 import '../../../core/constant/colors.dart';
 import '../../components/button_widget.dart';
 import '../../components/text_form_field.dart';
 import '../../components/text_widget.dart';
-import '../../layout/home_layout.dart';
 import 'login_screen.dart';
 import 'package:http/http.dart' as http;
 

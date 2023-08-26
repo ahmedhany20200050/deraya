@@ -7,13 +7,11 @@ import 'package:deraya_application/presentation/components/button_widget.dart';
 import 'package:deraya_application/presentation/components/text_form_field.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
 import 'package:deraya_application/presentation/layout/home_layout.dart';
-import 'package:deraya_application/presentation/screens/home/home_screen.dart';
-import 'package:deraya_application/presentation/screens/login/cubit/login_cubit.dart';
+
 import 'package:deraya_application/presentation/screens/login/forget_password_screen.dart';
 import 'package:deraya_application/presentation/screens/login/register.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -132,7 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         );
                         Utils.openScreen(context, HomeLayout());
                       }catch(e){
-                        print("hiiii\n"+response.toString());
+                 //       print("hiiii\n"+response.toString());
                         //var message=jsonDecode(response.body)['message'];
                         Fluttertoast.showToast(
                             msg: "${Message.fromJson(jsonDecode(response.body)).m} ",
@@ -143,10 +141,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             textColor: Colors.white,
                             fontSize: 16.0
                         );
-                        print('error ya ahmed');
-                        print(e);
+                     //   print('error ya ahmed');
+                       // print(e);
                       }
-                      print("finish ya ahmed");
+                     // print("finish ya ahmed");
 
                     },
 

@@ -51,25 +51,26 @@ class SubcategoriesScreen extends StatelessWidget {
                     child: const MostViewedListView(),
                   ),
                   24.ph,
-                  TextWidget(
-                    title: 'الأكثر بحثاً عن التصميم',
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.primary,
-                  ),
-                  12.ph,
-                   SizedBox(
-                    height: 60.h,
-                    child: const MostlySearch(),
-                  ),
-                   SizedBox(
-                    height: 60.h,
-                    child: const MostlySearch2(),
-                  ),
-                  SizedBox(
-                    height: (MediaQuery.of(context).size.height * 0.15),
-                    child: const InstructorsList(),
-                  ),
+                  ///mostly search and instructor
+                  // TextWidget(
+                  //   title: 'الأكثر بحثاً عن التصميم',
+                  //   fontSize: 20.sp,
+                  //   fontWeight: FontWeight.bold,
+                  //   color: AppColors.primary,
+                  // ),
+                  // 12.ph,
+                  //  SizedBox(
+                  //   height: 60.h,
+                  //   child: const MostlySearch(),
+                  // ),
+                  //  SizedBox(
+                  //   height: 60.h,
+                  //   child: const MostlySearch2(),
+                  // ),
+                  // SizedBox(
+                  //   height: (MediaQuery.of(context).size.height * 0.15),
+                  //   child: const InstructorsList(),
+                  // ),
                   50.ph,
                   Row(
                     children: [
@@ -214,22 +215,22 @@ class SubcategoriesScreen extends StatelessWidget {
                                             Text("Ali Wael",style: TextStyles.brownTextStyle,),
                                           ],
                                         ),
-                                        8.ph,
-                                        Container(
-                                          color: AppColors.lightBackground,
-                                          child: const Row(
-                                            children: [
-                                              Icon(
-                                                Icons.groups,
-                                                color: AppColors.primary,
-                                              ),
-                                              TextWidget(
-                                                  title: "1067 طالب",
-                                                color: AppColors.primary,
-                                              )
-                                            ],
-                                          ),
-                                        )
+                                        // 8.ph,
+                                        // Container(
+                                        //   color: AppColors.lightBackground,
+                                        //   child: const Row(
+                                        //     children: [
+                                        //       Icon(
+                                        //         Icons.groups,
+                                        //         color: AppColors.primary,
+                                        //       ),
+                                        //       TextWidget(
+                                        //           title: "1067 طالب",
+                                        //         color: AppColors.primary,
+                                        //       )
+                                        //     ],
+                                        //   ),
+                                        // )
                                       ],
                                     ),
                                     const Spacer(),
@@ -276,103 +277,103 @@ class SubcategoriesScreen extends StatelessWidget {
   }
 }
 
-class InstructorsList extends StatelessWidget {
-  const InstructorsList({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: const BouncingScrollPhysics(),
-      itemBuilder: (context, index) {
-        return const InstructorListItem();
-      },
-      itemCount: 5,
-      scrollDirection: Axis.horizontal,
-    );
-  }
-}
-
-class InstructorListItem extends StatelessWidget {
-  const InstructorListItem({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(16)),
-      ),
-      elevation: 4,
-      margin: const EdgeInsets.all(8),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  width: 35,
-                  height: 35,
-                  decoration: const ShapeDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(
-                          "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250"),
-                      fit: BoxFit.fill,
-                    ),
-                    shape: OvalBorder(),
-                  ),
-                ),
-                4.pw,
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const TextWidget(
-                      title: "Ahmed Mohammed Hany",
-                      color: AppColors.primary,
-                    ),
-                    4.ph,
-                    const TextWidget(
-                      title: "Figma&Photoshop",
-                      color: Colors.grey,
-                      fontSize: 12,
-                    ),
-                    4.ph,
-                    const Row(
-                      children: [
-
-                        TextWidget(
-                          title: "Courses ",
-                          color: Colors.grey,
-                          fontSize: 12,
-                        ),
-
-                        TextWidget(
-                          title: " 256  ",
-                          color: Colors.grey,
-                          fontSize: 12,
-                        ),
-                        Icon(
-                          Icons.laptop_chromebook,
-                          color: Colors.grey,
-                          size: 12,
-                        ),
-                      ],
-                    ),
-                  ],
-                )
-              ].reversed.toList(),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+// class InstructorsList extends StatelessWidget {
+//   const InstructorsList({
+//     super.key,
+//   });
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListView.builder(
+//       physics: const BouncingScrollPhysics(),
+//       itemBuilder: (context, index) {
+//         return const InstructorListItem();
+//       },
+//       itemCount: 5,
+//       scrollDirection: Axis.horizontal,
+//     );
+//   }
+// }
+//
+// class InstructorListItem extends StatelessWidget {
+//   const InstructorListItem({
+//     super.key,
+//   });
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Card(
+//       shape: const RoundedRectangleBorder(
+//         borderRadius: BorderRadius.all(Radius.circular(16)),
+//       ),
+//       elevation: 4,
+//       margin: const EdgeInsets.all(8),
+//       child: Padding(
+//         padding: const EdgeInsets.all(8.0),
+//         child: Column(
+//           children: [
+//             Row(
+//               crossAxisAlignment: CrossAxisAlignment.start,
+//               children: [
+//                 Container(
+//                   width: 35,
+//                   height: 35,
+//                   decoration: const ShapeDecoration(
+//                     image: DecorationImage(
+//                       image: NetworkImage(
+//                           "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250"),
+//                       fit: BoxFit.fill,
+//                     ),
+//                     shape: OvalBorder(),
+//                   ),
+//                 ),
+//                 4.pw,
+//                 Column(
+//                   crossAxisAlignment: CrossAxisAlignment.end,
+//                   mainAxisAlignment: MainAxisAlignment.center,
+//                   children: [
+//                     const TextWidget(
+//                       title: "Ahmed Mohammed Hany",
+//                       color: AppColors.primary,
+//                     ),
+//                     4.ph,
+//                     const TextWidget(
+//                       title: "Figma&Photoshop",
+//                       color: Colors.grey,
+//                       fontSize: 12,
+//                     ),
+//                     4.ph,
+//                     const Row(
+//                       children: [
+//
+//                         TextWidget(
+//                           title: "Courses ",
+//                           color: Colors.grey,
+//                           fontSize: 12,
+//                         ),
+//
+//                         TextWidget(
+//                           title: " 256  ",
+//                           color: Colors.grey,
+//                           fontSize: 12,
+//                         ),
+//                         Icon(
+//                           Icons.laptop_chromebook,
+//                           color: Colors.grey,
+//                           size: 12,
+//                         ),
+//                       ],
+//                     ),
+//                   ],
+//                 )
+//               ].reversed.toList(),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class MostViewedListView extends StatelessWidget {
   const MostViewedListView({
@@ -522,68 +523,70 @@ class MostViewedItem extends StatelessWidget {
             ),
           ),
           12.ph,
-          Row(
+          const Row(
             children: [
-              Container(
-                width: 97.w,
-                height: 29.h,
-                padding: EdgeInsets.symmetric(horizontal: 8.w),
-                decoration: BoxDecoration(
-                  color: AppColors.primary.withOpacity(0.2),
-                  borderRadius: BorderRadius.circular(5.r),
-                ),
-                child: Row(
-                  children: [
-                     Icon(
-                      Icons.people_alt_outlined,
-                      color: AppColors.primary,
-                      size: 20.sp,
-                    ),
-                    5.pw,
-                    TextWidget(
-                      title: "1,067 طالب",
-                      textAlign: TextAlign.center,
-                      fontSize: 13.sp,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.primary,
-                    ),
-                  ],
-                ),
-              ),
-              const Spacer(),
-              const PriceWidget(),
+              /// student counter
+              // Container(
+              //   width: 97.w,
+              //   height: 29.h,
+              //   padding: EdgeInsets.symmetric(horizontal: 8.w),
+              //   decoration: BoxDecoration(
+              //     color: AppColors.primary.withOpacity(0.2),
+              //     borderRadius: BorderRadius.circular(5.r),
+              //   ),
+              //   child: Row(
+              //     children: [
+              //        Icon(
+              //         Icons.people_alt_outlined,
+              //         color: AppColors.primary,
+              //         size: 20.sp,
+              //       ),
+              //       5.pw,
+              //       TextWidget(
+              //         title: "1,067 طالب",
+              //         textAlign: TextAlign.center,
+              //         fontSize: 13.sp,
+              //         fontWeight: FontWeight.w600,
+              //         color: AppColors.primary,
+              //       ),
+              //     ],
+              //   ),
+              // ),
+              Spacer(),
+              PriceWidget(),
             ],
           ),
           12.ph,
           Row(
             children: [
-              Container(
-                width: 80.w,
-                height: 29.h,
-                padding: EdgeInsets.symmetric(horizontal: 8.w),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: AppColors.primary.withOpacity(0.2),
-                  borderRadius: BorderRadius.circular(5.r),
-                ),
-                child: Row(
-                  children: [
-                     Icon(
-                      Icons.language_rounded,
-                      color: AppColors.primary,
-                      size: 18.sp,
-                    ),
-                    5.pw,
-                    TextWidget(
-                      title: "عربي",
-                      textAlign: TextAlign.center,
-                      fontSize: 13.sp,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.primary,
-                    ),
-                  ],
-                ),
-              ),
+              /// course language
+              // Container(
+              //   width: 80.w,
+              //   height: 29.h,
+              //   padding: EdgeInsets.symmetric(horizontal: 8.w),
+              //   alignment: Alignment.center,
+              //   decoration: BoxDecoration(
+              //     color: AppColors.primary.withOpacity(0.2),
+              //     borderRadius: BorderRadius.circular(5.r),
+              //   ),
+              //   child: Row(
+              //     children: [
+              //        Icon(
+              //         Icons.language_rounded,
+              //         color: AppColors.primary,
+              //         size: 18.sp,
+              //       ),
+              //       5.pw,
+              //       TextWidget(
+              //         title: "عربي",
+              //         textAlign: TextAlign.center,
+              //         fontSize: 13.sp,
+              //         fontWeight: FontWeight.w600,
+              //         color: AppColors.primary,
+              //       ),
+              //     ],
+              //   ),
+              // ),
               const Spacer(),
               Padding(
                 padding:  EdgeInsets.only(left: 16.0.w),
@@ -603,318 +606,318 @@ class MostViewedItem extends StatelessWidget {
     );
   }
 }
-
-class MostlySearch2 extends StatelessWidget {
-  const MostlySearch2({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      physics: const BouncingScrollPhysics(),
-      child: Row(
-        children: [
-          Container(
-            constraints:  BoxConstraints(minWidth: 80.w),
-            height: 38.h,
-            margin:  EdgeInsets.symmetric(horizontal: 8.w),
-            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(25.r),
-              boxShadow: [
-                BoxShadow(
-                    offset: const Offset(0, 1),
-                    blurRadius: 4,
-                    spreadRadius: 0,
-                    color: const Color(0xFF000000).withOpacity(0.0625)),
-              ],
-            ),
-            child:  FittedBox(
-                child: TextWidget(
-              title: 'Illustrator',
-              color: AppColors.primary,
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-            )),
-          ),
-          Container(
-            constraints:  BoxConstraints(minWidth: 55.w),
-            height: 38.h,
-            margin:  EdgeInsets.symmetric(horizontal: 8.w),
-            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(25.r),
-              boxShadow: [
-                BoxShadow(
-                    offset: const Offset(0, 1),
-                    blurRadius: 4,
-                    spreadRadius: 0,
-                    color: const Color(0xFF000000).withOpacity(0.0625)),
-              ],
-            ),
-            child:  FittedBox(
-                child: TextWidget(
-              title: 'XD',
-              color: AppColors.primary,
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-            )),
-          ),
-          Container(
-            constraints:  BoxConstraints(minWidth: 55.w),
-            height: 38.h,
-            margin:  EdgeInsets.symmetric(horizontal: 8.w),
-            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(25.r),
-              boxShadow: [
-                BoxShadow(
-                    offset:  const Offset(0, 1),
-                    blurRadius: 4,
-                    spreadRadius: 0,
-                    color: const Color(0xFF000000).withOpacity(0.0625)),
-              ],
-            ),
-            child:  FittedBox(
-                child: TextWidget(
-              title: 'واجهة المستخدم',
-              color: AppColors.primary,
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-            )),
-          ),
-          Container(
-            constraints:  BoxConstraints(minWidth: 55.w),
-            height: 38.h,
-            margin:  EdgeInsets.symmetric(horizontal: 8.w),
-            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(25.r),
-              boxShadow: [
-                BoxShadow(
-                    offset: const Offset(0, 1),
-                    blurRadius: 4,
-                    spreadRadius: 0,
-                    color: const Color(0xFF000000).withOpacity(0.0625)),
-              ],
-            ),
-            child:  FittedBox(
-                child: TextWidget(
-              title: 'UX',
-              color: AppColors.primary,
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-            )),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class MostlySearch extends StatelessWidget {
-  const MostlySearch({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      physics: const BouncingScrollPhysics(),
-      child: Row(
-        children: [
-          Container(
-            constraints:  BoxConstraints(minWidth: 80.w),
-            height: 38.h,
-            margin:  EdgeInsets.symmetric(horizontal: 8.w),
-            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(25.r),
-              boxShadow: [
-                BoxShadow(
-                    offset: const Offset(0, 1),
-                    blurRadius: 4,
-                    spreadRadius: 0,
-                    color: const Color(0xFF000000).withOpacity(0.0625)),
-              ],
-            ),
-            child:  FittedBox(
-                child: TextWidget(
-              title: 'Figma',
-              color: AppColors.primary,
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-            )),
-          ),
-          Container(
-            constraints:  BoxConstraints(minWidth: 80.w),
-            height: 38.h,
-            margin:  EdgeInsets.symmetric(horizontal: 8.w),
-            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(25),
-              boxShadow: [
-                BoxShadow(
-                    offset: const Offset(0, 1),
-                    blurRadius: 4,
-                    spreadRadius: 0,
-                    color: const Color(0xFF000000).withOpacity(0.0625)),
-              ],
-            ),
-            child:  FittedBox(
-                child: TextWidget(
-              title: 'Photoshop',
-              color: AppColors.primary,
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-            )),
-          ),
-          Container(
-            constraints:  BoxConstraints(minWidth: 80.w),
-            height: 38.h,
-            margin:  EdgeInsets.symmetric(horizontal: 8.w),
-            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(25.r),
-              boxShadow: [
-                BoxShadow(
-                    offset: const Offset(0, 1),
-                    blurRadius: 4,
-                    spreadRadius: 0,
-                    color: const Color(0xFF000000).withOpacity(0.0625)),
-              ],
-            ),
-            child:  FittedBox(
-                child: TextWidget(
-              title: 'رسم',
-              color: AppColors.primary,
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-            )),
-          ),
-          Container(
-            constraints:  BoxConstraints(minWidth: 80.w, maxHeight: 40.h),
-            height: 38.h,
-            margin:  EdgeInsets.symmetric(horizontal: 8.w),
-            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(25.r),
-              boxShadow: [
-                BoxShadow(
-                    offset: const Offset(0, 1),
-                    blurRadius: 4,
-                    spreadRadius: 0,
-                    color: const Color(0xFF000000).withOpacity(0.0625)),
-              ],
-            ),
-            child:  FittedBox(
-                fit: BoxFit.fitWidth,
-                child: TextWidget(
-                  title: 'Web Design',
-                  color: AppColors.primary,
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w600,
-                )),
-          ),
-          Container(
-            constraints:  BoxConstraints(minWidth: 80.w),
-            height: 38.h,
-            margin:  EdgeInsets.symmetric(horizontal: 8.w),
-            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(25.r),
-              boxShadow: [
-                BoxShadow(
-                    offset: const Offset(0, 1),
-                    blurRadius: 4,
-                    spreadRadius: 0,
-                    color: const Color(0xFF000000).withOpacity(0.0625)),
-              ],
-            ),
-            child:  FittedBox(
-                child: TextWidget(
-              title: 'Adobe PhotoShop',
-              color: AppColors.primary,
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-            )),
-          ),
-          Container(
-            constraints:  BoxConstraints(minWidth: 80.w),
-            height: 38.h,
-            margin:  EdgeInsets.symmetric(horizontal: 8.w),
-            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(25.r),
-              boxShadow: [
-                BoxShadow(
-                    offset: const Offset(0, 1),
-                    blurRadius: 4,
-                    spreadRadius: 0,
-                    color: const Color(0xFF000000).withOpacity(0.0625)),
-              ],
-            ),
-            child:  FittedBox(
-                child: TextWidget(
-              title: 'Adobe PhotoShop',
-              color: AppColors.primary,
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-            )),
-          ),
-          Container(
-            constraints:  BoxConstraints(minWidth: 80.w),
-            height: 38.h,
-            margin:  EdgeInsets.symmetric(horizontal: 8.w),
-            padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(25.r),
-              boxShadow: [
-                BoxShadow(
-                    offset: const Offset(0, 1),
-                    blurRadius: 4,
-                    spreadRadius: 0,
-                    color: const Color(0xFF000000).withOpacity(0.0625)),
-              ],
-            ),
-            child:  FittedBox(
-                child: TextWidget(
-              title: 'Adobe PhotoShop',
-              color: AppColors.primary,
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-            )),
-          ),
-        ],
-      ),
-    );
-  }
-}
+//
+// class MostlySearch2 extends StatelessWidget {
+//   const MostlySearch2({
+//     super.key,
+//   });
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return SingleChildScrollView(
+//       scrollDirection: Axis.horizontal,
+//       physics: const BouncingScrollPhysics(),
+//       child: Row(
+//         children: [
+//           Container(
+//             constraints:  BoxConstraints(minWidth: 80.w),
+//             height: 38.h,
+//             margin:  EdgeInsets.symmetric(horizontal: 8.w),
+//             padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
+//             alignment: Alignment.center,
+//             decoration: BoxDecoration(
+//               color: Colors.white,
+//               borderRadius: BorderRadius.circular(25.r),
+//               boxShadow: [
+//                 BoxShadow(
+//                     offset: const Offset(0, 1),
+//                     blurRadius: 4,
+//                     spreadRadius: 0,
+//                     color: const Color(0xFF000000).withOpacity(0.0625)),
+//               ],
+//             ),
+//             child:  FittedBox(
+//                 child: TextWidget(
+//               title: 'Illustrator',
+//               color: AppColors.primary,
+//               fontSize: 16.sp,
+//               fontWeight: FontWeight.w600,
+//             )),
+//           ),
+//           Container(
+//             constraints:  BoxConstraints(minWidth: 55.w),
+//             height: 38.h,
+//             margin:  EdgeInsets.symmetric(horizontal: 8.w),
+//             padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
+//             alignment: Alignment.center,
+//             decoration: BoxDecoration(
+//               color: Colors.white,
+//               borderRadius: BorderRadius.circular(25.r),
+//               boxShadow: [
+//                 BoxShadow(
+//                     offset: const Offset(0, 1),
+//                     blurRadius: 4,
+//                     spreadRadius: 0,
+//                     color: const Color(0xFF000000).withOpacity(0.0625)),
+//               ],
+//             ),
+//             child:  FittedBox(
+//                 child: TextWidget(
+//               title: 'XD',
+//               color: AppColors.primary,
+//               fontSize: 16.sp,
+//               fontWeight: FontWeight.w600,
+//             )),
+//           ),
+//           Container(
+//             constraints:  BoxConstraints(minWidth: 55.w),
+//             height: 38.h,
+//             margin:  EdgeInsets.symmetric(horizontal: 8.w),
+//             padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
+//             alignment: Alignment.center,
+//             decoration: BoxDecoration(
+//               color: Colors.white,
+//               borderRadius: BorderRadius.circular(25.r),
+//               boxShadow: [
+//                 BoxShadow(
+//                     offset:  const Offset(0, 1),
+//                     blurRadius: 4,
+//                     spreadRadius: 0,
+//                     color: const Color(0xFF000000).withOpacity(0.0625)),
+//               ],
+//             ),
+//             child:  FittedBox(
+//                 child: TextWidget(
+//               title: 'واجهة المستخدم',
+//               color: AppColors.primary,
+//               fontSize: 16.sp,
+//               fontWeight: FontWeight.w600,
+//             )),
+//           ),
+//           Container(
+//             constraints:  BoxConstraints(minWidth: 55.w),
+//             height: 38.h,
+//             margin:  EdgeInsets.symmetric(horizontal: 8.w),
+//             padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
+//             alignment: Alignment.center,
+//             decoration: BoxDecoration(
+//               color: Colors.white,
+//               borderRadius: BorderRadius.circular(25.r),
+//               boxShadow: [
+//                 BoxShadow(
+//                     offset: const Offset(0, 1),
+//                     blurRadius: 4,
+//                     spreadRadius: 0,
+//                     color: const Color(0xFF000000).withOpacity(0.0625)),
+//               ],
+//             ),
+//             child:  FittedBox(
+//                 child: TextWidget(
+//               title: 'UX',
+//               color: AppColors.primary,
+//               fontSize: 16.sp,
+//               fontWeight: FontWeight.w600,
+//             )),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+//
+// class MostlySearch extends StatelessWidget {
+//   const MostlySearch({
+//     super.key,
+//   });
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return SingleChildScrollView(
+//       scrollDirection: Axis.horizontal,
+//       physics: const BouncingScrollPhysics(),
+//       child: Row(
+//         children: [
+//           Container(
+//             constraints:  BoxConstraints(minWidth: 80.w),
+//             height: 38.h,
+//             margin:  EdgeInsets.symmetric(horizontal: 8.w),
+//             padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
+//             alignment: Alignment.center,
+//             decoration: BoxDecoration(
+//               color: Colors.white,
+//               borderRadius: BorderRadius.circular(25.r),
+//               boxShadow: [
+//                 BoxShadow(
+//                     offset: const Offset(0, 1),
+//                     blurRadius: 4,
+//                     spreadRadius: 0,
+//                     color: const Color(0xFF000000).withOpacity(0.0625)),
+//               ],
+//             ),
+//             child:  FittedBox(
+//                 child: TextWidget(
+//               title: 'Figma',
+//               color: AppColors.primary,
+//               fontSize: 16.sp,
+//               fontWeight: FontWeight.w600,
+//             )),
+//           ),
+//           Container(
+//             constraints:  BoxConstraints(minWidth: 80.w),
+//             height: 38.h,
+//             margin:  EdgeInsets.symmetric(horizontal: 8.w),
+//             padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
+//             alignment: Alignment.center,
+//             decoration: BoxDecoration(
+//               color: Colors.white,
+//               borderRadius: BorderRadius.circular(25),
+//               boxShadow: [
+//                 BoxShadow(
+//                     offset: const Offset(0, 1),
+//                     blurRadius: 4,
+//                     spreadRadius: 0,
+//                     color: const Color(0xFF000000).withOpacity(0.0625)),
+//               ],
+//             ),
+//             child:  FittedBox(
+//                 child: TextWidget(
+//               title: 'Photoshop',
+//               color: AppColors.primary,
+//               fontSize: 16.sp,
+//               fontWeight: FontWeight.w600,
+//             )),
+//           ),
+//           Container(
+//             constraints:  BoxConstraints(minWidth: 80.w),
+//             height: 38.h,
+//             margin:  EdgeInsets.symmetric(horizontal: 8.w),
+//             padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
+//             alignment: Alignment.center,
+//             decoration: BoxDecoration(
+//               color: Colors.white,
+//               borderRadius: BorderRadius.circular(25.r),
+//               boxShadow: [
+//                 BoxShadow(
+//                     offset: const Offset(0, 1),
+//                     blurRadius: 4,
+//                     spreadRadius: 0,
+//                     color: const Color(0xFF000000).withOpacity(0.0625)),
+//               ],
+//             ),
+//             child:  FittedBox(
+//                 child: TextWidget(
+//               title: 'رسم',
+//               color: AppColors.primary,
+//               fontSize: 16.sp,
+//               fontWeight: FontWeight.w600,
+//             )),
+//           ),
+//           Container(
+//             constraints:  BoxConstraints(minWidth: 80.w, maxHeight: 40.h),
+//             height: 38.h,
+//             margin:  EdgeInsets.symmetric(horizontal: 8.w),
+//             padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
+//             alignment: Alignment.center,
+//             decoration: BoxDecoration(
+//               color: Colors.white,
+//               borderRadius: BorderRadius.circular(25.r),
+//               boxShadow: [
+//                 BoxShadow(
+//                     offset: const Offset(0, 1),
+//                     blurRadius: 4,
+//                     spreadRadius: 0,
+//                     color: const Color(0xFF000000).withOpacity(0.0625)),
+//               ],
+//             ),
+//             child:  FittedBox(
+//                 fit: BoxFit.fitWidth,
+//                 child: TextWidget(
+//                   title: 'Web Design',
+//                   color: AppColors.primary,
+//                   fontSize: 16.sp,
+//                   fontWeight: FontWeight.w600,
+//                 )),
+//           ),
+//           Container(
+//             constraints:  BoxConstraints(minWidth: 80.w),
+//             height: 38.h,
+//             margin:  EdgeInsets.symmetric(horizontal: 8.w),
+//             padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
+//             alignment: Alignment.center,
+//             decoration: BoxDecoration(
+//               color: Colors.white,
+//               borderRadius: BorderRadius.circular(25.r),
+//               boxShadow: [
+//                 BoxShadow(
+//                     offset: const Offset(0, 1),
+//                     blurRadius: 4,
+//                     spreadRadius: 0,
+//                     color: const Color(0xFF000000).withOpacity(0.0625)),
+//               ],
+//             ),
+//             child:  FittedBox(
+//                 child: TextWidget(
+//               title: 'Adobe PhotoShop',
+//               color: AppColors.primary,
+//               fontSize: 16.sp,
+//               fontWeight: FontWeight.w600,
+//             )),
+//           ),
+//           Container(
+//             constraints:  BoxConstraints(minWidth: 80.w),
+//             height: 38.h,
+//             margin:  EdgeInsets.symmetric(horizontal: 8.w),
+//             padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
+//             alignment: Alignment.center,
+//             decoration: BoxDecoration(
+//               color: Colors.white,
+//               borderRadius: BorderRadius.circular(25.r),
+//               boxShadow: [
+//                 BoxShadow(
+//                     offset: const Offset(0, 1),
+//                     blurRadius: 4,
+//                     spreadRadius: 0,
+//                     color: const Color(0xFF000000).withOpacity(0.0625)),
+//               ],
+//             ),
+//             child:  FittedBox(
+//                 child: TextWidget(
+//               title: 'Adobe PhotoShop',
+//               color: AppColors.primary,
+//               fontSize: 16.sp,
+//               fontWeight: FontWeight.w600,
+//             )),
+//           ),
+//           Container(
+//             constraints:  BoxConstraints(minWidth: 80.w),
+//             height: 38.h,
+//             margin:  EdgeInsets.symmetric(horizontal: 8.w),
+//             padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
+//             alignment: Alignment.center,
+//             decoration: BoxDecoration(
+//               color: Colors.white,
+//               borderRadius: BorderRadius.circular(25.r),
+//               boxShadow: [
+//                 BoxShadow(
+//                     offset: const Offset(0, 1),
+//                     blurRadius: 4,
+//                     spreadRadius: 0,
+//                     color: const Color(0xFF000000).withOpacity(0.0625)),
+//               ],
+//             ),
+//             child:  FittedBox(
+//                 child: TextWidget(
+//               title: 'Adobe PhotoShop',
+//               color: AppColors.primary,
+//               fontSize: 16.sp,
+//               fontWeight: FontWeight.w600,
+//             )),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 class SubcategoriesSearchBar extends StatelessWidget {
   const SubcategoriesSearchBar({

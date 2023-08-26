@@ -46,7 +46,7 @@ class HomeScreen extends StatelessWidget {
                       // mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         CircleAvatar(
-                          backgroundImage: AssetImage(
+                          backgroundImage: const AssetImage(
                             "assets/images/avatar.png",
                           ),
                           radius: 30.r,
@@ -55,16 +55,29 @@ class HomeScreen extends StatelessWidget {
                         TextWidget(
                           title: "اهلا ${userUltraProMax?.name==null? "none":userUltraProMax?.name}",
                           fontSize: 16.sp,
+                          color: Colors.white,
                         ),
                       ],
                     ),
                     actions: [
                       IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            /// add delet acc
+                            ///
+                          },
                           icon: const Icon(
-                            Icons.menu,
+                            Icons.no_accounts_outlined,
                             color: Colors.white,
-                          ))
+                          )),
+                      IconButton(
+                          onPressed: () {
+                            /// logout
+
+                          },
+                          icon: const Icon(
+                            Icons.logout,
+                            color: Colors.white,
+                          )),
                     ],
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.vertical(
@@ -103,7 +116,7 @@ class HomeScreen extends StatelessWidget {
                                   child: TextFormFieldWidget(
                                     onChanged: (e) {},
                                     onTap: () {
-                                      Utils.openScreen(context, FilterScreen());
+                                      Utils.openScreen(context, const FilterScreen());
                                     },
                                     // borderRadius: 0,
 
@@ -144,19 +157,19 @@ class HomeScreen extends StatelessWidget {
                               subTitle: "الكل",
                             ),
                             16.ph,
-                            CurrentCoursesWidget(),
-                            16.ph,
-                            DefinitionRow(
-                              title: "أشهر المدربين لدينا",
-                              subTitle: "الكل",
-                            ),
-                            InstructorWidget(),
+                            const CurrentCoursesWidget(),
+                            // 16.ph,
+                            // DefinitionRow(
+                            //   title: "أشهر المدربين لدينا",
+                            //   subTitle: "الكل",
+                            // ),
+                            // const InstructorWidget(),
                             DefinitionRow(
                               title: "الكورسات الأكثر مشاهدة",
                               subTitle: "الكل",
                             ),
                             8.ph,
-                            PopularCoursesWidget(),
+                            const PopularCoursesWidget(),
 
 
                           ],

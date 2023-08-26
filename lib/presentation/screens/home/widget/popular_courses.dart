@@ -51,16 +51,16 @@ class PopularCoursesWidget extends StatelessWidget {
                                     color: AppColors.primary,
                                   ),
                                   5.pw,
-                                  SvgPicture.asset("assets/images/star.svg")
+                                  const Icon(Icons.star,color: Colors.amber,size: 15,),
                                 ],
                               ),
                             ),
                           ],
                         ),
-                        Spacer(),
+                        const Spacer(),
                         IconButton(
                             onPressed: () {},
-                            icon: CircleAvatar(
+                            icon: const CircleAvatar(
                                 backgroundColor: Colors.white,
                                 child: Icon(
                                   Icons.favorite_border,
@@ -88,86 +88,86 @@ class PopularCoursesWidget extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Stack(
-                      children: [
-                        Container(
-                          width: 120.w,
-                          height: 60.h,
-                          // margin: EdgeInsets.symmetric(
-                          //     horizontal: 10.w
-                          // ),
-
-                          decoration: BoxDecoration(
-                            color: AppColors.primary.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(16.r),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 10.w, vertical: 10.w),
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.people_alt_outlined,
-                                color: AppColors.primary,
-                              ),
-                              5.pw,
-                              TextWidget(
-                                title: "1,067 طالب",
-                                maxLines: 2,
-                                textAlign: TextAlign.center,
-                                fontSize: 16.sp,
-                                color: AppColors.primary,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    Spacer(),
-                    PriceWidget(),
+                    // Stack(
+                    //   children: [
+                    //     Container(
+                    //       width: 120.w,
+                    //       height: 60.h,
+                    //       // margin: EdgeInsets.symmetric(
+                    //       //     horizontal: 10.w
+                    //       // ),
+                    //
+                    //       decoration: BoxDecoration(
+                    //         color: AppColors.primary.withOpacity(0.2),
+                    //         borderRadius: BorderRadius.circular(16.r),
+                    //       ),
+                    //     ),
+                    //     Padding(
+                    //       padding: EdgeInsets.symmetric(
+                    //           horizontal: 10.w, vertical: 10.w),
+                    //       child: Row(
+                    //         children: [
+                    //           const Icon(
+                    //             Icons.people_alt_outlined,
+                    //             color: AppColors.primary,
+                    //           ),
+                    //           5.pw,
+                    //           TextWidget(
+                    //             title: "1,067 طالب",
+                    //             maxLines: 2,
+                    //             textAlign: TextAlign.center,
+                    //             fontSize: 16.sp,
+                    //             color: AppColors.primary,
+                    //           ),
+                    //         ],
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
+                    // const Spacer(),
+                    const PriceWidget(),
                   ],
                 ),
                 10.ph,
                 Row(
                   children: [
-                    Stack(
-                      children: [
-                        Container(
-                          width: 80.w,
-                          height: 60.h,
-                          // margin: EdgeInsets.symmetric(
-                          //     horizontal: 10.w
-                          // ),
-
-                          decoration: BoxDecoration(
-                            color: AppColors.primary.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(16.r),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 10.w, vertical: 10.w),
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.language_rounded,
-                                color: AppColors.primary,
-                              ),
-                              5.pw,
-                              TextWidget(
-                                title: "عربي",
-                                maxLines: 2,
-                                textAlign: TextAlign.center,
-                                fontSize: 16.sp,
-                                color: AppColors.primary,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    Spacer(),
+                    // Stack(
+                    //   children: [
+                    //     Container(
+                    //       width: 80.w,
+                    //       height: 60.h,
+                    //       // margin: EdgeInsets.symmetric(
+                    //       //     horizontal: 10.w
+                    //       // ),
+                    //
+                    //       decoration: BoxDecoration(
+                    //         color: AppColors.primary.withOpacity(0.2),
+                    //         borderRadius: BorderRadius.circular(16.r),
+                    //       ),
+                    //     ),
+                    //     Padding(
+                    //       padding: EdgeInsets.symmetric(
+                    //           horizontal: 10.w, vertical: 10.w),
+                    //       child: Row(
+                    //         children: [
+                    //           const Icon(
+                    //             Icons.language_rounded,
+                    //             color: AppColors.primary,
+                    //           ),
+                    //           5.pw,
+                    //           TextWidget(
+                    //             title: "عربي",
+                    //             maxLines: 2,
+                    //             textAlign: TextAlign.center,
+                    //             fontSize: 16.sp,
+                    //             color: AppColors.primary,
+                    //           ),
+                    //         ],
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
+                    // const Spacer(),
 
                     Padding(
                       padding: EdgeInsets.symmetric(

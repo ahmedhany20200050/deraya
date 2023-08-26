@@ -70,7 +70,7 @@ class CurrentCoursesWidget extends StatelessWidget {
                                   fontSize: 16.sp,
                                   color: Colors.grey,
                                 ),
-                                Spacer(),
+                                const Spacer(),
                                 TextWidget(
                                   title: "${data?[index].lectures??""}  فيديو",
                                   maxLines: 2,
@@ -96,10 +96,10 @@ class CurrentCoursesWidget extends StatelessWidget {
                                       color: Colors.grey,
                                     ),
                                     5.pw,
-                                    SvgPicture.asset("assets/images/star.svg")
+                                    const Icon(Icons.star,color: Colors.amber,size: 15,)
                                   ],
                                 ),
-                                Spacer(),
+                                const Spacer(),
                                 TextWidget(
                                   title: "3.5kمشاهدات",
                                   maxLines: 2,
