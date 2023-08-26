@@ -6,10 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/constant/colors.dart';
+import '../../../domain/models/category_model/categories_model.dart';
 import '../../components/text_form_field.dart';
 
 class CategoryScreen extends StatelessWidget {
-  const CategoryScreen({Key? key}) : super(key: key);
+  List<Categories>c;
+
+  CategoryScreen(this.c,{Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,16 +32,16 @@ class CategoryScreen extends StatelessWidget {
             TextWidget(title: "all categories".tr(),fontSize: 20.sp,fontWeight: FontWeight.w700,color: AppColors.primary,),
             8.ph,
             TextWidget(title: "categories def".tr(),fontSize: 16.sp,fontWeight: FontWeight.w600,color: AppColors.primary,),
-           16.ph,
+            16.ph,
             Expanded(
                 child: GridView.builder(
-                    itemCount: 10, // Number of items in the grid
+                    itemCount: this.c.length, // Number of items in the grid
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 16,
                       mainAxisSpacing: 20,
                     ),
-                    itemBuilder: (context,index)=>const CategoryItem())),
+                    itemBuilder: (context,index)=> CategoryItem(this.c[index]))),
           ],
         ),
       ),
@@ -47,7 +50,8 @@ class CategoryScreen extends StatelessWidget {
 }
 
 class CategoryItem extends StatelessWidget {
-  const CategoryItem({
+  Categories c= Categories();
+  CategoryItem(this.c, {
     super.key,
   });
 
@@ -62,18 +66,18 @@ class CategoryItem extends StatelessWidget {
         boxShadow: [
           BoxShadow(color: const Color(0xFF000010).withOpacity(.3),blurRadius: 8,),
         ],
-        image: const DecorationImage(
+        image:  DecorationImage(
           fit: BoxFit.cover,
-          image: NetworkImage('https://img.freepik.com/premium-photo/judge-gavel-with-justice-lawyers-having-team-meeting-law-firm-background_1418-2111.jpg?size=626&ext=jpg&uid=R76923949&ga=GA1.1.409472889.1674466048&semt=sph'),),
+          image: NetworkImage('${this.c.image}'),),
         borderRadius: BorderRadius.circular(14),
       ),
       child: Container(
-        height: 60.h,
-        width: double.infinity,
+          height: 60.h,
+          width: double.infinity,
           alignment: Alignment.center,
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              begin: Alignment.topCenter,
+                begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
                   Colors.white38,
@@ -87,12 +91,12 @@ class CategoryItem extends StatelessWidget {
             children: [
               IconButton(
                   padding: EdgeInsets.only(right: 20.w),
-                 color: Colors.white,
-                 highlightColor: Colors.white,
+                  color: Colors.white,
+                  highlightColor: Colors.white,
                   onPressed: (){
                     Utils.openScreen(context, SubcategoriesScreen());
                   }, icon:  Icon(Icons.arrow_back_ios,)),
-              const TextWidget(title: 'القانون',fontSize: 20,fontWeight: FontWeight.w700,color: Colors.white,),
+              TextWidget(title: this.c.nameAr,fontSize: 20,fontWeight: FontWeight.w700,color: Colors.white,),
             ],
           )),
     );
@@ -116,7 +120,7 @@ class SearchBar extends StatelessWidget {
         Expanded(
           child: TextFormFieldWidget(
             onChanged: (e) {},
-             borderRadius: 20,
+            borderRadius: 20,
             hintText: "ابحث عن الدورات",
             suffixIcon: Icon(
               Icons.search,

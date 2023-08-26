@@ -47,7 +47,7 @@ class SubcategoriesScreen extends StatelessWidget {
                   ),
                   8.ph,
                   SizedBox(
-                    height: 0.38.h.sh,
+                    height: 0.45.h.sh,
                     child: const MostViewedListView(),
                   ),
                   24.ph,

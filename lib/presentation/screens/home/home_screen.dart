@@ -53,7 +53,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         16.pw,
                         TextWidget(
-                          title: "اهلا يوسف",
+                          title: "اهلا ${userUltraProMax?.name==null? "none":userUltraProMax?.name}",
                           fontSize: 16.sp,
                         ),
                       ],
@@ -135,7 +135,7 @@ class HomeScreen extends StatelessWidget {
                               title: "الفئات",
                               subTitle: "جميع الفئات",
                               secondOnTap: () {
-                                Utils.openScreen(context, CategoryScreen());
+                                Utils.openScreen(context, CategoryScreen(HomeCubit.get(context).categoriesModel!.categories!));
                               },
                             ),
                             const CategoryWidget(),
