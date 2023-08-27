@@ -16,6 +16,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 User? userUltraProMax;
 class LoginScreen extends StatefulWidget {
@@ -28,6 +29,22 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   late TextEditingController email= TextEditingController();
   late TextEditingController password= TextEditingController();
+  bool rememberMe=true;
+  Future remember() async{
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool getData=prefs.getBool("rememberMe")??false;
+    if(getData){
+      email.text= prefs.getString('email')??"";
+      password.text = prefs.getString('password')??"";
+    }
+
+  }
+  @override
+  void initState(){
+    // TODO: implement initState
+    super.initState();
+    remember();
+  }
   @override
   Widget build(BuildContext context) {
         return Scaffold(
@@ -79,8 +96,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Checkbox(
-                        value: false,
-                        onChanged: (val){},
+                        value: rememberMe,
+                        onChanged: (val){
+                          setState(() {
+                            rememberMe=val!;
+                          });
+                        },
                         side: const BorderSide(color: AppColors.primary,width: 1,),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4),),
                       ),
@@ -113,11 +134,17 @@ class _LoginScreenState extends State<LoginScreen> {
                           'password' : password.text??" ",
                         }),
                       );
+                      final SharedPreferences prefs = await SharedPreferences.getInstance();
                       try{
 
 
                         User u=User.fromJson(jsonDecode(response.body));
                         userUltraProMax=u;
+                          await prefs.setBool("rememberMe", rememberMe);
+                          await prefs.setString('email', email.text);
+                          await prefs.setString('password', password.text);
+
+
                         print("success");
                         Fluttertoast.showToast(
                             msg: "Welcome ${u.name}",
@@ -144,6 +171,13 @@ class _LoginScreenState extends State<LoginScreen> {
                      //   print('error ya ahmed');
                        // print(e);
                       }
+                      setState(() {
+                        if(rememberMe==false){
+                          email.text="";
+                          password.text="";
+                        }
+                      });
+
                      // print("finish ya ahmed");
 
                     },

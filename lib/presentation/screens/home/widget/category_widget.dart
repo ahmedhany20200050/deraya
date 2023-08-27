@@ -52,7 +52,7 @@ class CategoryWidget extends StatelessWidget {
                     title: data?[index].nameAr??"",
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w700,
-
+                    maxLines: 1,
                   )
                 ],
               );

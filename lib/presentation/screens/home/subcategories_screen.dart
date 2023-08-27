@@ -10,6 +10,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../core/constant/colors.dart';
 import '../../components/text_form_field.dart';
+import '../search/search_screen.dart';
 
 class SubcategoriesScreen extends StatelessWidget {
   const SubcategoriesScreen({Key? key}) : super(key: key);
@@ -949,6 +950,10 @@ class SubcategoriesSearchBar extends StatelessWidget {
               // size: 25.w,
               weight: 25.w,
             ),
+            onTap: () {
+              Utils.openScreen(
+                  context, const SearchScreen());
+            },
           ),
         ),
         IconButton(

@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/constant/colors.dart';
 import '../../../domain/models/category_model/categories_model.dart';
 import '../../components/text_form_field.dart';
+import '../search/search_screen.dart';
 
 class CategoryScreen extends StatelessWidget {
   List<Categories>c;
@@ -128,6 +129,10 @@ class SearchBar extends StatelessWidget {
               // size: 25.w,
               weight: 25.w,
             ),
+            onTap: () {
+              Utils.openScreen(
+                  context, const SearchScreen());
+            },
           ),
         ),
       ],

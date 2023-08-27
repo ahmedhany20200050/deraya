@@ -1,10 +1,12 @@
 import 'package:deraya_application/core/Utils/utils.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
+import 'package:deraya_application/presentation/screens/search/filtter_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/constant/colors.dart';
 import '../../../core/constant/text_styles.dart';
+import '../../components/text_form_field.dart';
 import '../home/subcategories_screen.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -26,7 +28,7 @@ class SearchScreen extends StatelessWidget {
                   50.ph,
                   SizedBox(
                     height: 45.h,
-                    child: const SubcategoriesSearchBar(),
+                    child: const SearchBar(),
                   ),
                   24.ph,
                 ],
@@ -201,3 +203,54 @@ class SearchScreen extends StatelessWidget {
     );
   }
 }
+
+class SearchBar extends StatelessWidget {
+  const SearchBar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            padding: EdgeInsets.zero,
+            icon:  Icon(
+              Icons.arrow_back,
+              color: AppColors.primary,
+              size: 21.sp,
+            )),
+        Expanded(
+          child: TextFormFieldWidget(
+            onChanged: (e) {},
+            borderRadius: 20.r,
+            hintText: "ابحث عن الدورات",
+            suffixIcon: Icon(
+              Icons.search,
+              color: AppColors.primary,
+              // size: 25.w,
+              weight: 25.w,
+            ),
+            onTap: () {
+            },
+          ),
+        ),
+        IconButton(
+            onPressed: () {
+              Utils.openScreen(context, FilterScreen());
+            },
+            padding: EdgeInsets.zero,
+            icon: Icon(
+              Icons.sort,
+              color: AppColors.primary,
+              size: 38.h,
+              textDirection: TextDirection.ltr,
+            )),
+      ],
+    );
+  }
+}
+

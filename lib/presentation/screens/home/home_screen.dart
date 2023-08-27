@@ -12,9 +12,11 @@ import 'package:deraya_application/presentation/screens/home/widget/instructors_
 import 'package:deraya_application/presentation/screens/home/widget/popular_courses.dart';
 import 'package:deraya_application/presentation/screens/login/login_screen.dart';
 import 'package:deraya_application/presentation/screens/search/filtter_screen.dart';
+import 'package:deraya_application/presentation/screens/search/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -22,7 +24,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit()..getCategories()..getCourses()..getInstructors(),
+      create: (context) => HomeCubit()
+        ..getCategories()
+        ..getCourses(),
+        // ..getInstructors(),
       child: BlocConsumer<HomeCubit, HomeStates>(
         listener: (context, state) {
           // TODO: implement listener
@@ -39,22 +44,21 @@ class HomeScreen extends StatelessWidget {
                     expandedHeight: 200.0.h,
                     foregroundColor: Colors.white,
                     backgroundColor: AppColors.primary,
-
-
-                    title: Row(
+                    leading: CircleAvatar(
+                      backgroundImage: const AssetImage(
+                        "assets/images/avatar.png",
+                      ),
+                      radius: 2.r,
+                    ),
+                    title:Row(
                       // crossAxisAlignment: CrossAxisAlignment.start,
                       // mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        CircleAvatar(
-                          backgroundImage: const AssetImage(
-                            "assets/images/avatar.png",
-                          ),
-                          radius: 30.r,
-                        ),
-                        16.pw,
                         TextWidget(
-                          title: "اهلا ${userUltraProMax?.name==null? "none":userUltraProMax?.name}",
-                          fontSize: 16.sp,
+                          title:
+                              "اهلا ${userUltraProMax?.name == null ? "none" : userUltraProMax?.name}",
+                          fontSize: 24.sp,
+                          fontWeight: FontWeight.w800,
                           color: Colors.white,
                         ),
                       ],
@@ -70,9 +74,13 @@ class HomeScreen extends StatelessWidget {
                             color: Colors.white,
                           )),
                       IconButton(
-                          onPressed: () {
+                          onPressed: () async{
+                            final SharedPreferences prefs= await SharedPreferences.getInstance();
+                            await prefs.setBool("rememberMe", false);
+                            await prefs.setString('email', "");
+                            await prefs.setString('password', "");
                             /// logout
-
+                            Navigator.of(context).pop();
                           },
                           icon: const Icon(
                             Icons.logout,
@@ -80,11 +88,9 @@ class HomeScreen extends StatelessWidget {
                           )),
                     ],
                     shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.vertical(
-                        bottom: Radius.circular(30),
-
-                      )
-                    ),
+                        borderRadius: BorderRadius.vertical(
+                      bottom: Radius.circular(30),
+                    )),
                     flexibleSpace: FlexibleSpaceBar(
                       background: FadeIn(
                         duration: const Duration(milliseconds: 500),
@@ -116,7 +122,8 @@ class HomeScreen extends StatelessWidget {
                                   child: TextFormFieldWidget(
                                     onChanged: (e) {},
                                     onTap: () {
-                                      Utils.openScreen(context, const FilterScreen());
+                                      Utils.openScreen(
+                                          context, const SearchScreen());
                                     },
                                     // borderRadius: 0,
 
@@ -148,7 +155,11 @@ class HomeScreen extends StatelessWidget {
                               title: "الفئات",
                               subTitle: "جميع الفئات",
                               secondOnTap: () {
-                                Utils.openScreen(context, CategoryScreen(HomeCubit.get(context).categoriesModel!.categories!));
+                                Utils.openScreen(
+                                    context,
+                                    CategoryScreen(HomeCubit.get(context)
+                                        .categoriesModel!
+                                        .categories!));
                               },
                             ),
                             const CategoryWidget(),
@@ -158,7 +169,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                             16.ph,
                             const CurrentCoursesWidget(),
-                            // 16.ph,
+                            16.ph,
                             // DefinitionRow(
                             //   title: "أشهر المدربين لدينا",
                             //   subTitle: "الكل",
@@ -170,8 +181,6 @@ class HomeScreen extends StatelessWidget {
                             ),
                             8.ph,
                             const PopularCoursesWidget(),
-
-
                           ],
                         ),
                       ),

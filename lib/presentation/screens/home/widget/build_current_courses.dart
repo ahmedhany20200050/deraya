@@ -1,4 +1,5 @@
 import 'package:deraya_application/core/Utils/utils.dart';
+import 'package:deraya_application/core/constant/colors.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
 import 'package:deraya_application/presentation/screens/course_details/course_details_screen.dart';
 import 'package:deraya_application/presentation/screens/home/cubit/home_cubit.dart';
@@ -23,100 +24,136 @@ class CurrentCoursesWidget extends StatelessWidget {
           height: 0.28.sh,
           child: ListView.builder(
             itemBuilder: (context, index) {
-              return GestureDetector(
-                onTap: () {
-                  Utils.openScreen(context, CourseDetailsScreen(data?[index].id,data!));
-                  print(data?[index].nameEn);
-                },
-                child: Container(
-                  // height: 60.h,
-                  constraints: BoxConstraints(
-                      maxWidth: 0.65.sw, minWidth: 0.6.sw),
-                  child: Stack(
-                    children: [
-                      Image.network(data?[index].image??"",),
-                      Padding(
-                        padding: EdgeInsets.only(top: 10.h,
-                            left: 24.w,
-                            right: 10.w),
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Container(
-                                  constraints: BoxConstraints(
-                                      maxWidth: 0.45.sw, minWidth: 0.3.sw),
-                                  child: TextWidget(
-                                    title: data?[index].nameAr??"",
-                                    maxLines: 2,
-                                    textAlign: TextAlign.center,
-                                    fontSize: 22.sp,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                10.pw,
+              return Row(
+                children: [
+                  Card(
+                    child: GestureDetector(
+                      onTap: () {
+                        Utils.openScreen(context, CourseDetailsScreen(data?[index].id,data!));
+                        print(data?[index].nameEn);
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        clipBehavior: Clip.antiAlias,
 
-                              ],
-                            ),
-                            32.ph,
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                TextWidget(
-                                  title: "${data?[index].lectures??""} تطبيقات",
-                                  maxLines: 2,
-                                  textAlign: TextAlign.center,
-                                  fontSize: 16.sp,
-                                  color: Colors.grey,
-                                ),
-                                const Spacer(),
-                                TextWidget(
-                                  title: "${data?[index].lectures??""}  فيديو",
-                                  maxLines: 2,
-                                  textAlign: TextAlign.center,
-                                  fontSize: 16.sp,
-                                  color: Colors.grey,
-                                ),
-                              ],
-                            ),
-                            32.ph,
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Row(
-                                  // mainAxisAlignment: MainAxisAlignment.center,
-                                  // crossAxisAlignment: CrossAxisAlignment.center,
+                        child: Container(
+                          // height: 60.h,
+                          width: MediaQuery.of(context).size.height*0.38,
+                          height: MediaQuery.of(context).size.height*0.25,
+                          child: Stack(
+                            fit: StackFit.expand,
+                            children: [
+                              ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                                child: Image.network(data?[index].image??"",
+                                  fit: BoxFit.fill,
+                                  color: Colors.black.withOpacity(0.5), colorBlendMode: BlendMode.darken,),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(top: 16,
+                                    left: 12,
+                                    right: 36,
+                                bottom: 10),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
-                                    TextWidget(
-                                      title: "4.5",
-                                      maxLines: 2,
-                                      textAlign: TextAlign.center,
-                                      fontSize: 16.sp,
-                                      color: Colors.grey,
+                                    Wrap(
+                                      children:[
+                                        Text(data?[index].nameAr??"",
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.white,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                          textAlign: TextAlign.left,
+                                          maxLines: 2,
+
+                                        ),
+                                      ],
                                     ),
-                                    5.pw,
-                                    const Icon(Icons.star,color: Colors.amber,size: 15,)
+                                    Spacer(),
+                                    // 16.ph,
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Expanded(
+                                          child: RotatedBox(
+                                            quarterTurns: 2,
+                                              child: SliderTheme(
+                                                  data: SliderTheme.of(context).copyWith(
+                                                    overlayShape: SliderComponentShape.noOverlay,
+                                                    trackShape: RectangularSliderTrackShape(),
+                                                    thumbShape: RoundSliderThumbShape(enabledThumbRadius: 8.0,),
+                                                  ),
+                                                  child: Container(
+                                                      width:double.infinity,child: Slider(inactiveColor: AppColors.containerColor.withOpacity(0.5),value: 0.8, onChanged: (val){},activeColor: Color(0xFFF4D4BD))))),
+                                        ),
+                                      ],
+                                    ),
+                                    Spacer(),
+                                    // 16.ph,
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        TextWidget(
+                                          title: "${data?[index].lectures??""} تطبيقات",
+                                          maxLines: 2,
+                                          textAlign: TextAlign.center,
+                                          fontSize: 13,
+                                          color: Colors.white,
+                                        ),
+                                        const Spacer(),
+                                        TextWidget(
+                                          title: "${data?[index].lectures??""}  فيديو",
+                                          maxLines: 2,
+                                          textAlign: TextAlign.center,
+                                          fontSize: 13,
+                                          color: Colors.white,
+                                        ),
+                                      ],
+                                    ),
+                                    Spacer(),
+                                    // 16.ph,
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Row(
+                                          // mainAxisAlignment: MainAxisAlignment.center,
+                                          // crossAxisAlignment: CrossAxisAlignment.center,
+                                          children: [
+                                            TextWidget(
+                                              title: "4.5",
+                                              maxLines: 2,
+                                              textAlign: TextAlign.center,
+                                              fontSize: 13,
+                                              color: Colors.white,
+                                            ),
+                                            5.pw,
+                                            const Icon(Icons.star,color: Colors.amber,size: 15,)
+                                          ],
+                                        ),
+                                        const Spacer(),
+                                        TextWidget(
+                                          title: " مشاهدات 3.5k",
+                                          maxLines: 2,
+                                          textAlign: TextAlign.center,
+                                          fontSize: 13,
+                                          color: Colors.white,
+                                        ),
+                                      ],
+                                    ),
                                   ],
                                 ),
-                                const Spacer(),
-                                TextWidget(
-                                  title: "3.5kمشاهدات",
-                                  maxLines: 2,
-                                  textAlign: TextAlign.center,
-                                  fontSize: 16.sp,
-                                  color: Colors.grey,
-                                ),
-                              ],
-                            ),
-                          ],
+                              ),
+
+                              // LinearProgressIndicator(),
+                            ],
+                          ),
                         ),
                       ),
-
-                      // LinearProgressIndicator(),
-                    ],
+                    ),
                   ),
-                ),
+                ],
               );
             },
             // padding: EdgeInsets.all(16  .w),

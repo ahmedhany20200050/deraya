@@ -41,6 +41,7 @@ dependencies:
   path_provider:
   get_it:
   http: ^1.1.0
+  shared_preferences: ^2.2.0
 
 
 
