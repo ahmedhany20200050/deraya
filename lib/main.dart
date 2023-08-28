@@ -75,7 +75,6 @@ class MyApp extends StatelessWidget {
                 iconTheme: IconThemeData(
                   color: AppColors.primary,
 
-
                 )
                 // color: ColorsManger.primary
               )

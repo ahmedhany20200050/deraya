@@ -14,6 +14,7 @@ import 'package:deraya_application/presentation/screens/login/login_screen.dart'
 import 'package:deraya_application/presentation/screens/search/filtter_screen.dart';
 import 'package:deraya_application/presentation/screens/search/search_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -23,174 +24,244 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomeCubit()
-        ..getCategories()
-        ..getCourses(),
-        // ..getInstructors(),
-      child: BlocConsumer<HomeCubit, HomeStates>(
-        listener: (context, state) {
-          // TODO: implement listener
-        },
-        builder: (context, state) {
-          return Scaffold(
-            body: SafeArea(
-              child: CustomScrollView(
-                key: const Key("Home"),
-                primary: true,
-                slivers: [
-                  SliverAppBar(
-                    pinned: true,
-                    expandedHeight: 200.0.h,
-                    foregroundColor: Colors.white,
-                    backgroundColor: AppColors.primary,
-                    leading: CircleAvatar(
-                      backgroundImage: const AssetImage(
-                        "assets/images/avatar.png",
-                      ),
-                      radius: 2.r,
-                    ),
-                    title:Row(
-                      // crossAxisAlignment: CrossAxisAlignment.start,
-                      // mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        TextWidget(
-                          title:
-                              "اهلا ${userUltraProMax?.name == null ? "none" : userUltraProMax?.name}",
-                          fontSize: 24.sp,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.white,
+    return WillPopScope(
+      onWillPop: (){return Future.value(false);},
+      child: BlocProvider(
+        create: (context) => HomeCubit()
+          ..getCategories()
+          ..getCourses(),
+          // ..getInstructors(),
+        child: BlocConsumer<HomeCubit, HomeStates>(
+          listener: (context, state) {
+            // TODO: implement listener
+          },
+          builder: (context, state) {
+            return Scaffold(
+              body: SafeArea(
+                child: CustomScrollView(
+                  key: const Key("Home"),
+                  primary: true,
+                  slivers: [
+                    SliverAppBar(
+                      pinned: true,
+                      expandedHeight: 200.0.h,
+                      foregroundColor: Colors.white,
+                      backgroundColor: AppColors.primary,
+                      leading: CircleAvatar(
+                        backgroundImage: const AssetImage(
+                          "assets/images/avatar.png",
                         ),
+                        radius: 2.r,
+                      ),
+                      title:Row(
+                        // crossAxisAlignment: CrossAxisAlignment.start,
+                        // mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          TextWidget(
+                            title:
+                                "اهلا ${userUltraProMax?.name == null ? "none" : userUltraProMax?.name}",
+                            fontSize: 24.sp,
+                            fontWeight: FontWeight.w800,
+                            color: Colors.white,
+                          ),
+                        ],
+                      ),
+                      actions: [
+                        IconButton(
+                            onPressed: () {
+
+                              // set up the buttons
+                              // Widget cancelButton = TextButton(
+                              //   child: Text("لا"),
+                              //   onPressed:  () {
+                              //     Navigator.pop(context);
+                              //   },
+                              // );
+                              // Widget continueButton = TextButton(
+                              //   child: Text("نعم"),
+                              //   onPressed:  () async{
+                              //     final SharedPreferences prefs= await SharedPreferences.getInstance();
+                              //     await prefs.setBool("rememberMe", false);
+                              //     await prefs.setString('email', "");
+                              //     await prefs.setString('password', "");
+                              //     Navigator.pop(context);
+                              //     SystemNavigator.pop();
+                              //   },
+                              // );
+                              //
+                              // // set up the AlertDialog
+                              // AlertDialog alert = AlertDialog(
+                              //   title: Text("انتبه!"),
+                              //   content: Text("أنت علي وشك حذف الحساب والخروج. هل تريد إكمال العملية؟"),
+                              //   actions: [
+                              //     cancelButton,
+                              //     continueButton
+                              //   ],
+                              // );
+                              //
+                              // // show the dialog
+                              // showDialog(
+                              //   context: context,
+                              //   builder: (BuildContext context) {
+                              //     return alert;
+                              //   },
+                              // );
+
+                            },
+                            icon: const Icon(
+                              Icons.no_accounts_outlined,
+                              color: Colors.white,
+                            )),
+                        IconButton(
+                            onPressed: () {
+
+                              // set up the buttons
+                              Widget cancelButton = TextButton(
+                                child: Text("لا"),
+                                onPressed:  () {
+                                  Navigator.pop(context);
+                                },
+                              );
+                              Widget continueButton = TextButton(
+                                child: Text("نعم"),
+                                onPressed:  () async{
+                                  final SharedPreferences prefs= await SharedPreferences.getInstance();
+                                  await prefs.setBool("rememberMe", false);
+                                  await prefs.setString('email', "");
+                                  await prefs.setString('password', "");
+                                  Utils.openScreen(context, LoginScreen());
+                                },
+                              );
+
+                              // set up the AlertDialog
+                              AlertDialog alert = AlertDialog(
+                                title: Text("انتبه!"),
+                                content: Text("أنت علي وشك تسجيل الخروج. هل تريد إكمال العملية؟"),
+                                actions: [
+                                  cancelButton,
+                                  continueButton
+                                ],
+                              );
+
+                              // show the dialog
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return alert;
+                                },
+                              );
+
+                            },
+                            icon: const Icon(
+                              Icons.logout,
+                              color: Colors.white,
+                            )),
                       ],
-                    ),
-                    actions: [
-                      IconButton(
-                          onPressed: () {
-                            /// add delet acc
-                            ///
-                          },
-                          icon: const Icon(
-                            Icons.no_accounts_outlined,
-                            color: Colors.white,
-                          )),
-                      IconButton(
-                          onPressed: () async{
-                            final SharedPreferences prefs= await SharedPreferences.getInstance();
-                            await prefs.setBool("rememberMe", false);
-                            await prefs.setString('email', "");
-                            await prefs.setString('password', "");
-                            /// logout
-                            Navigator.of(context).pop();
-                          },
-                          icon: const Icon(
-                            Icons.logout,
-                            color: Colors.white,
-                          )),
-                    ],
-                    shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.vertical(
-                      bottom: Radius.circular(30),
-                    )),
-                    flexibleSpace: FlexibleSpaceBar(
-                      background: FadeIn(
-                        duration: const Duration(milliseconds: 500),
-                        child: ShaderMask(
-                          shaderCallback: (rect) {
-                            return const LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                Colors.transparent,
-                                Colors.white,
-                                Colors.white,
-                                Colors.transparent,
-                              ],
-                              stops: [0.0, 0.5, 2.0, 1.0],
-                            ).createShader(
-                              Rect.fromLTRB(0.0, 0.0, rect.width, rect.height),
-                            );
-                          },
-                          blendMode: BlendMode.dstIn,
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  height: 0.10.sh,
-                                ),
-                                SizedBox(
-                                  width: .95.sw,
-                                  child: TextFormFieldWidget(
-                                    onChanged: (e) {},
-                                    onTap: () {
-                                      Utils.openScreen(
-                                          context, const SearchScreen());
-                                    },
-                                    // borderRadius: 0,
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                        bottom: Radius.circular(30),
+                      )),
+                      flexibleSpace: FlexibleSpaceBar(
+                        background: FadeIn(
+                          duration: const Duration(milliseconds: 500),
+                          child: ShaderMask(
+                            shaderCallback: (rect) {
+                              return const LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  Colors.transparent,
+                                  Colors.white,
+                                  Colors.white,
+                                  Colors.transparent,
+                                ],
+                                stops: [0.0, 0.5, 2.0, 1.0],
+                              ).createShader(
+                                Rect.fromLTRB(0.0, 0.0, rect.width, rect.height),
+                              );
+                            },
+                            blendMode: BlendMode.dstIn,
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    height: 0.10.sh,
+                                  ),
+                                  SizedBox(
+                                    width: .95.sw,
+                                    child: TextFormFieldWidget(
+                                      onChanged: (e) {},
+                                      onTap: () {
+                                        Utils.openScreen(
+                                            context, const SearchScreen());
+                                      },
+                                      // borderRadius: 0,
 
-                                    hintText: "ابحث عن الدورات",
+                                      hintText: "ابحث عن الدورات",
 
-                                    suffixIcon: Icon(
-                                      Icons.search,
-                                      color: AppColors.primary,
-                                      size: 25.w,
-                                      // weight: 25.w,
+                                      suffixIcon: Icon(
+                                        Icons.search,
+                                        color: AppColors.primary,
+                                        size: 25.w,
+                                        // weight: 25.w,
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ]),
+                                ]),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SliverToBoxAdapter(
-                    child: FadeInUp(
-                      // animate: true,
-                      child: Padding(
-                        padding: EdgeInsets.all(16.0.w),
-                        child: Column(
-                          // mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            DefinitionRow(
-                              title: "الفئات",
-                              subTitle: "جميع الفئات",
-                              secondOnTap: () {
-                                Utils.openScreen(
-                                    context,
-                                    CategoryScreen(HomeCubit.get(context)
-                                        .categoriesModel!
-                                        .categories!));
-                              },
-                            ),
-                            const CategoryWidget(),
-                            DefinitionRow(
-                              title: "الدورات الحالية",
-                              subTitle: "الكل",
-                            ),
-                            16.ph,
-                            const CurrentCoursesWidget(),
-                            16.ph,
-                            // DefinitionRow(
-                            //   title: "أشهر المدربين لدينا",
-                            //   subTitle: "الكل",
-                            // ),
-                            // const InstructorWidget(),
-                            DefinitionRow(
-                              title: "الكورسات الأكثر مشاهدة",
-                              subTitle: "الكل",
-                            ),
-                            8.ph,
-                            const PopularCoursesWidget(),
-                          ],
+                    SliverToBoxAdapter(
+                      child: FadeInUp(
+                        // animate: true,
+                        child: Padding(
+                          padding: EdgeInsets.all(16.0.w),
+                          child: Column(
+                            // mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              DefinitionRow(
+                                title: "الفئات",
+                                subTitle: "جميع الفئات",
+                                secondOnTap: () {
+                                  Utils.openScreen(
+                                      context,
+                                      CategoryScreen(HomeCubit.get(context)
+                                          .categoriesModel!
+                                          .categories!));
+                                },
+                              ),
+                              const CategoryWidget(),
+                              DefinitionRow(
+                                title: "الدورات الحالية",
+                                subTitle: "الكل",
+                              ),
+                              16.ph,
+                              const CurrentCoursesWidget(),
+                              16.ph,
+                              // DefinitionRow(
+                              //   title: "أشهر المدربين لدينا",
+                              //   subTitle: "الكل",
+                              // ),
+                              // const InstructorWidget(),
+                              DefinitionRow(
+                                title: "الكورسات الأكثر مشاهدة",
+                                subTitle: "الكل",
+                              ),
+                              8.ph,
+                              const PopularCoursesWidget(),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

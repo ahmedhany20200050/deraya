@@ -42,6 +42,7 @@ class RegisterScreen extends StatelessWidget {
                 textalign: TextAlign.end,
                 maxLengh: 50,
               ),
+              SizedBox(height: 16.h,),
               const Email(),
               SizedBox(height: 4.h,),
               TextFormFieldWidget(
@@ -53,6 +54,7 @@ class RegisterScreen extends StatelessWidget {
                 textalign: TextAlign.end,
                 maxLengh: 50,
               ),
+              SizedBox(height: 16.h,),
               const Password(),
               SizedBox(height: 4.h,),
               TextFormFieldWidget(
@@ -64,6 +66,7 @@ class RegisterScreen extends StatelessWidget {
                 password: true,
                 maxLengh: 50,
               ),
+              SizedBox(height: 16.h,),
               const ConfirmPassword(),
               SizedBox(height: 4.h,),
               TextFormFieldWidget(
@@ -75,6 +78,7 @@ class RegisterScreen extends StatelessWidget {
                 password: true,
                 maxLengh: 50,
               ),
+              SizedBox(height: 32.h,),
               ButtonWidget(
                 radius: 10,
                 title: 'register'.tr(),
@@ -123,6 +127,10 @@ class RegisterScreen extends StatelessWidget {
                     print(e);
                   }
                   print("finish ya ahmed");
+                  name.text="";
+                  password.text="";
+                  this.email.text="";
+                  repassword.text="";
                 },
 
               ),

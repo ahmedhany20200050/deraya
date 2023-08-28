@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class TextFormFieldWidget extends StatefulWidget {
   final String? hintText, label, errorText;
   final TextInputType type;
-  bool password;
+  bool password=false;
   final bool expanded;
   Color activeBorderColor, borderColor, backgroundColor;
   bool floatingHint;
@@ -27,6 +27,7 @@ class TextFormFieldWidget extends StatefulWidget {
   String? Function(String?)? validate;
   bool? enable;
   bool? readOnly;
+  bool selectable=true;
   TextFormFieldWidget(
       {required this.onChanged,
         this.onSaved,
@@ -74,13 +75,13 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      enableInteractiveSelection: !widget.password,
       cursorColor: AppColors.primary,
       readOnly: widget.readOnly ?? false,
       enabled: widget.enable ?? true,
       validator: widget.validate,
       maxLength: widget.maxLengh,
       focusNode: widget.focusNode,
-
       controller: widget.controller,
       maxLines: widget.maxLines ?? 1,
       minLines: widget.minLines,
@@ -97,7 +98,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
           InputDecoration(
             // isDense: true,
               contentPadding: widget.contentPadding,
-
+              counterText: "",
               filled: true,
               fillColor: widget.backgroundColor,
               prefixIcon: widget.prefixIcon,

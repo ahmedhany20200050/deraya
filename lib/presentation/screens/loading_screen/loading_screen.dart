@@ -3,8 +3,10 @@
 
 import 'dart:math' as math;
 import 'package:deraya_application/core/constant/colors.dart';
+import 'package:deraya_application/presentation/screens/login/login_screen.dart';
 import 'package:deraya_application/presentation/screens/splash_screen/second_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 class LoadingScreen extends StatelessWidget {
@@ -12,8 +14,19 @@ class LoadingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    Future.delayed(Duration(seconds: 3)).whenComplete((){
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => SecondSplashScreen()));
+    Future.delayed(Duration(seconds: 3)).whenComplete(()async{
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      if( prefs.getInt("firstTime")==null){
+        Navigator.of(context).pushReplacement
+          (MaterialPageRoute(builder: (context) =>
+            const SecondSplashScreen()));
+      }else{
+        prefs.setInt("firstTime",1);
+        Navigator.of(context).pushReplacement
+          (MaterialPageRoute(builder: (context) =>
+            const LoginScreen()));
+      }
+
     });
 
     return  Scaffold(
