@@ -3,6 +3,7 @@
 
 import 'dart:math' as math;
 import 'package:deraya_application/core/constant/colors.dart';
+import 'package:deraya_application/presentation/screens/home/home_screen.dart';
 import 'package:deraya_application/presentation/screens/login/login_screen.dart';
 import 'package:deraya_application/presentation/screens/splash_screen/second_splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -16,15 +17,22 @@ class LoadingScreen extends StatelessWidget {
 
     Future.delayed(Duration(seconds: 3)).whenComplete(()async{
       final SharedPreferences prefs = await SharedPreferences.getInstance();
+      bool remember=prefs.getBool("rememberMe")??false;
       if( prefs.getInt("firstTime")==null){
         Navigator.of(context).pushReplacement
           (MaterialPageRoute(builder: (context) =>
             const SecondSplashScreen()));
-      }else{
         prefs.setInt("firstTime",1);
+      }else if(!remember){
         Navigator.of(context).pushReplacement
           (MaterialPageRoute(builder: (context) =>
             const LoginScreen()));
+      }else if(remember){
+        userUltraProMax =User(name: prefs.getString('name')??"", email: prefs.getString('email')??"");
+
+        Navigator.of(context).pushReplacement
+          (MaterialPageRoute(builder: (context) =>
+        const HomeScreen()));
       }
 
     });

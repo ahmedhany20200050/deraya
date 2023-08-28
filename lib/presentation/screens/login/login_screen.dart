@@ -145,6 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             await prefs.setBool("rememberMe", rememberMe);
                             await prefs.setString('email', email.text);
                             await prefs.setString('password', password.text);
+                          await prefs.setString('name', u.name);
 
 
                           print("success");
@@ -232,10 +233,10 @@ class Message {
   }
 }
 class User {
-  final String name;
-  final String email;
+  late  String name;
+  late  String email;
 
-  const User({required this.name, required this.email});
+   User({required this.name, required this.email});
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
