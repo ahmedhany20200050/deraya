@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:animate_do/animate_do.dart';
 import 'package:deraya_application/core/Utils/utils.dart';
 import 'package:deraya_application/core/constant/colors.dart';
@@ -17,7 +19,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -70,42 +75,64 @@ class HomeScreen extends StatelessWidget {
                         IconButton(
                             onPressed: () {
 
-                              // set up the buttons
-                              // Widget cancelButton = TextButton(
-                              //   child: Text("لا"),
-                              //   onPressed:  () {
-                              //     Navigator.pop(context);
-                              //   },
-                              // );
-                              // Widget continueButton = TextButton(
-                              //   child: Text("نعم"),
-                              //   onPressed:  () async{
-                              //     final SharedPreferences prefs= await SharedPreferences.getInstance();
-                              //     await prefs.setBool("rememberMe", false);
-                              //     await prefs.setString('email', "");
-                              //     await prefs.setString('password', "");
-                              //     Navigator.pop(context);
-                              //     SystemNavigator.pop();
-                              //   },
-                              // );
-                              //
-                              // // set up the AlertDialog
-                              // AlertDialog alert = AlertDialog(
-                              //   title: Text("انتبه!"),
-                              //   content: Text("أنت علي وشك حذف الحساب والخروج. هل تريد إكمال العملية؟"),
-                              //   actions: [
-                              //     cancelButton,
-                              //     continueButton
-                              //   ],
-                              // );
-                              //
-                              // // show the dialog
-                              // showDialog(
-                              //   context: context,
-                              //   builder: (BuildContext context) {
-                              //     return alert;
-                              //   },
-                              // );
+                              //set up the buttons
+                              Widget cancelButton = TextButton(
+                                child: Text("لا"),
+                                onPressed:  () {
+                                  Navigator.pop(context);
+                                },
+                              );
+                              Widget continueButton = TextButton(
+                                child: Text("نعم"),
+                                onPressed:  () async{
+                                  http.Response response=await http.post(
+                                    Uri.parse('http://diraya.xyz/api/user/deleteAccount/${userUltraProMax?.id??-1}'),
+                                    headers: <String, String>{
+                                      'Content-Type': 'application/json; charset=UTF-8',
+                                      "Accept": "application/json",
+                                      'Authorization': '${userUltraProMax?.token}',
+                                    },
+                                    body: jsonEncode(<String, String>{
+
+                                    }),
+                                  );
+                                  Fluttertoast.showToast(
+                                      msg: "${Message.fromJson(jsonDecode(response.body)).m} ",
+                                      toastLength: Toast.LENGTH_LONG,
+                                      gravity: ToastGravity.CENTER,
+                                      timeInSecForIosWeb: 2,
+                                      backgroundColor: AppColors.primary,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0
+                                  );
+                                  final SharedPreferences prefs = await SharedPreferences.getInstance();
+                                  await prefs.setBool("rememberMe", false);
+                                  await prefs.setString('email', "");
+                                  await prefs.setString('password', "");
+                                  await prefs.setString('name', "");
+                                  await prefs.setString('token', "");
+                                  await prefs.setInt('id', -1);
+                                  Utils.openScreen(context, const LoginScreen());
+                                },
+                              );
+
+                              // set up the AlertDialog
+                              AlertDialog alert = AlertDialog(
+                                title: Text("انتبه!"),
+                                content: Text("أنت علي وشك حذف الحساب والخروج. هل تريد إكمال العملية؟"),
+                                actions: [
+                                  cancelButton,
+                                  continueButton
+                                ],
+                              );
+
+                              // show the dialog
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return alert;
+                                },
+                              );
 
                             },
                             icon: const Icon(

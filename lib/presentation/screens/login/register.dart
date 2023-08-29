@@ -65,7 +65,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   controller: email,
                   validate: (email){
                     if( RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                        .hasMatch(email!)==true) {
+                        .hasMatch(email!)==true&&email.contains(".com",email.length-5)) {
                       debugPrint('true');
                     } else{
                       Fluttertoast.showToast(

@@ -135,6 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           body: jsonEncode(<String, String>{
                             'email': email.text??" ",
                             'password' : password.text??" ",
+                            'g-recaptcha-response': 'true'
                           }),
                         );
                         final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -146,7 +147,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             await prefs.setBool("rememberMe", rememberMe);
                             await prefs.setString('email', email.text);
                             await prefs.setString('password', password.text);
-                          await prefs.setString('name', u.name);
+                            await prefs.setString('name', u.name);
+                            await prefs.setString('token', u.token);
+                            await prefs.setInt('id', u.id);
 
 
                           print("success");
@@ -236,13 +239,17 @@ class Message {
 class User {
   late  String name;
   late  String email;
+  late  String token;
+  late int id;
 
-   User({required this.name, required this.email});
+   User({required this.name, required this.email,required this.token,required this.id});
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
       name: json['data']['user']['name'],
       email: json['data']['user']['email'],
+      token: json['data']['user']['token'],
+      id:json['data']['user']['id'],
     );
   }
 }

@@ -28,7 +28,7 @@ class LoadingScreen extends StatelessWidget {
           (MaterialPageRoute(builder: (context) =>
             const LoginScreen()));
       }else if(remember){
-        userUltraProMax =User(name: prefs.getString('name')??"", email: prefs.getString('email')??"");
+        userUltraProMax =User(name: prefs.getString('name')??"", email: prefs.getString('email')??"", token: prefs.getString("token")??"",id: prefs.getInt("id")??-1);
 
         Navigator.of(context).pushReplacement
           (MaterialPageRoute(builder: (context) =>
