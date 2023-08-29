@@ -28,7 +28,7 @@ class RegisterScreen extends StatelessWidget {
           padding:  EdgeInsets.symmetric(horizontal: 40.w),
           child: Column(
             children: [
-              SizedBox(height: 40.h,),
+              SizedBox(height: 90.h,),
               TextWidget(title: 'welcome'.tr(),fontSize: 31.69.sp,fontWeight:FontWeight.w600,color: AppColors.primary,),
               SizedBox(height: 40.h,),
               const UserName(),
