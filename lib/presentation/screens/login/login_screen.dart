@@ -68,6 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                      SizedBox(height: 4.h,),
                     TextFormFieldWidget(
+
                       maxLengh: 50,
                       controller: email,
                       onChanged: (val){},
