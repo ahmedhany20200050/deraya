@@ -65,7 +65,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   controller: email,
                   validate: (email){
                     if( RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                        .hasMatch(email!)==true&&email.contains(".com",email.length-5)) {
+                        .hasMatch(email!)==true) {
                       debugPrint('true');
                     } else{
                       Fluttertoast.showToast(
@@ -117,6 +117,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
                   onTap: ()async{
+                    if(RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                        .hasMatch(email.text)){
+                      Fluttertoast.showToast(
+                          msg: "Enter valid email",
+                          toastLength: Toast.LENGTH_LONG,
+                          gravity: ToastGravity.CENTER,
+                          timeInSecForIosWeb: 2,
+                          backgroundColor: AppColors.primary,
+                          textColor: Colors.white,
+                          fontSize: 16.0
+                      );
+                      return;
+                    }
                     //todo: delete next line
                     var response=await http.post(
                       Uri.parse('http://diraya.xyz/api/user/signup'),
