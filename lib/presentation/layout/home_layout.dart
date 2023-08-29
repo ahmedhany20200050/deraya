@@ -17,7 +17,8 @@ class HomeLayout extends StatelessWidget {
         },
         builder: (context, state) {
           HomeLayoutCubit homeCubit = BlocProvider.of(context);
-          return buildHomeView(homeCubit);
+          return WillPopScope(onWillPop: () { return Future.value(false); },
+          child: buildHomeView(homeCubit));
         },
       ),
     );

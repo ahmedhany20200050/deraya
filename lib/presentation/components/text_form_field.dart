@@ -98,7 +98,6 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
           InputDecoration(
             // isDense: true,
               contentPadding: widget.contentPadding,
-              counterText: "",
               filled: true,
               fillColor: widget.backgroundColor,
               prefixIcon: widget.prefixIcon,

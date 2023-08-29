@@ -117,8 +117,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
                   onTap: ()async{
-                    if(RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                        .hasMatch(email.text)){
+                    if(!(RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                        .hasMatch(email.text))){
                       Fluttertoast.showToast(
                           msg: "Enter valid email",
                           toastLength: Toast.LENGTH_LONG,
