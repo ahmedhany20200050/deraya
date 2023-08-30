@@ -1,6 +1,7 @@
 import 'package:deraya_application/core/Utils/utils.dart';
 import 'package:deraya_application/core/constant/colors.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
+import 'package:deraya_application/presentation/screens/home/widget/price_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,6 +31,7 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
             children: [
               50.ph,
               const CustomAppbar(),
+            24.ph,
             TabBar(
               controller: tabController,
               indicatorColor: const Color(0xff965555),
@@ -85,6 +87,7 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
               ]
 
             ),
+              24.ph,
               Expanded(
                 child: TabBarView(
                   controller: tabController,
@@ -93,7 +96,20 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
                     Center(child: Text('Content for Tab 2')),
                     Column(
                       children: [
+                        Row(
+                          children: [
+                            Expanded(child: TextWidget(title: 'كورس Photoshop بالكامل للمبتدأين ،وتعليم أساسيات التصميم والأدوات.',fontSize:20 ,fontWeight: FontWeight.w700,color: AppColors.primary,maxLines: 4,)),
+                            PriceWidget(),
 
+                          ],
+                        ),
+                        24.ph,
+                        Divider(
+                          color: AppColors.primary,
+                          thickness: 1,
+                          endIndent: 46,
+                          indent: 46,
+                        ),
                       ],
                     )
                   ],
