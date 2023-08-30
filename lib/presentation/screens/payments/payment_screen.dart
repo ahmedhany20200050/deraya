@@ -53,10 +53,10 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
 
                     Container(
               child: Tab(
-              child:  Image.asset('assets/images/Fawry 1.png'),
+              child:  Image.asset('assets/images/Fawry 1.png',height: 36.h,),
               ),
-          width: 106,
-          height: 125,
+          width: 106.w,
+          height: 125.h,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25.r),
               border: Border.all(color: Colors.black.withOpacity(0.25))
@@ -64,10 +64,10 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
         ),
                     Container(
               child: Tab(
-              child:  Image.asset('assets/images/pngegg 1.png'),
+              child:  Image.asset('assets/images/pngegg 1.png',height: 31.h,),
               ),
-          width: 106,
-          height: 125,
+          width: 106.w,
+          height: 125.h,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25.r),
               border: Border.all(color: Colors.black.withOpacity(0.25))
@@ -75,10 +75,10 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
         ),
                     Container(
                       child: Tab(
-                        child:  Image.asset('assets/images/خدمة-فودافون-كاش 1.png'),
+                        child:  Image.asset('assets/images/خدمة-فودافون-كاش 1.png',height: 78.h,),
                       ),
-                      width: 106,
-                      height: 125,
+                      width: 106.w,
+                      height: 125.h,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25.r),
                           border: Border.all(color: Colors.black.withOpacity(0.25))
@@ -92,24 +92,116 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
                 child: TabBarView(
                   controller: tabController,
                   children: [
-                    Center(child: Text('Content for Tab 1')),
-                    Center(child: Text('Content for Tab 2')),
+                    const Center(child: Text('Content for Tab 1')),
+                    const Center(child: Text('Content for Tab 2')),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
+                        /// title and price
+                         Row(
                           children: [
-                            Expanded(child: TextWidget(title: 'كورس Photoshop بالكامل للمبتدأين ،وتعليم أساسيات التصميم والأدوات.',fontSize:20 ,fontWeight: FontWeight.w700,color: AppColors.primary,maxLines: 4,)),
-                            PriceWidget(),
+                            Expanded(child: TextWidget(title: 'كورس Photoshop بالكامل للمبتدأين ،وتعليم أساسيات التصميم والأدوات.',fontSize:20.sp ,fontWeight: FontWeight.w700,color: AppColors.primary,maxLines: 4,)),
+                            const PriceWidget(),
 
                           ],
                         ),
                         24.ph,
-                        Divider(
+                        const Divider(
                           color: AppColors.primary,
                           thickness: 1,
                           endIndent: 46,
                           indent: 46,
                         ),
+                        8.ph,
+                        ///total price
+                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            TextWidget(title: 'المبلغ الاجمالي',color: const Color(0xff965555),fontSize: 16.sp,fontWeight: FontWeight.w700,),
+                            TextWidget(title: "E£999.99",color: const Color(0xff965555),fontSize: 16.sp,fontWeight: FontWeight.w700,),
+                          ],
+                        ),
+                        32.ph,
+                         TextWidget(title: 'للدفع عن طريق (فودافون كاش) من داخل مصر',color: AppColors.primary,fontSize: 16.sp,fontWeight: FontWeight.w700,),
+                     8.ph,
+                        ///payment instruction
+                        Row(
+                          children: [
+                            const InstructionNum(num: '1',),
+                            8.pw,
+                            Expanded(child: TextWidget(title: 'يرجى إرسال مبلغ (E£999.99) عبر فودافون كاش إلى أحد الأرقام التالية ',color: AppColors.primary,fontSize: 16.sp,fontWeight: FontWeight.w500,)),
+
+                          ],
+                        ),
+                        16.ph,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 37.h,
+                              width: 160.w,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFB48B8B),
+                              ),
+                              child:
+                              Row(mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  TextWidget(title: '01223655398+',fontSize: 16.sp,fontWeight: FontWeight.w600,color: Colors.white,),
+                                  VerticalDivider(color: Colors.white,thickness: 1,),
+                                  Icon(Icons.copy,color: Colors.white,size: 20.sp,),
+
+                                ],
+                              ),
+                            ),  Container(
+                              height: 37.h,
+                              width: 160.w,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFB48B8B),
+                              ),
+                              child:Row(mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  TextWidget(title: '01010227401+',fontSize: 16.sp,fontWeight: FontWeight.w600,color: Colors.white,),
+                                  VerticalDivider(color: Colors.white,thickness: 1,),
+                                   Icon(Icons.copy,color: Colors.white,size: 20.sp,),
+
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        32.ph,
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const InstructionNum(num: '2',),
+                            8.pw,
+                            Expanded(child: TextWidget(title: 'بعد الدفع ..\nيرجى إرسال الإيصال (أو سكرين شوت) على الواتس آب الخاص بنفس الرقم',color: AppColors.primary,maxLines:3,fontSize: 16.sp,fontWeight: FontWeight.w500,)),
+
+                          ],
+                        ),
+                        16.ph,
+                        Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            height: 37.h,
+                            width: 160.w,
+
+                            decoration: BoxDecoration(
+                              color: Color(0xFFB48B8B),
+                            ),
+                            child:Row(mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.photo_library_outlined,color: Colors.white,size: 20.sp,),
+                                VerticalDivider(color: Colors.white,thickness: 1,),
+                                TextWidget(title: 'إدراج صورة',fontSize: 16.sp,fontWeight: FontWeight.w600,color: Colors.white,),
+
+
+                              ],
+                            ),
+                          ),
+                        ),
+                        40.ph,
+                        TextWidget(title: 'سيتم تفعيل حسابك خلال 24 ساعة من عملية الدفع وسيتم إرسال على البريد الإلكتروني ورقم الهاتف تفيدك بتأكيد الدفع وتفعيل الكورس لديك.',fontSize:16.sp ,fontWeight: FontWeight.w700,color: AppColors.grayColor,maxLines: 4,)
                       ],
                     )
                   ],
@@ -124,6 +216,21 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
           ),
         ),
       ),
+    );
+  }
+}
+
+class InstructionNum extends StatelessWidget {
+  const InstructionNum({
+    super.key, required this.num,
+  });
+final String num;
+  @override
+  Widget build(BuildContext context) {
+    return CircleAvatar(
+      radius: 16.r,
+      backgroundColor: AppColors.primary,
+      child: TextWidget(title: num,color: Colors.white,fontSize: 20.sp,fontWeight: FontWeight.w500,textAlign: TextAlign.center,),
     );
   }
 }
