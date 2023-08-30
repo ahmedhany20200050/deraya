@@ -44,7 +44,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             padding:  EdgeInsets.symmetric(horizontal: 40.w),
             child: Column(
               children: [
-                SizedBox(height: 90.h,),
+                SizedBox(height: 100.h,),
                 TextWidget(title: 'welcome'.tr(),fontSize: 31.69.sp,fontWeight:FontWeight.w600,color: AppColors.primary,),
                 SizedBox(height: 40.h,),
                 const UserName(),
@@ -117,8 +117,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
                   onTap: ()async{
-                    if(!(RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                        .hasMatch(email.text))){
+                    if((!(RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                        .hasMatch(email.text)))||(!email.text.endsWith(".com"))){
                       Fluttertoast.showToast(
                           msg: "Enter valid email",
                           toastLength: Toast.LENGTH_LONG,
