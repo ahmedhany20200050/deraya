@@ -1,10 +1,14 @@
 import 'package:deraya_application/core/Utils/utils.dart';
 import 'package:deraya_application/core/constant/colors.dart';
+import 'package:deraya_application/presentation/components/button_widget.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
 import 'package:deraya_application/presentation/screens/home/widget/price_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_credit_card/credit_card_widget.dart';
+import 'package:flutter_credit_card/glassmorphism_config.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({Key? key}) : super(key: key);
@@ -93,7 +97,96 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
                   controller: tabController,
                   children: [
                     const Center(child: Text('Content for Tab 1')),
-                    const Center(child: Text('Content for Tab 2')),
+                    Column(
+                      children: [
+                        CreditCardWidget(
+                          cardNumber: '8908 6789 5678 3456',
+                          expiryDate: '03/23',
+                          cardHolderName: 'Mostafa Ramadan hamed',
+                          cvvCode: '7865',
+                          showBackView: false,
+                          bankName: 'CIB BANK',
+                          cardType: CardType.mastercard,
+                          glassmorphismConfig: Glassmorphism( blurX: 10.0,
+                                blurY: 10.0,
+                                gradient: LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: <Color>[
+                                    Colors.grey.withAlpha(20),
+                                    Colors.white.withAlpha(20),
+                                  ],
+                                  stops: const <double>[
+                                    0.3,
+                                    0,
+                                  ],
+                                ),),
+                        backgroundImage: 'assets/images/Rectangle 1.png',
+                          labelValidThru: 'VALID',
+                          obscureCardNumber: false,
+                          obscureInitialCardNumber: false,
+                          obscureCardCvv: true,
+                          isHolderNameVisible: true,
+                          height: 175,
+                          textStyle: TextStyle(color: Colors.white,),
+                          width: MediaQuery.of(context).size.width,
+                          isChipVisible: true,
+                          isSwipeGestureEnabled: true,
+                          animationDuration: Duration(milliseconds: 1000),
+                          // frontCardBorder: Border.all(color: Colors.blue),
+                          // backCardBorder: Border.all(color: Colors.deepPurple),
+                        onCreditCardWidgetChange: (CreditCardBrand ) {  },
+                        ),
+                        // CreditCardWidget(
+                        //   glassmorphismConfig: Glassmorphism(
+                        //     blurX: 10.0,
+                        //     blurY: 10.0,
+                        //     gradient: LinearGradient(
+                        //       begin: Alignment.topLeft,
+                        //       end: Alignment.bottomRight,
+                        //       colors: <Color>[
+                        //         Colors.white.withAlpha(20),
+                        //         Colors.black.withAlpha(20),
+                        //       ],
+                        //       stops: const <double>[
+                        //         0.3,
+                        //         0,
+                        //       ],
+                        //     ),
+                        //   ), cardNumber: '0000', expiryDate: '',
+                        //   cardHolderName: 'Mostafa Ramadan', cvvCode: '7896',
+                        //   showBackView: false,
+                        //   bankName: 'Axis Bank',
+                        //   onCreditCardWidgetChange: (CreditCardBrand ) {  },
+                        // ),
+                        /// title and price
+                        Row(
+                          children: [
+                            Expanded(child: TextWidget(title: 'كورس Photoshop بالكامل للمبتدأين ،وتعليم أساسيات التصميم والأدوات.',fontSize:20.sp ,fontWeight: FontWeight.w700,color: AppColors.primary,maxLines: 4,)),
+                            const PriceWidget(),
+
+                          ],
+                        ),
+                        24.ph,
+                        const Divider(
+                          color: AppColors.primary,
+                          thickness: 1,
+                          endIndent: 46,
+                          indent: 46,
+                        ),
+                        8.ph,
+                        ///total price
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            TextWidget(title: 'المبلغ الاجمالي',color: const Color(0xff965555),fontSize: 16.sp,fontWeight: FontWeight.w700,),
+                            TextWidget(title: "E£999.99",color: const Color(0xff965555),fontSize: 16.sp,fontWeight: FontWeight.w700,),
+                          ],
+                        ),
+                        96.ph,
+                        ButtonWidget(title: 'إستمرار العملية',)
+                      ],
+                    ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -140,14 +233,14 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
                             Container(
                               height: 37.h,
                               width: 160.w,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Color(0xFFB48B8B),
                               ),
                               child:
                               Row(mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   TextWidget(title: '01223655398+',fontSize: 16.sp,fontWeight: FontWeight.w600,color: Colors.white,),
-                                  VerticalDivider(color: Colors.white,thickness: 1,),
+                                  const VerticalDivider(color: Colors.white,thickness: 1,),
                                   Icon(Icons.copy,color: Colors.white,size: 20.sp,),
 
                                 ],
@@ -155,13 +248,13 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
                             ),  Container(
                               height: 37.h,
                               width: 160.w,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Color(0xFFB48B8B),
                               ),
                               child:Row(mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   TextWidget(title: '01010227401+',fontSize: 16.sp,fontWeight: FontWeight.w600,color: Colors.white,),
-                                  VerticalDivider(color: Colors.white,thickness: 1,),
+                                  const VerticalDivider(color: Colors.white,thickness: 1,),
                                    Icon(Icons.copy,color: Colors.white,size: 20.sp,),
 
                                 ],
@@ -186,13 +279,13 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
                             height: 37.h,
                             width: 160.w,
 
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Color(0xFFB48B8B),
                             ),
                             child:Row(mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.photo_library_outlined,color: Colors.white,size: 20.sp,),
-                                VerticalDivider(color: Colors.white,thickness: 1,),
+                                const VerticalDivider(color: Colors.white,thickness: 1,),
                                 TextWidget(title: 'إدراج صورة',fontSize: 16.sp,fontWeight: FontWeight.w600,color: Colors.white,),
 
 
