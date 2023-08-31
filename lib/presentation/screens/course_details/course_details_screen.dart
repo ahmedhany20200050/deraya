@@ -9,6 +9,7 @@ import 'package:deraya_application/presentation/screens/course_details/course_de
 import 'package:deraya_application/presentation/screens/course_details/course_details_components/comments_and_rating_view.dart';
 import 'package:deraya_application/presentation/screens/course_details/course_details_components/contant_tab_view.dart';
 import 'package:deraya_application/presentation/screens/home/widget/price_widget.dart';
+import 'package:deraya_application/presentation/screens/payments/payment_screen.dart';
 import 'package:deraya_application/presentation/widgets/video_player_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -213,7 +214,9 @@ class CourseDetailsScreen extends StatelessWidget {
               children: [
                 ButtonWidget(
                   width: 0.4.sw,
-                  onTap: () {},
+                  onTap: () {
+                    Utils.openScreen(context, const PaymentScreen());
+                  },
                   radius: 12.r,
                   title: "شراء الكورس",
                   fontSize: 22.sp,
