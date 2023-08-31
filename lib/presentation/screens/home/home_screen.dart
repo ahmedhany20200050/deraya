@@ -260,12 +260,12 @@ class HomeScreen extends StatelessWidget {
                                 },
                               ),
                               const CategoryWidget(),
-                              DefinitionRow(
-                                title: "الدورات الحالية",
-                                subTitle: "الكل",
-                              ),
-                              16.ph,
-                              const CurrentCoursesWidget(),
+                              // DefinitionRow(
+                              //   title: "الدورات الحالية",
+                              //   subTitle: "الكل",
+                              // ),
+                              // 16.ph,
+                              // const CurrentCoursesWidget(),
                               16.ph,
                               // DefinitionRow(
                               //   title: "أشهر المدربين لدينا",

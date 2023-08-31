@@ -30,7 +30,7 @@ class CurrentCoursesWidget extends StatelessWidget {
                     child: GestureDetector(
                       onTap: () {
                         Utils.openScreen(context, CourseDetailsScreen(data?[index].id,data!));
-                        print(data?[index].nameEn);
+                        print(data[index].nameEn);
                       },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),

@@ -67,7 +67,7 @@ class CourseDetailsScreen extends StatelessWidget {
               16.ph,
               VideoReview(
                 url:
-                    course.video!,
+                    course.video??"",
               ),
               // 16.ph,
               Padding(
