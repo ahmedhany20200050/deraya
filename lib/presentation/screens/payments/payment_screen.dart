@@ -3,12 +3,12 @@ import 'package:deraya_application/core/constant/colors.dart';
 import 'package:deraya_application/presentation/components/button_widget.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
 import 'package:deraya_application/presentation/screens/home/widget/price_widget.dart';
+import 'package:deraya_application/presentation/screens/payments/pick_image_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/credit_card_widget.dart';
 import 'package:flutter_credit_card/glassmorphism_config.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({Key? key}) : super(key: key);
@@ -34,7 +34,7 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
           child: Column(
             children: [
               50.ph,
-              const CustomAppbar(),
+               CustomAppbar(title: 'payment method',),
             24.ph,
             TabBar(
               controller: tabController,
@@ -96,7 +96,8 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
                 child: TabBarView(
                   controller: tabController,
                   children: [
-                    const Center(child: Text('Content for Tab 1')),
+                    const Center(child: TextWidget(title: '...Coming Soon',fontSize: 40,)),
+                    ///credit card
                     Column(
                       children: [
                         CreditCardWidget(
@@ -128,37 +129,15 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
                           obscureCardCvv: true,
                           isHolderNameVisible: true,
                           height: 175,
-                          textStyle: TextStyle(color: Colors.white,),
+                          textStyle: const TextStyle(color: Colors.white,),
                           width: MediaQuery.of(context).size.width,
                           isChipVisible: true,
                           isSwipeGestureEnabled: true,
-                          animationDuration: Duration(milliseconds: 1000),
+                          animationDuration: const Duration(milliseconds: 1000),
                           // frontCardBorder: Border.all(color: Colors.blue),
                           // backCardBorder: Border.all(color: Colors.deepPurple),
                         onCreditCardWidgetChange: (CreditCardBrand ) {  },
                         ),
-                        // CreditCardWidget(
-                        //   glassmorphismConfig: Glassmorphism(
-                        //     blurX: 10.0,
-                        //     blurY: 10.0,
-                        //     gradient: LinearGradient(
-                        //       begin: Alignment.topLeft,
-                        //       end: Alignment.bottomRight,
-                        //       colors: <Color>[
-                        //         Colors.white.withAlpha(20),
-                        //         Colors.black.withAlpha(20),
-                        //       ],
-                        //       stops: const <double>[
-                        //         0.3,
-                        //         0,
-                        //       ],
-                        //     ),
-                        //   ), cardNumber: '0000', expiryDate: '',
-                        //   cardHolderName: 'Mostafa Ramadan', cvvCode: '7896',
-                        //   showBackView: false,
-                        //   bankName: 'Axis Bank',
-                        //   onCreditCardWidgetChange: (CreditCardBrand ) {  },
-                        // ),
                         /// title and price
                         Row(
                           children: [
@@ -187,6 +166,7 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
                         ButtonWidget(title: 'إستمرار العملية',)
                       ],
                     ),
+                    ///vodafone cash
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -275,21 +255,26 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
                         16.ph,
                         Align(
                           alignment: Alignment.center,
-                          child: Container(
-                            height: 37.h,
-                            width: 160.w,
+                          child: InkWell(
+                            onTap: (){
+                             Utils.openScreen(context, const PickImageScreen()) ;
+                            },
+                            child: Container(
+                              height: 37.h,
+                              width: 160.w,
 
-                            decoration: const BoxDecoration(
-                              color: Color(0xFFB48B8B),
-                            ),
-                            child:Row(mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(Icons.photo_library_outlined,color: Colors.white,size: 20.sp,),
-                                const VerticalDivider(color: Colors.white,thickness: 1,),
-                                TextWidget(title: 'إدراج صورة',fontSize: 16.sp,fontWeight: FontWeight.w600,color: Colors.white,),
+                              decoration: const BoxDecoration(
+                                color: Color(0xFFB48B8B),
+                              ),
+                              child:Row(mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.photo_library_outlined,color: Colors.white,size: 20.sp,),
+                                  const VerticalDivider(color: Colors.white,thickness: 1,),
+                                  TextWidget(title: 'إدراج صورة',fontSize: 16.sp,fontWeight: FontWeight.w600,color: Colors.white,),
 
 
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -330,20 +315,20 @@ final String num;
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({
-    super.key,
+    super.key, required this.title,
   });
-
+final String title;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         IconButton(onPressed: (){
-          Utils.backWidget(context);
+          Navigator.of(context).pop();
         },
             padding: EdgeInsets.zero,
             icon: const Icon(Icons.arrow_back,color: AppColors.primary,)),
         8.pw,
-        TextWidget(title: 'payment method'.tr(),fontSize:20 ,fontWeight: FontWeight.w700,color: AppColors.primary),
+        TextWidget(title: title.tr(),fontSize:20 ,fontWeight: FontWeight.w700,color: AppColors.primary),
       ],
     );
   }
