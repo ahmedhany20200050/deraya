@@ -3,6 +3,7 @@ import 'package:deraya_application/core/constant/colors.dart';
 import 'package:deraya_application/presentation/components/button_widget.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
 import 'package:deraya_application/presentation/screens/home/widget/price_widget.dart';
+import 'package:deraya_application/presentation/screens/payments/credit_card_details_screen.dart';
 import 'package:deraya_application/presentation/screens/payments/pick_image_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -163,7 +164,9 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
                           ],
                         ),
                         96.ph,
-                        ButtonWidget(title: 'إستمرار العملية',)
+                        ButtonWidget(title: 'إستمرار العملية',onTap: (){
+                          Utils.openScreen(context, CreditCardDetailsScreen());
+                        },)
                       ],
                     ),
                     ///vodafone cash

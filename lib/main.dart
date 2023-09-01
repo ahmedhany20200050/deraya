@@ -81,7 +81,7 @@ class MyApp extends StatelessWidget {
 
             ),
 
-           home: const PaymentScreen(),
+           home: SplashScreen(),
 
           );
         });
