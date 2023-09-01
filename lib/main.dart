@@ -8,6 +8,7 @@ import 'package:deraya_application/presentation/screens/course_details/course_de
 import 'package:deraya_application/presentation/screens/courses/courses_screen.dart';
 import 'package:deraya_application/presentation/screens/home/home_screen.dart';
 import 'package:deraya_application/presentation/screens/payments/payment_screen.dart';
+import 'package:deraya_application/presentation/screens/payments/pick_image_screen.dart';
 
 import 'package:deraya_application/presentation/screens/splash_screen/splash_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -81,7 +82,7 @@ class MyApp extends StatelessWidget {
 
             ),
 
-           home: SplashScreen(),
+           home: PickImageScreen(),
 
           );
         });
