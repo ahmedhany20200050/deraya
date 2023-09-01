@@ -2,6 +2,7 @@
     package="com.example.deraya_application">
     <uses-permission android:name="android.permission.INTERNET"/>
 
+
     <application
         android:label="deraya_application"
         android:name="${applicationName}"
