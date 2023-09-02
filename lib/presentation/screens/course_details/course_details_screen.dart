@@ -18,6 +18,7 @@ import 'course_details_components/courses_tab_bar.dart';
 import 'course_details_components/summary_tab_view.dart';
 
 class CourseDetailsScreen extends StatelessWidget {
+
   List<String> requirments = [
     // "لا يلزم على الطالب وجود خبرة سابقة في مجال التصميم ،فإن الدورة سوف تساعدك على التدريب باستمرار.",
     // "يلزم جهاز كمبيوتر أو نظام تشغيل مناسب للتعامل الجيد مع برنامج Adobe Photoshop في الدورة التدريبية.",
@@ -35,7 +36,7 @@ class CourseDetailsScreen extends StatelessWidget {
   int? id;
   List<Courses> data;
   late Courses course;
-  CourseDetailsScreen(this.id, this.data,{super.key}){
+  CourseDetailsScreen(this.id, this.data,{super.key,this.paidSuccessfully=false}){
     for(var c in data){
       if(c.id==this.id){
         course=c;
@@ -43,7 +44,7 @@ class CourseDetailsScreen extends StatelessWidget {
       }
     }
   }
-
+final bool paidSuccessfully;
 
   @override
   Widget build(BuildContext context) {
@@ -205,7 +206,7 @@ class CourseDetailsScreen extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: Container(
+        bottomNavigationBar:paidSuccessfully?null: Container(
           height: 100.h,
           color: Colors.white,
           child: Padding(
@@ -215,7 +216,7 @@ class CourseDetailsScreen extends StatelessWidget {
                 ButtonWidget(
                   width: 0.4.sw,
                   onTap: () {
-                    Utils.openScreen(context, const PaymentScreen());
+                    Utils.openScreen(context,  PaymentScreen(courseId: course.id!,));
                   },
                   radius: 12.r,
                   title: "شراء الكورس",

@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:http/http.dart' as http;
+import '../../../core/constant/assets.dart';
 import '../../../core/constant/colors.dart';
 import '../../../data/api/my_api.dart';
 import '../../../domain/end_points/end_points.dart';
@@ -21,7 +22,7 @@ import '../../components/text_form_field.dart';
 import '../search/search_screen.dart';
 
 class SubcategoriesScreen extends StatefulWidget {
-  final Categories c;
+  final Subcategories c;
     SubcategoriesScreen({Key? key, required this.c}) : super(key: key);
 
   @override
@@ -29,7 +30,7 @@ class SubcategoriesScreen extends StatefulWidget {
 }
 
 class _SubcategoriesScreenState extends State<SubcategoriesScreen> {
-  late final Categories c;
+  late final Subcategories c;
   _SubcategoriesScreenState({Key? key,required this.c});
   CourseData? courseData;
   Future<void> getData()async{
@@ -271,6 +272,34 @@ class _SubcategoriesScreenState extends State<SubcategoriesScreen> {
                                               Text("Ali Wael",style: TextStyles.brownTextStyle,),
                                             ],
                                           ),
+                                          16.ph,
+                                          Container(
+                                            padding: const EdgeInsets.all(6),
+                                            decoration: ShapeDecoration(
+                                              color: AppColors.primary.withOpacity(0.3),
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(16),
+                                              ),
+                                            ),
+                                            child:  Row(
+
+                                              children: [
+                                                8.pw,
+
+                                                Icon(Icons.watch_later_outlined,color: AppColors.primary,size: 20.sp,),
+                                                4.pw,
+                                                TextWidget(
+                                                  title:"${
+                                                      currentCourse?.hours
+                                                  }" ??'',
+                                                  color: AppColors.primary,
+                                                  fontSize: 16.sp,
+                                                ),
+                                                8.pw,
+
+                                              ],
+                                            ),
+                                          ),
                                           // 8.ph,
                                           // Container(
                                           //   color: AppColors.lightBackground,
@@ -301,16 +330,29 @@ class _SubcategoriesScreenState extends State<SubcategoriesScreen> {
                                               ),
                                             ),
                                             child:  TextWidget(
-                                                title: currentCourse?.price.toString(),
-                                              fontSize: 16,
+                                                title:"E£${
+                                                          currentCourse?.price
+                                                              .toString()
+                                                        }" ??'',
+                                              fontSize: 16.sp,
                                             ),
                                           ),
-                                          8.ph,
-                                           TextWidget(
-                                              title: currentCourse?.price.toString(),
-                                            fontSize: 16,
-                                            isOffer: true,
-                                          )
+                                          16.ph,
+                                          Container(
+                                            padding: const EdgeInsets.all(6),
+                                            decoration: ShapeDecoration(
+                                              color: AppColors.primary.withOpacity(0.4),
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(16),
+                                              ),
+                                            ),
+                                            child:  TextWidget(
+                                              title:"${
+                                                  currentCourse?.status
+                                              }" ??'',
+                                              fontSize: 16.sp,
+                                            ),
+                                          ),
                                       ],
                                       ),
 
@@ -465,18 +507,22 @@ class MostViewedItem extends StatelessWidget {
         Utils.openScreen(context, CourseDetailsScreen(course?.id, cc));
       },
       child: Container(
+        clipBehavior: Clip.antiAliasWithSaveLayer,
         width: MediaQuery.of(context).size.width/2,
         height: MediaQuery.of(context).size.height/4,
    //   constraints: BoxConstraints(maxWidth: 0.6.sw, minWidth: 0.55.sw,minHeight: 316.h),
-        decoration: BoxDecoration(boxShadow: [
+        decoration: BoxDecoration(
+            borderRadius:BorderRadius.circular(10),
+            border: Border.all(color: Colors.grey.shade200),
+            boxShadow: [
           BoxShadow(
             offset: const Offset(15, 15),
-            blurRadius: 30,
-            spreadRadius: 0,
-            color: const Color(0xFFD3D1D8).withOpacity(0.0625),
+            blurRadius: 60,
+            spreadRadius: 1,
+            color: const Color(0xFFD3D1D8).withOpacity(0.2),
           ),
         ]),
-        padding: EdgeInsets.symmetric(horizontal: 8.w),
+        //padding: EdgeInsets.symmetric(horizontal: 8.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -559,7 +605,7 @@ class MostViewedItem extends StatelessWidget {
                 children: [
                   TextWidget(
                     title:
-                        "${this.course?.nameAr}",
+                        "${this.course?.nameAr}"??'',
                     maxLines: 2,
                     textAlign: TextAlign.start,
                     fontSize: 16.sp,
@@ -588,76 +634,104 @@ class MostViewedItem extends StatelessWidget {
               ),
             ),
             12.ph,
-            const Row(
+             Row(
               children: [
+                8.pw,
                 /// student counter
-                // Container(
-                //   width: 97.w,
-                //   height: 29.h,
-                //   padding: EdgeInsets.symmetric(horizontal: 8.w),
-                //   decoration: BoxDecoration(
-                //     color: AppColors.primary.withOpacity(0.2),
-                //     borderRadius: BorderRadius.circular(5.r),
-                //   ),
-                //   child: Row(
-                //     children: [
-                //        Icon(
-                //         Icons.people_alt_outlined,
-                //         color: AppColors.primary,
-                //         size: 20.sp,
-                //       ),
-                //       5.pw,
-                //       TextWidget(
-                //         title: "1,067 طالب",
-                //         textAlign: TextAlign.center,
-                //         fontSize: 13.sp,
-                //         fontWeight: FontWeight.w600,
-                //         color: AppColors.primary,
-                //       ),
-                //     ],
-                //   ),
-                // ),
+                Container(
+                  width: 97.w,
+                  height: 29.h,
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
+                  decoration: BoxDecoration(
+                    color: AppColors.primary.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(5.r),
+                  ),
+                  child: Row(
+                    children: [
+                       Icon(
+                        Icons.people_alt_outlined,
+                        color: AppColors.primary,
+                        size: 20.sp,
+                      ),
+                      5.pw,
+                      TextWidget(
+                        title: "${course!.status}",
+                        textAlign: TextAlign.center,
+                        fontSize: 13.sp,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.primary,
+                      ),
+                    ],
+                  ),
+                ),
                 Spacer(),
-                PriceWidget(),
+                Container(
+                  width: 50.w,
+                  height: 29.h,
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
+                  decoration: BoxDecoration(
+                    color: AppColors.primary.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(5.r),
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.watch_later_outlined,
+                        color: AppColors.primary,
+                        size: 20.sp,
+                      ),
+                      5.pw,
+                      TextWidget(
+                        title: "${course!.hours}",
+                        textAlign: TextAlign.center,
+                        fontSize: 13.sp,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.primary,
+                      ),
+                    ],
+                  ),
+                ),
+                12.pw,
               ],
             ),
             12.ph,
             Row(
               children: [
                 /// course language
-                // Container(
-                //   width: 80.w,
-                //   height: 29.h,
-                //   padding: EdgeInsets.symmetric(horizontal: 8.w),
-                //   alignment: Alignment.center,
-                //   decoration: BoxDecoration(
-                //     color: AppColors.primary.withOpacity(0.2),
-                //     borderRadius: BorderRadius.circular(5.r),
-                //   ),
-                //   child: Row(
-                //     children: [
-                //        Icon(
-                //         Icons.language_rounded,
-                //         color: AppColors.primary,
-                //         size: 18.sp,
-                //       ),
-                //       5.pw,
-                //       TextWidget(
-                //         title: "عربي",
-                //         textAlign: TextAlign.center,
-                //         fontSize: 13.sp,
-                //         fontWeight: FontWeight.w600,
-                //         color: AppColors.primary,
-                //       ),
-                //     ],
-                //   ),
-                // ),
+                 8.pw,
+                Container(
+                  width: 80.w,
+                  height: 29.h,
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: AppColors.primary.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(5.r),
+                  ),
+                  child: Row(
+                    children: [
+                       Icon(
+                        Icons.language_rounded,
+                        color: AppColors.primary,
+                        size: 18.sp,
+                      ),
+                      5.pw,
+                      TextWidget(
+                        title: "${course!.language}",
+                        textAlign: TextAlign.center,
+                        fontSize: 13.sp,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.primary,
+                      ),
+                    ],
+                  ),
+                ),
                 const Spacer(),
+                30.pw,
                 Padding(
                   padding:  EdgeInsets.only(left: 16.0.w),
                   child: TextWidget(
-                    title: "E£999.99",
-                    isOffer: true,
+                    title: 'E£${this.course!.price}',
                     textAlign: TextAlign.center,
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w400,

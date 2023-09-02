@@ -10,13 +10,10 @@ import 'package:deraya_application/presentation/screens/home/cubit/home_cubit.da
 import 'package:deraya_application/presentation/screens/home/widget/build_current_courses.dart';
 import 'package:deraya_application/presentation/screens/home/widget/category_widget.dart';
 import 'package:deraya_application/presentation/screens/home/widget/definition_row.dart';
-import 'package:deraya_application/presentation/screens/home/widget/instructors_widget.dart';
 import 'package:deraya_application/presentation/screens/home/widget/popular_courses.dart';
 import 'package:deraya_application/presentation/screens/login/login_screen.dart';
-import 'package:deraya_application/presentation/screens/search/filtter_screen.dart';
 import 'package:deraya_application/presentation/screens/search/search_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -33,7 +30,7 @@ class HomeScreen extends StatelessWidget {
       onWillPop: (){return Future.value(false);},
       child: BlocProvider(
         create: (context) => HomeCubit()
-          ..getCategories()
+          ..geSubcategories()
           ..getCourses()
         ..getUserCourses(),
           // ..getInstructors(),
@@ -255,9 +252,10 @@ class HomeScreen extends StatelessWidget {
                                 secondOnTap: () {
                                   Utils.openScreen(
                                       context,
-                                      CategoryScreen(HomeCubit.get(context)
-                                          .categoriesModel!
-                                          .categories!));
+                                      CategoryScreen(
+                                          HomeCubit.get(context)
+                                          .subcategoriesModel!.subcategory!,
+                                      ));
                                 },
                               ),
                               const CategoryWidget(),

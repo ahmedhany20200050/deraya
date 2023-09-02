@@ -158,7 +158,7 @@ class PopularCoursesWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(15.r),
             ),
             child:  TextWidget(
-            title: data?[index].price??"",
+            title: 'E£${data?[index].price}'??"",
             textAlign: TextAlign.center,
             fontSize: 16.sp,
             fontWeight: FontWeight.w600,
@@ -213,7 +213,7 @@ class PopularCoursesWidget extends StatelessWidget {
                             horizontal: 10.w, vertical: 16.w),
                         child: Center(
                           child: TextWidget(
-                            title: "${double.parse(data![index].price??"100")+100}",
+                            title: "E£${double.parse(data![index].price??"100")+100}",
                             maxLines: 2,
                             isOffer:true,
                             textAlign: TextAlign.center,
