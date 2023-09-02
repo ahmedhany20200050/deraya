@@ -8,7 +8,6 @@ import 'package:deraya_application/presentation/components/text_widget.dart';
 import 'package:deraya_application/presentation/screens/login/login_screen.dart';
 import 'package:deraya_application/presentation/screens/payments/payment_screen.dart';
 import 'package:dotted_border/dotted_border.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -17,7 +16,8 @@ import 'package:http/http.dart' as http;
 
 
 class PickImageScreen extends StatefulWidget {
-  const PickImageScreen({Key? key}) : super(key: key);
+  const PickImageScreen({Key? key, required this.courseId}) : super(key: key);
+  final int courseId;
 
   @override
   State<PickImageScreen> createState() => _PickImageScreenState();
@@ -179,38 +179,6 @@ class _PickImageScreenState extends State<PickImageScreen> {
                 ],
               ),
             ),
-            24.ph,
-            TextWidget(title: 'email'.tr(),fontSize:16 ,textAlign:TextAlign.start,fontWeight:FontWeight.w700 ,color: AppColors.primary,),
-            8.ph,
-            SizedBox(
-              height: 60,
-              child: TextField(
-                keyboardType: TextInputType.phone,
-              //  textDirection: TextDirection.ltr,
-                textAlign: TextAlign.end,
-                textInputAction: TextInputAction.done,
-                cursorColor: AppColors.grayColor,
-                showCursor: false,
-                style: TextStyle(color: AppColors.grayColor),
-                decoration: InputDecoration(
-                  hintText: 'mostafa@gmail.com',
-                  //hintTextDirection: TextDirection.ltr,
-                  hintStyle: TextStyle(color: Colors.grey.withOpacity(0.6),fontSize: 16,),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey,),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey,),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey,),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-            ),
             Spacer(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -223,8 +191,9 @@ class _PickImageScreenState extends State<PickImageScreen> {
                   'Authorization': token,
                   'Cookie': 'diraya_session=AfKQfd08KsKHy03lef6MgbqWlBeAnSWo4Q12KuN0'
                 };
+                ///todo replace id with course id
                 var request = http.MultipartRequest('POST',
-                    Uri.parse('https://diraya.xyz/api/enrollment/checkout/${userUltraProMax?.id}'));
+                    Uri.parse('https://diraya.xyz/api/enrollment/checkout/${widget.courseId}'));
                 request.fields.addAll({
                   'phone': phoneController.text
                 });

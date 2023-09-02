@@ -7,19 +7,22 @@ import 'package:deraya_application/presentation/screens/payments/credit_card_det
 import 'package:deraya_application/presentation/screens/payments/pick_image_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_credit_card/credit_card_widget.dart';
 import 'package:flutter_credit_card/glassmorphism_config.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class PaymentScreen extends StatefulWidget {
-  const PaymentScreen({Key? key}) : super(key: key);
-
+  const PaymentScreen({Key? key, required this.courseId}) : super(key: key);
+  final int courseId;
   @override
   State<PaymentScreen> createState() => _PaymentScreenState();
 }
 
 class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMixin {
   late TabController tabController;
+
   @override
   void initState() {
     super.initState();
@@ -224,7 +227,13 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
                                 children: [
                                   TextWidget(title: '01223655398+',fontSize: 16.sp,fontWeight: FontWeight.w600,color: Colors.white,),
                                   const VerticalDivider(color: Colors.white,thickness: 1,),
-                                  Icon(Icons.copy,color: Colors.white,size: 20.sp,),
+                                  InkWell(
+                                       onTap: () async {
+                                         await Clipboard.setData(ClipboardData(
+                                             text: "01010227401"));
+                                         Fluttertoast.showToast(msg: 'Copied to clipboard');
+                                       },
+                                      child: Icon(Icons.copy,color: Colors.white,size: 20.sp,)),
 
                                 ],
                               ),
@@ -238,7 +247,14 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
                                 children: [
                                   TextWidget(title: '01010227401+',fontSize: 16.sp,fontWeight: FontWeight.w600,color: Colors.white,),
                                   const VerticalDivider(color: Colors.white,thickness: 1,),
-                                   Icon(Icons.copy,color: Colors.white,size: 20.sp,),
+                                   InkWell(
+
+                                         onTap: () async {
+                                           await Clipboard.setData(ClipboardData(text: "01010227401"));
+                                           Fluttertoast.showToast(msg: 'Copied to clipboard');
+
+                                         },
+                                       child: Icon(Icons.copy,color: Colors.white,size: 20.sp,)),
 
                                 ],
                               ),
@@ -246,21 +262,11 @@ class _PaymentScreenState extends State<PaymentScreen>with TickerProviderStateMi
                           ],
                         ),
                         32.ph,
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const InstructionNum(num: '2',),
-                            8.pw,
-                            Expanded(child: TextWidget(title: 'بعد الدفع ..\nيرجى إرسال الإيصال (أو سكرين شوت) على الواتس آب الخاص بنفس الرقم',color: AppColors.primary,maxLines:3,fontSize: 16.sp,fontWeight: FontWeight.w500,)),
-
-                          ],
-                        ),
-                        16.ph,
                         Align(
                           alignment: Alignment.center,
                           child: InkWell(
                             onTap: (){
-                             Utils.openScreen(context, const PickImageScreen()) ;
+                             Utils.openScreen(context,  PickImageScreen(courseId: widget.courseId,)) ;
                             },
                             child: Container(
                               height: 37.h,

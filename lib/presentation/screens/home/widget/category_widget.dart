@@ -20,11 +20,12 @@ class CategoryWidget extends StatelessWidget {
       },
       builder: (context, state) {
         HomeCubit cubit =BlocProvider.of(context);
-        final data = cubit.categoriesModel?.categories;
+        final data = cubit.subcategoriesModel?.subcategory;
         return SizedBox(
 
           height: 0.41.sh,
           child: GridView.builder(
+
             physics: const NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4,
@@ -59,7 +60,7 @@ class CategoryWidget extends StatelessWidget {
                 ],
               );
             },
-            itemCount: cubit.categoriesModel?.categories?.length,
+            itemCount: cubit.subcategoriesModel?.subcategory?.length,
 
           ),
         );

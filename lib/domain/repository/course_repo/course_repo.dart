@@ -23,6 +23,42 @@ class CourseRepo {
 
   }
 
+  Future<SubcategoriesData?> getSubcategories() async {
+    SubcategoriesData? subcategoriesModel;
+    final response = await DioHelper.getData(
+      url: EndPoints.subCategory,
+      loading: true,
+      token:"Bearer 8|fyRSqKqHBtgoNBkxjKldOZpELqCO9LO0rXgQflpn"
+
+    );
+    if (response != null) {
+      subcategoriesModel = SubcategoriesData.fromJson(response.data["data"]);
+      return subcategoriesModel;
+    }
+    else{
+      return null ;
+    }
+/*
+var headers = {
+  'Accept': 'application/json',
+  'Accept-Language': 'en'
+};
+var request = http.MultipartRequest('GET', Uri.parse('https://diraya.xyz/api/subcategory'));
+
+request.headers.addAll(headers);
+
+http.StreamedResponse response = await request.send();
+
+if (response.statusCode == 200) {
+  print(await response.stream.bytesToString());
+}
+else {
+  print(response.reasonPhrase);
+}
+
+ */
+  }
+
   Future<CourseData?> getCourses()async {
     CourseData? courseData;
     final response = await DioHelper.getData(

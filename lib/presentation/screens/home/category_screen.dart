@@ -12,7 +12,7 @@ import '../search/search_screen.dart';
 import 'package:http/http.dart' as http;
 
 class CategoryScreen extends StatelessWidget {
-  List<Categories>c;
+  List<Subcategories>c;
 
   CategoryScreen(this.c,{Key? key}) : super(key: key);
 
@@ -37,13 +37,13 @@ class CategoryScreen extends StatelessWidget {
             16.ph,
             Expanded(
                 child: GridView.builder(
-                    itemCount: this.c.length, // Number of items in the grid
+                    itemCount: c.length, // Number of items in the grid
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 16,
                       mainAxisSpacing: 20,
                     ),
-                    itemBuilder: (context,index)=> CategoryItem(this.c[index]))),
+                    itemBuilder: (context,index)=> CategoryItem(c[index], index: index, ))),
           ],
         ),
       ),
@@ -52,11 +52,12 @@ class CategoryScreen extends StatelessWidget {
 }
 
 class CategoryItem extends StatelessWidget {
-  Categories c= Categories();
+  Subcategories c= Subcategories();
   CategoryItem(this.c, {
-    super.key,
-  });
+    super.key, required this.index,
 
+  });
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -96,9 +97,9 @@ class CategoryItem extends StatelessWidget {
                   color: Colors.white,
                   highlightColor: Colors.white,
                   onPressed: (){
-                    Utils.openScreen(context, SubcategoriesScreen(c: this.c,));
+          Utils.openScreen(context, SubcategoriesScreen(c: this.c,));
                   }, icon:  Icon(Icons.arrow_back_ios,)),
-              TextWidget(title: this.c.nameAr,fontSize: 20,fontWeight: FontWeight.w700,color: Colors.white,),
+              Expanded(child: TextWidget(title: this.c.nameAr,fontSize: 20.sp,maxLines:1,fontWeight: FontWeight.w700,color: Colors.white,)),
             ],
           )),
     );
