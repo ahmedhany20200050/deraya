@@ -63,11 +63,11 @@ class HomeCubit extends Cubit<HomeStates> {
           'Accept-Language': 'en',
           "Accept": "application/json",
           'Authorization': userUltraProMax?.token??"",
-        },Uri.parse("https://diraya.xyz/api/enrollment/userCourses/${userUltraProMax?.id}"));
+        },Uri.parse("https://diraya.xyz/api/enrollment/courses"));
     dynamic json = jsonDecode(response.body)["data"];
-    if (json["enrollment"] != null) {
-      for(var course in json["enrollment"]){
-        userCoursesIDs.add(course["course_id"]);
+    if (json["courses"] != null) {
+      for(var course in json["courses"]){
+        userCoursesIDs.add(course["id"]);
       }
       if(userCoursesIDs.isNotEmpty)
       emit(HomeGetUserCoursesSuccessState());
