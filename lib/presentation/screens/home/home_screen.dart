@@ -34,14 +34,15 @@ class HomeScreen extends StatelessWidget {
       child: BlocProvider(
         create: (context) => HomeCubit()
           ..getCategories()
-          ..getCourses(),
+          ..getCourses()
+        ..getUserCourses(),
           // ..getInstructors(),
         child: BlocConsumer<HomeCubit, HomeStates>(
           listener: (context, state) {
             // TODO: implement listener
           },
           builder: (context, state) {
-            return Scaffold(
+            return (state is HomeGetUserCoursesSuccessState)||(state is HomeGetCoursesSuccessState)|| (state is HomeGetCategoriesSuccessState)||(state is HomeGetInstructorSuccessState)  ?Scaffold(
               body: SafeArea(
                 child: CustomScrollView(
                   key: const Key("Home"),
@@ -260,12 +261,17 @@ class HomeScreen extends StatelessWidget {
                                 },
                               ),
                               const CategoryWidget(),
-                              // DefinitionRow(
-                              //   title: "الدورات الحالية",
-                              //   subTitle: "الكل",
-                              // ),
-                              // 16.ph,
-                              // const CurrentCoursesWidget(),
+                              if(state is HomeGetUserCoursesSuccessState)
+                              16.ph,
+                              if(state is HomeGetUserCoursesSuccessState)
+                              DefinitionRow(
+                                title: "الدورات الحالية",
+                                subTitle: "",
+                              ),
+                              if(state is HomeGetUserCoursesSuccessState)
+                              16.ph,
+                              if(state is HomeGetUserCoursesSuccessState)
+                              const CurrentCoursesWidget(),
                               16.ph,
                               // DefinitionRow(
                               //   title: "أشهر المدربين لدينا",
@@ -274,7 +280,7 @@ class HomeScreen extends StatelessWidget {
                               // const InstructorWidget(),
                               DefinitionRow(
                                 title: "الكورسات الأكثر مشاهدة",
-                                subTitle: "الكل",
+                                subTitle: "",
                               ),
                               8.ph,
                               const PopularCoursesWidget(),
@@ -286,7 +292,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-            );
+            ):Scaffold();
           },
         ),
       ),

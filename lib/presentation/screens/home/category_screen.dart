@@ -9,6 +9,7 @@ import '../../../core/constant/colors.dart';
 import '../../../domain/models/category_model/categories_model.dart';
 import '../../components/text_form_field.dart';
 import '../search/search_screen.dart';
+import 'package:http/http.dart' as http;
 
 class CategoryScreen extends StatelessWidget {
   List<Categories>c;
@@ -95,7 +96,7 @@ class CategoryItem extends StatelessWidget {
                   color: Colors.white,
                   highlightColor: Colors.white,
                   onPressed: (){
-                    Utils.openScreen(context, SubcategoriesScreen());
+                    Utils.openScreen(context, SubcategoriesScreen(c: this.c,));
                   }, icon:  Icon(Icons.arrow_back_ios,)),
               TextWidget(title: this.c.nameAr,fontSize: 20,fontWeight: FontWeight.w700,color: Colors.white,),
             ],

@@ -24,8 +24,6 @@ class _VideoReviewState extends State<VideoReview> {
     super.initState();
     _controller = VideoPlayerController.network(
         widget.url
-
-
     );
 
     _initializeVideoPlayerFuture = _controller.initialize();
@@ -55,10 +53,7 @@ class _VideoReviewState extends State<VideoReview> {
                 future: _initializeVideoPlayerFuture,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.done) {
-                    return AspectRatio(
-                      aspectRatio: _controller.value.aspectRatio,
-                      child: VideoPlayer(_controller),
-                    );
+                    return VideoPlayer(_controller);
                   } else {
                     return const Center(
                       child: CircularProgressIndicator(),

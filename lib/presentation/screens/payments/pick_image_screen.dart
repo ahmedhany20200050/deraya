@@ -1,9 +1,11 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:deraya_application/core/Utils/utils.dart';
 import 'package:deraya_application/core/constant/colors.dart';
 import 'package:deraya_application/presentation/components/button_widget.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
+import 'package:deraya_application/presentation/screens/login/login_screen.dart';
 import 'package:deraya_application/presentation/screens/payments/payment_screen.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -125,7 +127,6 @@ class _PickImageScreenState extends State<PickImageScreen> {
                             builder: (context, value, _) =>
                                 LinearProgressIndicator(value: value,
                                 color: Color(0xff965555),
-                                  borderRadius: BorderRadius.circular(5),
                                   backgroundColor: Color(0xffCDC9C9),
                                   minHeight: 7.25.h,
                                 ),
@@ -215,14 +216,15 @@ class _PickImageScreenState extends State<PickImageScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: ButtonWidget(title: 'إرسال الوصل',fontSize:20 ,fontWeight: FontWeight.w700,radius: 10,
               onTap: ()async{
+                String token= userUltraProMax?.token??"";
                 var headers = {
                   'Accept': 'application/json',
                   'Accept-Language': 'en',
-                  'Authorization': 'Bearer 24|laravel_sanctum_14uKosygBMkCPUUwaqCSxdD51PGkDmyPlWljd3bcb13584fc',
+                  'Authorization': token,
                   'Cookie': 'diraya_session=AfKQfd08KsKHy03lef6MgbqWlBeAnSWo4Q12KuN0'
                 };
                 var request = http.MultipartRequest('POST',
-                    Uri.parse('https://diraya.xyz/api/enrollment/checkout/1'));
+                    Uri.parse('https://diraya.xyz/api/enrollment/checkout/${userUltraProMax?.id}'));
                 request.fields.addAll({
                   'phone': phoneController.text
                 });
@@ -250,6 +252,16 @@ class _PickImageScreenState extends State<PickImageScreen> {
                 print(await response.stream.bytesToString());
                 }
                 else {
+                  var reponseBody =await http.Response.fromStream(response);
+                  Fluttertoast.showToast(
+                      msg: "${jsonDecode(reponseBody.body)["message"]}",
+                      toastLength: Toast.LENGTH_LONG,
+                      gravity: ToastGravity.CENTER,
+                      timeInSecForIosWeb: 2,
+                      backgroundColor: AppColors.primary,
+                      textColor: Colors.white,
+                      fontSize: 16.0
+                  );
                 print(response.reasonPhrase);
                 }
 

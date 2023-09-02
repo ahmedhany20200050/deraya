@@ -1,23 +1,68 @@
 
+import 'dart:convert';
+
 import 'package:deraya_application/core/Utils/utils.dart';
 import 'package:deraya_application/core/constant/text_styles.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
+import 'package:deraya_application/presentation/screens/course_details/course_details_screen.dart';
 import 'package:deraya_application/presentation/screens/home/widget/popular_courses.dart';
 import 'package:deraya_application/presentation/screens/home/widget/price_widget.dart';
+import 'package:deraya_application/presentation/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-
+import 'package:http/http.dart' as http;
 import '../../../core/constant/colors.dart';
+import '../../../data/api/my_api.dart';
+import '../../../domain/end_points/end_points.dart';
+import '../../../domain/models/category_model/categories_model.dart';
+import '../../../domain/models/courses/courses_model.dart';
 import '../../components/text_form_field.dart';
 import '../search/search_screen.dart';
 
-class SubcategoriesScreen extends StatelessWidget {
-  const SubcategoriesScreen({Key? key}) : super(key: key);
+class SubcategoriesScreen extends StatefulWidget {
+  final Categories c;
+    SubcategoriesScreen({Key? key, required this.c}) : super(key: key);
 
   @override
+  State<SubcategoriesScreen> createState() => _SubcategoriesScreenState(c: this.c);
+}
+
+class _SubcategoriesScreenState extends State<SubcategoriesScreen> {
+  late final Categories c;
+  _SubcategoriesScreenState({Key? key,required this.c});
+  CourseData? courseData;
+  Future<void> getData()async{
+    // http.Response response = await http.get(Uri.parse("https://diraya.xyz/api/subcategory/subcategory-Courses/${c.id}"));
+
+    final response = await http.get(
+        Uri.parse("https://diraya.xyz/api/subcategory/subcategory-Courses/${c.id}"),
+
+
+    );
+    if(response!=null){
+      setState(() {
+        courseData = CourseData.fromJson(jsonDecode(response.body)["data"]);
+      });
+
+    }else{
+      print("\n\nerroooooooooooooooooooooor\n\n");
+    }
+
+
+
+
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getData();
+  }
+  
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return this.courseData!=null?Scaffold(
       body: Padding(
         padding: EdgeInsets.only(right: 19.0.w),
         child: CustomScrollView(
@@ -34,14 +79,14 @@ class SubcategoriesScreen extends StatelessWidget {
                   ),
                   24.ph,
                   TextWidget(
-                    title: 'التصميم',
+                    title: this.c.nameAr,
                     fontSize: 32.sp,
                     fontWeight: FontWeight.bold,
                     color: AppColors.primary,
                   ),
                   16.ph,
                   TextWidget(
-                    title: 'الأكثر مشاهدة عن التصميم',
+                    title: 'الأكثر مشاهدة عن ${this.c.nameAr}',
                     fontSize: 20.sp,
                     fontWeight: FontWeight.bold,
                     color: AppColors.primary,
@@ -49,7 +94,7 @@ class SubcategoriesScreen extends StatelessWidget {
                   8.ph,
                   SizedBox(
                     height: 0.45.h.sh,
-                    child: const MostViewedListView(),
+                    child:  MostViewedListView(this.courseData),
                   ),
                   24.ph,
                   ///mostly search and instructor
@@ -83,7 +128,7 @@ class SubcategoriesScreen extends StatelessWidget {
                       ),
                       const Spacer(),
                       TextWidget(
-                        title: '5.656 نتيجة',
+                        title: '${this.courseData?.courses?.length} نتيجة',
                         fontSize: 20.sp,
                         color: AppColors.brownColor,
                       ),
@@ -95,176 +140,187 @@ class SubcategoriesScreen extends StatelessWidget {
             ),
             SliverList(
               delegate:
-                  SliverChildBuilderDelegate((BuildContext context, int index) {
-                return Container(
-                  width: MediaQuery.of(context).size.width-200,
-                  height: (MediaQuery.of(context).size.height*0.225)+10,
-                  child: Card(
-                    elevation: 4,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(16)),
-                    ),
-                    margin: const EdgeInsets.all(8),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Stack(
-                            fit: StackFit.loose,
-                            children: [
-                              Container(
-                                width: 140,
-                                height: (MediaQuery.of(context).size.height*0.225)-20,
-                                decoration: ShapeDecoration(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5),
+                  SliverChildBuilderDelegate(
+                    childCount: this.courseData?.courses?.length,
+                          (BuildContext context, int index) {
+                    var currentCourse=this.courseData?.courses?[index]??null;
+                return GestureDetector(
+                  onTap: (){
+                    List<Courses>cc=[];
+                    cc.add(currentCourse??Courses());
+                    Utils.openScreen(context, CourseDetailsScreen(currentCourse?.id, cc));
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width-200,
+                    height: (MediaQuery.of(context).size.height*0.225)+10,
+                    child: Card(
+                      elevation: 4,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(16)),
+                      ),
+                      margin: const EdgeInsets.all(8),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Stack(
+                              fit: StackFit.loose,
+                              children: [
+                                Container(
+                                  width: 140,
+                                  height: (MediaQuery.of(context).size.height*0.225)-20,
+                                  decoration: ShapeDecoration(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
                                   ),
+                                  child: Image.network(
+                                    fit: BoxFit.fill,
+                                      "${currentCourse?.image}",
+                                    color: Colors.black.withOpacity(0.5), colorBlendMode: BlendMode.darken,),
                                 ),
-                                child: Image.asset(
-                                  fit: BoxFit.fill,
-                                    "assets/images/course_image.png"),
-                              ),
-                              Container(
-                                width: 140,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(top:8.0),
-                                  child: Row(
-                                    children: [
-                                      8.pw,
-                                      Container(
-                                        padding: const EdgeInsets.all(4),
-                                        decoration: ShapeDecoration(
-                                          color: Colors.white,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(100),
+                                Container(
+                                  width: 140,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(top:8.0),
+                                    child: Row(
+                                      children: [
+                                        8.pw,
+                                        Container(
+                                          padding: const EdgeInsets.all(4),
+                                          decoration: ShapeDecoration(
+                                            color: Colors.white,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(100),
+                                            ),
+                                          ),
+                                          child: Row(
+                                            children: [
+                                              TextWidget(
+                                                  title: "(25+)",
+                                                fontSize: 10,
+                                              ),
+                                              Icon(
+                                                Icons.star_rate_rounded,
+                                                size: 12,
+                                                color: Colors.amber,
+                                              ),
+                                              TextWidget(
+                                                  title: "4.5",
+                                              fontSize: 10,
+                                              ),
+
+                                            ],
+                                          ) ,
+                                        ),
+                                        const Spacer(),
+                                        Container(
+                                          padding: const EdgeInsets.all(2),
+                                          decoration: BoxDecoration(
+                                            border: Border.all(color: Colors.white),
+                                            borderRadius:  BorderRadius.circular(100),
+                                          ),
+                                          child: const Icon(
+                                              Icons.favorite_border_outlined,
+                                            color: Colors.white,
+                                            size: 16,
                                           ),
                                         ),
-                                        child:const Row(
-                                          children: [
-                                            TextWidget(
-                                                title: "(25+)",
-                                              fontSize: 10,
-                                            ),
-                                            Icon(
-                                              Icons.star_rate_rounded,
-                                              size: 12,
-                                              color: Colors.amber,
-                                            ),
-                                            TextWidget(
-                                                title: "4.5",
-                                            fontSize: 10,
-                                            ),
-
-                                          ],
-                                        ) ,
-                                      ),
-                                      const Spacer(),
-                                      Container(
-                                        padding: const EdgeInsets.all(2),
-                                        decoration: BoxDecoration(
-                                          border: Border.all(color: Colors.white),
-                                          borderRadius:  BorderRadius.circular(100),
-                                        ),
-                                        child: const Icon(
-                                            Icons.favorite_border_outlined,
-                                          color: Colors.white,
-                                          size: 16,
-                                        ),
-                                      ),
-                                      8.pw,
-                                    ],
-                                  ),
-                                ),
-                              )
-
-                            ],
-                          ),
-                          const Spacer(),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width-200,
-                            height: MediaQuery.of(context).size.height*0.225,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const TextWidget(
-                                  title: "كورس Figma بالكامل للمبتدأين - تعليم أساسيات التصميم.",
-                                  maxLines: 2,
-                                  color: AppColors.primary,
-                                  fontSize: 16,
-                                ),
-                                8.ph,
-                                Row(
-                                  children: [
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Container(
-                                              width: 30,
-                                              height: 30,
-                                              decoration: const ShapeDecoration(
-                                                image: DecorationImage(
-                                                  image: NetworkImage("https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250"),
-                                                  fit: BoxFit.fill,
-                                                ),
-                                                shape: OvalBorder(),
-                                              ),
-                                            ),
-                                            4.pw,
-                                            Text("Ali Wael",style: TextStyles.brownTextStyle,),
-                                          ],
-                                        ),
-                                        // 8.ph,
-                                        // Container(
-                                        //   color: AppColors.lightBackground,
-                                        //   child: const Row(
-                                        //     children: [
-                                        //       Icon(
-                                        //         Icons.groups,
-                                        //         color: AppColors.primary,
-                                        //       ),
-                                        //       TextWidget(
-                                        //           title: "1067 طالب",
-                                        //         color: AppColors.primary,
-                                        //       )
-                                        //     ],
-                                        //   ),
-                                        // )
+                                        8.pw,
                                       ],
                                     ),
-                                    const Spacer(),
-                                    Column(
-                                      children: [
-                                        Container(
-                                          padding: const EdgeInsets.all(6),
-                                          decoration: ShapeDecoration(
-                                            color: const Color(0xFFF4D4BD),
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(16),
-                                            ),
-                                          ),
-                                          child: const TextWidget(
-                                              title: "E£999.99",
-                                            fontSize: 16,
-                                          ),
-                                        ),
-                                        8.ph,
-                                        const TextWidget(
-                                            title: "E£1500",
-                                          fontSize: 16,
-                                          isOffer: true,
-                                        )
-                                    ],
-                                    ),
-
-                                  ],
+                                  ),
                                 )
+
                               ],
                             ),
-                          )
-                        ],
+                            const Spacer(),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width-200,
+                              height: MediaQuery.of(context).size.height*0.225,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                   TextWidget(
+                                    title: currentCourse?.nameAr??"",
+                                    maxLines: 2,
+                                    color: AppColors.primary,
+                                    fontSize: 16,
+                                  ),
+                                  8.ph,
+                                  Row(
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 30,
+                                                height: 30,
+                                                decoration: const ShapeDecoration(
+                                                  image: DecorationImage(
+                                                    image: NetworkImage("https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250"),
+                                                    fit: BoxFit.fill,
+                                                  ),
+                                                  shape: OvalBorder(),
+                                                ),
+                                              ),
+                                              4.pw,
+                                              Text("Ali Wael",style: TextStyles.brownTextStyle,),
+                                            ],
+                                          ),
+                                          // 8.ph,
+                                          // Container(
+                                          //   color: AppColors.lightBackground,
+                                          //   child: const Row(
+                                          //     children: [
+                                          //       Icon(
+                                          //         Icons.groups,
+                                          //         color: AppColors.primary,
+                                          //       ),
+                                          //       TextWidget(
+                                          //           title: "1067 طالب",
+                                          //         color: AppColors.primary,
+                                          //       )
+                                          //     ],
+                                          //   ),
+                                          // )
+                                        ],
+                                      ),
+                                      const Spacer(),
+                                      Column(
+                                        children: [
+                                          Container(
+                                            padding: const EdgeInsets.all(6),
+                                            decoration: ShapeDecoration(
+                                              color: const Color(0xFFF4D4BD),
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(16),
+                                              ),
+                                            ),
+                                            child:  TextWidget(
+                                                title: currentCourse?.price.toString(),
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                          8.ph,
+                                           TextWidget(
+                                              title: currentCourse?.price.toString(),
+                                            fontSize: 16,
+                                            isOffer: true,
+                                          )
+                                      ],
+                                      ),
+
+                                    ],
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -274,7 +330,7 @@ class SubcategoriesScreen extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ):Scaffold(body: Container());
   }
 }
 
@@ -377,232 +433,241 @@ class SubcategoriesScreen extends StatelessWidget {
 // }
 
 class MostViewedListView extends StatelessWidget {
-  const MostViewedListView({
-    super.key,
-  });
+  CourseData? courseData;
+   MostViewedListView(this.courseData, {
+    super.key});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       physics: const BouncingScrollPhysics(),
       itemBuilder: (context, index) {
-        return const MostViewedItem();
+        return  MostViewedItem(this.courseData!.courses?[index]);
       },
-      itemCount: 3,
+      itemCount: this.courseData?.courses?.length,
       scrollDirection: Axis.horizontal,
     );
   }
 }
 
 class MostViewedItem extends StatelessWidget {
-  const MostViewedItem({
+  final Courses? course;
+    MostViewedItem(this.course, {
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width/2,
-      height: MediaQuery.of(context).size.height/4,
+    return GestureDetector(
+      onTap: (){
+        List<Courses>cc=[];
+        cc.add(course??Courses());
+        Utils.openScreen(context, CourseDetailsScreen(course?.id, cc));
+      },
+      child: Container(
+        width: MediaQuery.of(context).size.width/2,
+        height: MediaQuery.of(context).size.height/4,
    //   constraints: BoxConstraints(maxWidth: 0.6.sw, minWidth: 0.55.sw,minHeight: 316.h),
-      decoration: BoxDecoration(boxShadow: [
-        BoxShadow(
-          offset: const Offset(15, 15),
-          blurRadius: 30,
-          spreadRadius: 0,
-          color: const Color(0xFFD3D1D8).withOpacity(0.0625),
-        ),
-      ]),
-      padding: EdgeInsets.symmetric(horizontal: 8.w),
-      child: Column(
-        children: [
-          Stack(
-            children: [
-              Image.asset("assets/images/course_image.png"),
-              Row(
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+            offset: const Offset(15, 15),
+            blurRadius: 30,
+            spreadRadius: 0,
+            color: const Color(0xFFD3D1D8).withOpacity(0.0625),
+          ),
+        ]),
+        padding: EdgeInsets.symmetric(horizontal: 8.w),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
+              children: [
+                Image.network(width: MediaQuery.of(context).size.width/2,height: (MediaQuery.of(context).size.height/4)-60,fit: BoxFit.fill,"${this.course?.image}",color: Colors.black.withOpacity(0.5), colorBlendMode: BlendMode.darken,),
+                Row(
+                  children: [
+                    Stack(
+                      children: [
+                        Container(
+                          width: 69.w,
+                          height: 28.h,
+                          alignment: Alignment.center,
+                          margin: EdgeInsets.symmetric(horizontal: 8.w),
+                          padding: EdgeInsets.symmetric(horizontal: 4.w),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(100.r),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                               TextWidget(
+                                title: "(25+)",
+                                maxLines: 1,
+                                textAlign: TextAlign.center,
+                                fontSize: 8.19.sp,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.grayColor,
+                              ),
+                              5.pw,
+                               Icon(
+                                Icons.star,
+                                size: 9.5.sp,
+                                color: const Color(0xffFFC529),
+                              ),
+                               TextWidget(
+                                title: "4.5",
+                                maxLines: 1,
+                                textAlign: TextAlign.center,
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.primary,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Spacer(),
+                    Container(
+                      alignment: Alignment.center,
+                      width: 28.w,
+                      height: 28.h,
+                      margin:
+                           EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: const Color(0xFFF4F4BD),
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(100)),
+                      child: IconButton(
+                          padding: EdgeInsets.zero,
+                          onPressed: () {},
+                          icon:  Icon(
+                            Icons.favorite_border,
+                            size: 15.sp,
+                            color: const Color(0xFFF4F4BD),
+                          )),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.w),
+              child: Column(
                 children: [
-                  Stack(
-                    children: [
-                      Container(
-                        width: 69.w,
-                        height: 28.h,
-                        alignment: Alignment.center,
-                        margin: EdgeInsets.symmetric(horizontal: 8.w),
-                        padding: EdgeInsets.symmetric(horizontal: 4.w),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(100.r),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                             TextWidget(
-                              title: "(25+)",
-                              maxLines: 1,
-                              textAlign: TextAlign.center,
-                              fontSize: 8.19.sp,
-                              fontWeight: FontWeight.w400,
-                              color: AppColors.grayColor,
-                            ),
-                            5.pw,
-                             Icon(
-                              Icons.star,
-                              size: 9.5.sp,
-                              color: const Color(0xffFFC529),
-                            ),
-                             TextWidget(
-                              title: "4.5",
-                              maxLines: 1,
-                              textAlign: TextAlign.center,
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.primary,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  const Spacer(),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 28.w,
-                    height: 28.h,
-                    margin:
-                         EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                          color: const Color(0xFFF4F4BD),
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(100)),
-                    child: IconButton(
-                        padding: EdgeInsets.zero,
-                        onPressed: () {},
-                        icon:  Icon(
-                          Icons.favorite_border,
-                          size: 15.sp,
-                          color: const Color(0xFFF4F4BD),
-                        )),
+                  TextWidget(
+                    title:
+                        "${this.course?.nameAr}",
+                    maxLines: 2,
+                    textAlign: TextAlign.start,
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.primary,
                   ),
                 ],
               ),
-            ],
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.w),
-            child: Column(
-              children: [
-                TextWidget(
-                  title:
-                      "كورس Figma بالكامل للمبتدأين - تعليم أساسيات التصميم.",
-                  maxLines: 2,
-                  textAlign: TextAlign.start,
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.primary,
-                ),
-              ],
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Row(
-              children: [
-                 CircleAvatar(
-                  radius: 15.r,
-                  backgroundImage: const AssetImage('assets/images/profile.jpg'),
-                ),
-                12.pw,
-                 TextWidget(
-                  title: 'Ali Wael',
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.bold,
-                  color: const Color(0xFFB48B8B),
-                )
-              ],
-            ),
-          ),
-          12.ph,
-          const Row(
-            children: [
-              /// student counter
-              // Container(
-              //   width: 97.w,
-              //   height: 29.h,
-              //   padding: EdgeInsets.symmetric(horizontal: 8.w),
-              //   decoration: BoxDecoration(
-              //     color: AppColors.primary.withOpacity(0.2),
-              //     borderRadius: BorderRadius.circular(5.r),
-              //   ),
-              //   child: Row(
-              //     children: [
-              //        Icon(
-              //         Icons.people_alt_outlined,
-              //         color: AppColors.primary,
-              //         size: 20.sp,
-              //       ),
-              //       5.pw,
-              //       TextWidget(
-              //         title: "1,067 طالب",
-              //         textAlign: TextAlign.center,
-              //         fontSize: 13.sp,
-              //         fontWeight: FontWeight.w600,
-              //         color: AppColors.primary,
-              //       ),
-              //     ],
-              //   ),
-              // ),
-              Spacer(),
-              PriceWidget(),
-            ],
-          ),
-          12.ph,
-          Row(
-            children: [
-              /// course language
-              // Container(
-              //   width: 80.w,
-              //   height: 29.h,
-              //   padding: EdgeInsets.symmetric(horizontal: 8.w),
-              //   alignment: Alignment.center,
-              //   decoration: BoxDecoration(
-              //     color: AppColors.primary.withOpacity(0.2),
-              //     borderRadius: BorderRadius.circular(5.r),
-              //   ),
-              //   child: Row(
-              //     children: [
-              //        Icon(
-              //         Icons.language_rounded,
-              //         color: AppColors.primary,
-              //         size: 18.sp,
-              //       ),
-              //       5.pw,
-              //       TextWidget(
-              //         title: "عربي",
-              //         textAlign: TextAlign.center,
-              //         fontSize: 13.sp,
-              //         fontWeight: FontWeight.w600,
-              //         color: AppColors.primary,
-              //       ),
-              //     ],
-              //   ),
-              // ),
-              const Spacer(),
-              Padding(
-                padding:  EdgeInsets.only(left: 16.0.w),
-                child: TextWidget(
-                  title: "E£999.99",
-                  isOffer: true,
-                  textAlign: TextAlign.center,
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w400,
-                  color: AppColors.blackColor,
-                ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                children: [
+                   CircleAvatar(
+                    radius: 15.r,
+                    backgroundImage: const AssetImage('assets/images/profile_inactive.png'),
+                  ),
+                  12.pw,
+                   TextWidget(
+                    title: 'Ali Wael',
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
+                    color: const Color(0xFFB48B8B),
+                  )
+                ],
               ),
-            ],
-          ),
-        ],
+            ),
+            12.ph,
+            const Row(
+              children: [
+                /// student counter
+                // Container(
+                //   width: 97.w,
+                //   height: 29.h,
+                //   padding: EdgeInsets.symmetric(horizontal: 8.w),
+                //   decoration: BoxDecoration(
+                //     color: AppColors.primary.withOpacity(0.2),
+                //     borderRadius: BorderRadius.circular(5.r),
+                //   ),
+                //   child: Row(
+                //     children: [
+                //        Icon(
+                //         Icons.people_alt_outlined,
+                //         color: AppColors.primary,
+                //         size: 20.sp,
+                //       ),
+                //       5.pw,
+                //       TextWidget(
+                //         title: "1,067 طالب",
+                //         textAlign: TextAlign.center,
+                //         fontSize: 13.sp,
+                //         fontWeight: FontWeight.w600,
+                //         color: AppColors.primary,
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                Spacer(),
+                PriceWidget(),
+              ],
+            ),
+            12.ph,
+            Row(
+              children: [
+                /// course language
+                // Container(
+                //   width: 80.w,
+                //   height: 29.h,
+                //   padding: EdgeInsets.symmetric(horizontal: 8.w),
+                //   alignment: Alignment.center,
+                //   decoration: BoxDecoration(
+                //     color: AppColors.primary.withOpacity(0.2),
+                //     borderRadius: BorderRadius.circular(5.r),
+                //   ),
+                //   child: Row(
+                //     children: [
+                //        Icon(
+                //         Icons.language_rounded,
+                //         color: AppColors.primary,
+                //         size: 18.sp,
+                //       ),
+                //       5.pw,
+                //       TextWidget(
+                //         title: "عربي",
+                //         textAlign: TextAlign.center,
+                //         fontSize: 13.sp,
+                //         fontWeight: FontWeight.w600,
+                //         color: AppColors.primary,
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                const Spacer(),
+                Padding(
+                  padding:  EdgeInsets.only(left: 16.0.w),
+                  child: TextWidget(
+                    title: "E£999.99",
+                    isOffer: true,
+                    textAlign: TextAlign.center,
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.blackColor,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -971,3 +1036,21 @@ class SubcategoriesSearchBar extends StatelessWidget {
     );
   }
 }
+
+// class Subcategories {
+//   late  String name;
+//   late  String email;
+//   late  String token;
+//   late int id;
+//
+//   Subcategories({required this.name, required this.email,required this.token,required this.id});
+//
+//   factory Subcategories.fromJson(Map<String, dynamic> json) {
+//     return Subcategories(
+//       name: json['data']['user']['name'],
+//       email: json['data']['user']['email'],
+//       token: json['data']['user']['token'],
+//       id:json['data']['user']['id'],
+//     );
+//   }
+// }

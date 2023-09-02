@@ -53,7 +53,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   controller: name,
                   borderRadius: 1.0,
                   onChanged: (val){},
-                  hintText: 'Mostafa Ramadan',
+                  hintText: 'Mostafa',
                   borderColor: AppColors.primary.withOpacity(0.6),
                   textalign: TextAlign.end,
                   maxLengh: 50,
@@ -159,6 +159,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             fontSize: 16.0
                         );
                         Utils.openScreen(context, HomeLayout());
+                        name.text="";
+                        password.text="";
+                        this.email.text="";
+                        repassword.text="";
                       }catch(e){
                         Fluttertoast.showToast(
                             msg: "${Message.fromJson(jsonDecode(response.body)).m}",
@@ -180,10 +184,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
 
                     print("finish ya ahmed");
-                    name.text="";
-                    password.text="";
-                    this.email.text="";
-                    repassword.text="";
                   },
 
                 ),

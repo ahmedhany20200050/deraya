@@ -1,7 +1,11 @@
 import 'package:deraya_application/core/Utils/utils.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
+import 'package:deraya_application/presentation/layout/cubit/home_cubit.dart';
+import 'package:deraya_application/presentation/layout/home_layout.dart';
+import 'package:deraya_application/presentation/screens/home/cubit/home_cubit.dart';
 import 'package:deraya_application/presentation/screens/search/filtter_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/constant/colors.dart';
@@ -211,11 +215,17 @@ class SearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return BlocConsumer<HomeLayoutCubit, HomeLayoutStates>(
+  listener: (context, state) {
+    // TODO: implement listener
+  },
+  builder: (context, state) {
     return Row(
       children: [
         IconButton(
             onPressed: () {
-              Navigator.of(context).pop();
+              HomeLayoutCubit homeCubit = BlocProvider.of(context);
+              homeCubit.changeCurrentIndex(0);
             },
             padding: EdgeInsets.zero,
             icon:  Icon(
@@ -251,6 +261,8 @@ class SearchBar extends StatelessWidget {
             )),
       ],
     );
+  },
+);
   }
 }
 

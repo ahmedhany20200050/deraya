@@ -1,4 +1,5 @@
 import 'package:deraya_application/core/Utils/utils.dart';
+import 'package:deraya_application/core/constant/colors.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
 import 'package:deraya_application/presentation/screens/home/cubit/home_cubit.dart';
 import 'package:deraya_application/presentation/screens/home/subcategories_screen.dart';
@@ -38,12 +39,13 @@ class CategoryWidget extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap:(){
-                      Utils.openScreen(context, const SubcategoriesScreen());
+                      Utils.openScreen(context,  SubcategoriesScreen( c: data![index],));
                     },
                     child: CircleAvatar(
                       backgroundImage:  NetworkImage(
                         data?[index].image??"",
                       ),
+                      backgroundColor: AppColors.primary,
                       radius: 60.r,
                     ),
                   ),

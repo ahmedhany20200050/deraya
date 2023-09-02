@@ -27,9 +27,9 @@ class CourseDetailsScreen extends StatelessWidget {
     // "الأدوات في فوتوشوب",
     // 'تدرج الألوان',
     // "دمج الصور",
-    // 'الأشكال',
-    // "النصوص المختلفة",
-    // "المسافات وعمل تأثيرات",
+    'الأشكال',
+    "النصوص المختلفة",
+    "مهارات عامة ", // "المسافات وعمل تأثيرات",
     // "بطاطس وجمبها رز"
   ];
   int? id;
@@ -68,7 +68,7 @@ class CourseDetailsScreen extends StatelessWidget {
               16.ph,
               VideoReview(
                 url:
-                    course.video??"",
+                    course.video??"https://assets.mixkit.co/videos/preview/mixkit-photograper-editing-his-work-6439-large.mp4",
               ),
               // 16.ph,
               Padding(
@@ -96,7 +96,7 @@ class CourseDetailsScreen extends StatelessWidget {
                       color: AppColors.primary,
                       fontSize: 18.sp,
                       fontWeight: FontWeight.w600,
-                      maxLines: 4,
+                      maxLines:20,
                     ),
                     16.ph,
                     Row(
@@ -253,7 +253,7 @@ class CourseDetailsScreen extends StatelessWidget {
                     ),
                     8.ph,
                     TextWidget(
-                      title: "E£${course.price}",
+                      title: "E£${double.parse(course.price??"1")+100}",
                       maxLines: 2,
                       isOffer: true,
                       textAlign: TextAlign.center,

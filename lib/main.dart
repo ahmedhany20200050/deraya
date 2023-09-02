@@ -82,7 +82,7 @@ class MyApp extends StatelessWidget {
 
             ),
 
-           home: PickImageScreen(),
+           home: SplashScreen(),
 
           );
         });

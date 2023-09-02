@@ -23,7 +23,7 @@ class PopularCoursesWidget extends StatelessWidget {
     HomeCubit cubit =BlocProvider.of(context);
     final data = cubit.courseData?.courses;
     return SizedBox(
-      height: 0.5.sh,
+      height: MediaQuery.of(context).size.height*0.5,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) {
@@ -33,7 +33,7 @@ class PopularCoursesWidget extends StatelessWidget {
             },
             child: Container(
               // height: 60.h,
-              constraints: BoxConstraints(maxWidth: 0.65.sw, minWidth: 0.6.sw),
+              width: MediaQuery.of(context).size.width*0.7,
               padding: EdgeInsets.symmetric(horizontal: 8.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,6 +43,8 @@ class PopularCoursesWidget extends StatelessWidget {
                       ClipRRect(
                         borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)),
                         child: Image.network(data?[index].image??"",
+                          height: MediaQuery.of(context).size.height*0.25,
+                          width: (MediaQuery.of(context).size.width*0.7)-5,
                           fit: BoxFit.fill,
                           color: Colors.black.withOpacity(0.5), colorBlendMode: BlendMode.darken,),
                       ),
@@ -99,7 +101,7 @@ class PopularCoursesWidget extends StatelessWidget {
                       children: [
                         TextWidget(
                           title:
-                          data?[index].nameAr,
+                          data?[index].nameAr??"",
                           maxLines: 2,
                           textAlign: TextAlign.start,
                           fontSize: 18.sp,
@@ -156,7 +158,7 @@ class PopularCoursesWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(15.r),
             ),
             child:  TextWidget(
-            title: data?[index].price,
+            title: data?[index].price??"",
             textAlign: TextAlign.center,
             fontSize: 16.sp,
             fontWeight: FontWeight.w600,
@@ -211,7 +213,7 @@ class PopularCoursesWidget extends StatelessWidget {
                             horizontal: 10.w, vertical: 16.w),
                         child: Center(
                           child: TextWidget(
-                            title: data?[index].price,
+                            title: "${double.parse(data![index].price??"100")+100}",
                             maxLines: 2,
                             isOffer:true,
                             textAlign: TextAlign.center,
@@ -226,7 +228,7 @@ class PopularCoursesWidget extends StatelessWidget {
             ),
           );
         },
-        itemCount: 3,
+        itemCount: data?.length,
         scrollDirection: Axis.horizontal,
       ),
     );
