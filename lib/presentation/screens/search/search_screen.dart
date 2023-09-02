@@ -215,17 +215,13 @@ class SearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeLayoutCubit, HomeLayoutStates>(
-  listener: (context, state) {
-    // TODO: implement listener
-  },
-  builder: (context, state) {
     return Row(
       children: [
         IconButton(
             onPressed: () {
-              HomeLayoutCubit homeCubit = BlocProvider.of(context);
-              homeCubit.changeCurrentIndex(0);
+              // HomeLayoutCubit homeCubit = BlocProvider.of(context);
+              // homeCubit.changeCurrentIndex(0);
+              Navigator.of(context).pop();
             },
             padding: EdgeInsets.zero,
             icon:  Icon(
@@ -261,8 +257,6 @@ class SearchBar extends StatelessWidget {
             )),
       ],
     );
-  },
-);
   }
 }
 

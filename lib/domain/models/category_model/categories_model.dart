@@ -132,3 +132,94 @@ Categories copyWith({  int? id,
   }
 
 }
+
+
+class SubcategoryModel {
+  bool? success;
+  String? message;
+  SubcategoriesData? data;
+  dynamic errors;
+
+  SubcategoryModel({this.success, this.message, this.data, this.errors});
+
+  SubcategoryModel.fromJson(Map<String, dynamic> json) {
+    success = json['success'];
+    message = json['message'];
+    data = json['data'] != null ? new SubcategoriesData.fromJson(json['data']) : null;
+    errors = json['errors'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['success'] = success;
+    data['message'] = message;
+    if (this.data != null) {
+      data['data'] = this.data!.toJson();
+    }
+    if (errors != null) {
+      data['errors'] = errors!.toJson();
+    }
+    return data;
+  }
+}
+
+class SubcategoriesData {
+  List<Subcategories>? subcategory;
+
+  SubcategoriesData({this.subcategory});
+
+  SubcategoriesData.fromJson(Map<String, dynamic> json) {
+    if (json['subcategory'] != null) {
+      subcategory = <Subcategories>[];
+      json['subcategory'].forEach((v) { subcategory!.add(new Subcategories.fromJson(v)); });
+    }
+  }
+  SubcategoriesData copyWith({  List<Subcategories>? subcategories,
+  }) => SubcategoriesData(  subcategory: subcategories ?? subcategory,
+  );
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (subcategory != null) {
+      data['subcategory'] = subcategory!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class Subcategories {
+  int? id;
+  String? nameEn;
+  String? nameAr;
+  String? image;
+  int? categoryId;
+  String? createdAt;
+  String? updatedAt;
+  String? deletedAt;
+
+  Subcategories({this.id, this.nameEn, this.nameAr, this.image, this.categoryId, this.createdAt, this.updatedAt, this.deletedAt});
+
+  Subcategories.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    nameEn = json['name_en'];
+    nameAr = json['name_ar'];
+    image = json['image'];
+    categoryId = json['category_id'];
+    createdAt = json['created_at'];
+    updatedAt = json['updated_at'];
+    deletedAt = json['deleted_at'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = id;
+    data['name_en'] = nameEn;
+    data['name_ar'] = nameAr;
+    data['image'] = image;
+    data['category_id'] = categoryId;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
+    data['deleted_at'] = deletedAt;
+    return data;
+  }
+}
+

@@ -31,7 +31,7 @@ class CurrentCoursesWidget extends StatelessWidget {
                     Card(
                       child: GestureDetector(
                         onTap: () {
-                          Utils.openScreen(context, CourseDetailsScreen(data?[index].id,data!));
+                          Utils.openScreen(context, CourseDetailsScreen(data?[index].id,data!,paidSuccessfully: true,));
                           print(data[index].nameEn);
                         },
                         child: ClipRRect(
@@ -88,7 +88,10 @@ class CurrentCoursesWidget extends StatelessWidget {
                                                       thumbShape: RoundSliderThumbShape(enabledThumbRadius: 8.0,),
                                                     ),
                                                     child: Container(
-                                                        width:double.infinity,child: Slider(inactiveColor: AppColors.containerColor.withOpacity(0.5),value: 0.01, onChanged: (val){},activeColor: Color(0xFFF4D4BD))))),
+                                                        width:double.infinity,
+                                                        child: Slider(inactiveColor: AppColors.containerColor.withOpacity(0.5),
+                                                            value: 0.01,
+                                                        onChanged: (val){},activeColor: Color(0xFFF4D4BD))))),
                                           ),
                                         ],
                                       ),

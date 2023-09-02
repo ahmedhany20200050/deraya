@@ -17,12 +17,23 @@ class HomeCubit extends Cubit<HomeStates> {
   static HomeCubit get(context) => BlocProvider.of(context);
 
   CategoriesData? categoriesModel;
+  SubcategoriesData? subcategoriesModel;
 
   getCategories() async {
     emit(HomeGetCategoriesLoadingState());
     final response = await CourseRepo().getCategories();
     if (response != null) {
       categoriesModel = response;
+      emit(HomeGetCategoriesSuccessState());
+    }
+    else{
+      emit(HomeGetCategoriesErrorState());
+    }
+  }  geSubcategories() async {
+    emit(HomeGetCategoriesLoadingState());
+    final response = await CourseRepo().getSubcategories();
+    if (response != null) {
+      subcategoriesModel = response;
       emit(HomeGetCategoriesSuccessState());
     }
     else{
