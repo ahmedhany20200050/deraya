@@ -236,7 +236,7 @@ class _PickImageScreenState extends State<PickImageScreen> {
 
                 if (response.statusCode == 200) {
                   Fluttertoast.showToast(
-                      msg: "Payment Successfully",
+                      msg: "Payment Successful",
                       toastLength: Toast.LENGTH_LONG,
                       gravity: ToastGravity.CENTER,
                       timeInSecForIosWeb: 2,
