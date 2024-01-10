@@ -3,7 +3,7 @@
 Deraya is an education platform aimed at providing its users with valuable courses.
 ## Demo
 
-(https://www.youtube.com/watch?v=Hc79sDi3f0U "Now in Android: 55")
+[<img src="https://i.ytimg.com/vi/Hc79sDi3f0U/maxresdefault.jpg" width="50%">](https://www.youtube.com/watch?v=Hc79sDi3f0U "Now in Android: 55")
 
 ## Screenshots
 
