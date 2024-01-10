@@ -29,7 +29,9 @@ class HomeCubit extends Cubit<HomeStates> {
     else{
       emit(HomeGetCategoriesErrorState());
     }
-  }  geSubcategories() async {
+  }
+
+  geSubcategories() async {
     emit(HomeGetCategoriesLoadingState());
     final response = await CourseRepo().getSubcategories();
     if (response != null) {
@@ -54,6 +56,27 @@ class HomeCubit extends Cubit<HomeStates> {
       emit(HomeGetCoursesErrorState());
     }
   }
+
+
+
+
+  InstructorData? instructorData;
+  getInstructors() async {
+    emit(HomeGetInstructorLoadingState());
+    final response = await CourseRepo().getInstructors();
+    if (response != null) {
+      instructorData = response;
+      emit(HomeGetInstructorSuccessState());
+    }
+    else{
+
+      emit(HomeGetInstructorErrorState());
+    }
+  }
+
+
+
+
   List<int>userCoursesIDs=[];
   List<Courses> userCourses=[];
   getUserCourses() async {
@@ -70,24 +93,11 @@ class HomeCubit extends Cubit<HomeStates> {
         userCoursesIDs.add(course["id"]);
       }
       if(userCoursesIDs.isNotEmpty)
-      emit(HomeGetUserCoursesSuccessState());
+        emit(HomeGetUserCoursesSuccessState());
 
     }
 
     // var k=userCoursesIDs;
-  }
-  InstructorData? instructorData;
-  getInstructors() async {
-    emit(HomeGetInstructorLoadingState());
-    final response = await CourseRepo().getInstructors();
-    if (response != null) {
-      instructorData = response;
-      emit(HomeGetInstructorSuccessState());
-    }
-    else{
-
-      emit(HomeGetInstructorErrorState());
-    }
   }
 }
 

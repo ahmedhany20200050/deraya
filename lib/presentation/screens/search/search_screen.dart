@@ -11,7 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/constant/colors.dart';
 import '../../../core/constant/text_styles.dart';
 import '../../components/text_form_field.dart';
-import '../home/subcategories_screen.dart';
+import '../categories/subcategories_screen.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({Key? key}) : super(key: key);

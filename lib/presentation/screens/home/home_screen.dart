@@ -5,7 +5,7 @@ import 'package:deraya_application/core/Utils/utils.dart';
 import 'package:deraya_application/core/constant/colors.dart';
 import 'package:deraya_application/presentation/components/text_form_field.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
-import 'package:deraya_application/presentation/screens/home/category_screen.dart';
+import 'package:deraya_application/presentation/screens/categories/category_screen.dart';
 import 'package:deraya_application/presentation/screens/home/cubit/home_cubit.dart';
 import 'package:deraya_application/presentation/screens/home/widget/build_current_courses.dart';
 import 'package:deraya_application/presentation/screens/home/widget/category_widget.dart';

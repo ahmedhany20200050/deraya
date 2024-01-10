@@ -1,6 +1,6 @@
 import 'package:deraya_application/core/Utils/utils.dart';
 import 'package:deraya_application/presentation/components/text_widget.dart';
-import 'package:deraya_application/presentation/screens/home/subcategories_screen.dart';
+import 'package:deraya_application/presentation/screens/categories/subcategories_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
