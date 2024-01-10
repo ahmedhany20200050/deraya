@@ -3,7 +3,10 @@
 Deraya is an education platform aimed at providing its users with valuable courses.
 ## Demo
 
-[![Video Demo](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID)
+
+https://github.com/ahmedhany20200050/deraya/assets/101389444/34ff296d-ada5-48de-baa3-d69f763fee7e
+
+
 
 video
 ## Screenshots
